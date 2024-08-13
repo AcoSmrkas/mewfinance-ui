@@ -49,7 +49,7 @@
 <div id="navbar"
   class="z-10 fixed items-center w-full h-[112px]" style="padding-top:25px; background: var(--background); transition: all 0.5s ease;"
 >
-  <div class="flex relative items-center justify-between nav-container" style="  display: flex;
+  <div class="flex relative items-center justify-between nav-container pe-4" style="  display: flex;
   justify-content: space-between;
   align-items: center; /* Optional: for vertical centering if needed */">
     <a href="/" class="flex items-center gap-2" style="margin-right: auto;flex: 0 1 auto; /* Allow items to have their natural widths */">

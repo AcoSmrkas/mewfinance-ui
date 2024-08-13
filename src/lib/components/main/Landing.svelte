@@ -23,8 +23,8 @@
 </script>
 
 <div class="container p-0">  
-  <section class="mt-[200px] relative h-[400px]" style="background: var(--footer);">
-    <img src="hero.png" class="absolute hero-image">
+  <section class="mt-[200px] relative h-[400px]">
+    <img src="hero.png" class="absolute hero-image sm:w-10/12 lg:w-2/3">
     <div class="relative max-w-screen-xl px-2 px-sm-4 pt-2 pb-5 mb-5 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:pt-28">
       <div class="text-center mr-auto place-self-center lg:col-span-7">
         <h1 class="z-1 mt-4 text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-bold" style="font-family:'Manrope';">
@@ -37,8 +37,8 @@
 
   <section class="relative mt-5 mb-5 p-4">
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-4">
-      <div class="card">
-        <div class="card-side">
+      <div class="card flex sm:flex-col lg:flex-row">
+        <div class="card-side sm:w-full lg:w-1/2">
           <img src="https://i.pinimg.com/736x/3c/41/ec/3c41ecbf81b44318e045eb93ed7f0928.jpg">
           <a href="https://dex.mewfinance.com" target="_new" class="card-link">
             <div class="card-content">
@@ -47,17 +47,17 @@
             </div>
           </a>
         </div>
-        <div class="card-side p-4">
-          <h6 class="font-bold text-2xl text-white mb-3">Heading</h6>
-          <p class="text-white text-xl text-justify leading-8">Imagine a cute and playful crypto DEX (Decentralized Exchange) where transactions happen in a vibrant, colorful world filled with adorable mascots and charming animations. This DEX is designed to make trading crypto fun and accessible, with easy-to-use interfaces and whimsical visuals that bring a smile to your face. Whether you're swapping tokens or staking your assets, the experience feels like a delightful adventure, combining the thrill of crypto trading with a light-hearted, engaging environment. Perfect for both beginners and seasoned traders who want to add a touch of joy to their crypto journey!</p>
+        <div class="card-side sm:w-full lg:w-1/2 p-4">
+          <h6 class="font-bold text-2xl text-white mb-3">DEX</h6>
+          <p class="text-white text-xl text-justify leading-8">Imagine a cute and playful crypto DEX where transactions happen in a vibrant, colorful world. This DEX is designed to make trading crypto fun and accessible, with easy-to-use interfaces and whimsical visuals that bring a smile to your face. Whether you're swapping tokens or staking your assets, the experience feels like a delightful adventure, combining the thrill of crypto trading with engaging environment. Perfect for both beginners and seasoned traders who want to add a touch of joy to their crypto journey!</p>
         </div>
       </div>
-      <div class="card">
-        <div class="card-side p-4">
-          <h6 class="font-bold text-2xl text-white mb-3">Heading</h6>
-            <p class="text-white text-xl text-justify leading-8">Picture a cute asset trading service where every transaction feels like a charming game. The platform is filled with delightful characters and soft pastel colors, making the experience of buying, selling, and managing your assets both fun and inviting. The user-friendly interface is designed to feel like a playful adventure, where each trade is a step on your journey, guided by friendly mascots. Whether you're a seasoned investor or just starting, this service adds a touch of whimsy to the world of asset trading, making it a joyful experience for everyone.</p>
+      <div class="card flex sm:flex-col lg:flex-row">
+        <div class="card-side sm:w-full lg:w-1/2 p-4">
+          <h6 class="font-bold text-2xl text-white mb-3">Mart</h6>
+            <p class="text-white text-xl text-justify leading-8">Picture a cute asset trading service where every transaction feels like a charming game. The platform is filled soft pastel colors, making the experience of buying, selling, and managing your assets both fun and inviting. The user-friendly interface is designed to feel like a playful adventure, where each trade is a step on your journey. Whether you're a seasoned investor or just starting, this service adds a touch of whimsy to the world of asset trading..</p>
         </div>
-        <div class="card-side">
+        <div class="card-side sm:w-full lg:w-1/2">
           <img src="https://i.pinimg.com/originals/f8/79/28/f879280dd2ea46948fec482792070bca.png">
           <a href="https://mart.mewfinance.com" target="_new" class="card-link">
             <div class="card-content">
@@ -73,7 +73,6 @@
 
 <style>
   .hero-image {
-    width: 65%;
     bottom: -13px;
     z-index: 0;
     left: 50%;    
@@ -88,8 +87,6 @@
 
   .card {
     background: var(--forms-bg);
-    display: flex;
-    flex-direction: row;
   }
 
   .card-link {
@@ -112,7 +109,6 @@
   .card-side {
     display: flex;
     flex-direction: column;
-    width: 50%;
   }
 
   .card-img {
