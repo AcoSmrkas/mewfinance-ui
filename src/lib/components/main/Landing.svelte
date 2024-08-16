@@ -23,35 +23,40 @@
 </script>
 
 <div class="container p-0">  
-  <section class="mt-[200px] relative h-[400px]">
-    <img src="hero.png" class="absolute hero-image sm:w-10/12 lg:w-2/3">
-    <div class="relative max-w-screen-xl px-2 px-sm-4 pt-2 pb-5 mb-5 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:pt-28">
+  <section class="mt-[100px] relative h-auto">
+    <div class="image-wrapper">
+      <img src="hero.png" class="absolute hero-image border-b-2 border-teal-500">
+    </div>
+    <div class="title-holder absolute left-1/2 max-w-screen-xl">
       <div class="text-center mr-auto place-self-center lg:col-span-7">
-        <h1 class="z-1 mt-4 text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-bold" style="font-family:'Manrope';">
+        <h1 class="z-1 text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-extrabold" style="font-family:'Manrope';">
           {@html LOGO_TEXT}
         </h1>
+        <!--
         <p class="z-1 mb-9 mt-8 text-light lg:mb-8 md:text-lg lg:text-md py-2" style="font-family:'Azeret Mono'; ">{@html HERO_DESCRIPTION}<br></p>
+        -->
       </div>
   </div>
   </section>
 
-  <section class="relative mt-5 mb-5 p-4">
-    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-4">
-      <div class="card flex sm:flex-col lg:flex-row">
-        <div class="card-side sm:w-full lg:w-1/2">
+  <section class="relative mt-4 mb-4 p-2 p-sm-4 overflow-x-hidden">
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-4 overflow-x-hidden">
+      <div class="card mb-3 flex sm:flex-col lg:flex-row overflow-x-hidden">
+        <div class="card-side sm:w-full lg:w-1/2 order-2 order-md-1">
           <img src="https://i.pinimg.com/736x/3c/41/ec/3c41ecbf81b44318e045eb93ed7f0928.jpg">
-          <a href="https://dex.mewfinance.com" target="_new" class="card-link">
+          <a href="https://dex.mewfinance.com" target="_new" class="card-link card-link-left">
             <div class="card-content">
               <h2 class="card-title">Launch DEX <i class="fa-solid fa-up-right-from-square"></i></h2>
               <p class="card-description">Swap tokens on Ergo blockchain.</p>
             </div>
           </a>
         </div>
-        <div class="card-side sm:w-full lg:w-1/2 p-4">
+        <div class="card-side sm:w-full lg:w-1/2 p-4 order-1 order-md-2">
           <h6 class="font-bold text-2xl text-white mb-3">DEX</h6>
           <p class="text-white text-xl text-justify leading-8">Imagine a cute and playful crypto DEX where transactions happen in a vibrant, colorful world. This DEX is designed to make trading crypto fun and accessible, with easy-to-use interfaces and whimsical visuals that bring a smile to your face. Whether you're swapping tokens or staking your assets, the experience feels like a delightful adventure, combining the thrill of crypto trading with engaging environment. Perfect for both beginners and seasoned traders who want to add a touch of joy to their crypto journey!</p>
         </div>
       </div>
+
       <div class="card flex sm:flex-col lg:flex-row">
         <div class="card-side sm:w-full lg:w-1/2 p-4">
           <h6 class="font-bold text-2xl text-white mb-3">Mart</h6>
@@ -59,7 +64,7 @@
         </div>
         <div class="card-side sm:w-full lg:w-1/2">
           <img src="https://i.pinimg.com/originals/f8/79/28/f879280dd2ea46948fec482792070bca.png">
-          <a href="https://mart.mewfinance.com" target="_new" class="card-link">
+          <a href="https://mart.mewfinance.com" target="_new" class="card-link card-link-right">
             <div class="card-content">
               <h2 class="card-title">Launch Mart <i class="fa-solid fa-up-right-from-square"></i></h2>
               <p class="card-description">Trade assets on Ergo blockchain.</p>
@@ -72,12 +77,45 @@
 </div>
 
 <style>
+  .title-holder {
+    transform: translateX(-50%);
+    width: 100%;
+    top: 12%;
+  }
+
+  .image-wrapper {
+    position: relative;
+    height: 80vh; /* Adjust this to maintain aspect ratio if needed */
+  }
+
   .hero-image {
-    bottom: -13px;
     z-index: 0;
     left: 50%;    
     transform: translateX(-50%);
     margin: 0 auto;
+    height: inherit;
+    max-width: fit-content;
+    overflow-x: hidden;
+  }
+
+  .card-link-left {
+    border-radius: unset;
+  }
+
+  .card-link-right {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  @media (min-width: 576px) {
+    .image-wrapper {
+      height: 100vh;
+    }
+  }
+
+  @media (min-width: 768px) { 
+    .card-link-right {      
+      border-radius: 0 0 0.5rem 0;
+    }
   }
 
   .container {
@@ -87,16 +125,16 @@
 
   .card {
     background: var(--forms-bg);
+    border: unset;
   }
 
   .card-link {
     display: block;
     text-decoration: none;
     color: inherit;
-    background-color: var(--main-color) ; /* Dark background for the card */
-    border-radius: 0 0 0.5rem 0.5rem; /* Rounded corners */
-    overflow: hidden; /* Ensure content doesn't spill out */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    background-color: var(--main-color) ;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     transition: all 0.3s ease;
   }
@@ -131,6 +169,10 @@
     background-color: #fff;
     transform: translateY(-3px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  h6 {
+    color: var(--main-color) !important;
   }
 </style>
 

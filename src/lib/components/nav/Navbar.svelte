@@ -47,13 +47,13 @@
 </script>
 
 <div id="navbar"
-  class="z-10 fixed items-center w-full h-[112px]" style="padding-top:25px; background: var(--background); transition: all 0.5s ease;"
+  class="backdrop-blur-sm z-10 fixed items-center w-full h-[112px]" style="padding-top:25px; background: #0c0a18dd; transition: all 0.5s ease;"
 >
-  <div class="flex relative items-center justify-between nav-container pe-4" style="  display: flex;
+  <div class="flex relative items-center justify-between nav-container ps-3 pe-3 ps-sm-4 pe-sm-4" style="  display: flex;
   justify-content: space-between;
   align-items: center; /* Optional: for vertical centering if needed */">
     <a href="/" class="flex items-center gap-2" style="margin-right: auto;flex: 0 1 auto; /* Allow items to have their natural widths */">
-      <img class="h-[57px] relative" src="https://static.vecteezy.com/system/resources/thumbnails/009/665/311/small/cute-kitty-cat-head-cartoon-element-png.png" alt="Logo">
+      <img class="h-[57px] relative" src="logo.png" alt="Logo">
     </a>
     <ul class="gap-x-4 d-none d-md-flex" style="position: absolute;
   left: 50%;
@@ -72,7 +72,7 @@
   transform: translateX(-50%);">
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == '' ? 'active' : ''}"><a href="./">   Home</a></li>
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'tokenomics' ? 'active' : ''}"><a href="./tokenomics">   Tokenomics</a></li>
-      <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'about' ? 'active' : ''}"><a href="./about">   About</a></li>
+      <li class="leading-10 pb-2 text-lg {pageName == 'about' ? 'active' : ''}"><a href="./about">   About</a></li>
     </ul>
   </div>
 </div>
@@ -96,6 +96,7 @@
 
   .navbar-toggler {
     transition: all 0.2s ease;
+    color: white;
   }
 
   .navbar-toggler:hover {

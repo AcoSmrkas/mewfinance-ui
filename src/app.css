@@ -11,11 +11,11 @@
   --striped-1: #141a2a;
   --striped-2: #192033;
   --text-color: #ffffff88;
-  --forms-bg: #150d24;
+  --forms-bg: #23163b;
   --borders: #ffffff22;
   --text-light: #ffffff77;
   --text-strong: #CCC;
-  --background: #271843;
+  --background: #0c0a18;
   --footer: #150d24;
 }
 
@@ -23,6 +23,10 @@
   font-family: "Manrope", sans-serif;
   font-weight: 200;
   font-style: normal;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 body {
@@ -33,6 +37,7 @@ body {
   font-family: "Manrope";
   background-repeat: repeat;  
   background: var(--background) !important;
+  overflow-x: hidden;
 }
 
 h2 {

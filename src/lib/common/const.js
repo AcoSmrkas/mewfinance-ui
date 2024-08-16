@@ -7,7 +7,8 @@ export const MIN_ERG_VAL = 1000000;		// 0.001 ERG
 
 //landing page and header navbar
 export const MART_NAME = 'Mew Finance';
-export const LOGO_TEXT = '<span style="color:var(--main-color);">Mew</span> Finance';
+export const LOGO_TEXT = '<span style="color:cyan;font-family:Satisfy;">Mew </span> Finance';
+export const FOOTER_TEXT = '<span style="color:cyan;font-family:Satisfy;margin-right:2px;">Mew </span> Finance';
 export const HERO_DESCRIPTION = "Can't talk, I'm mewing.";
 export const HERO_IMAGE = 'https://crooks-fi.com/images/mascot-splash.png';
 
