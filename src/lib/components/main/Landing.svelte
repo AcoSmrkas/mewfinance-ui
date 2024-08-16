@@ -22,30 +22,71 @@
   });
 
   onMount(() => {
-    doOnResize();
-  });
+    const imageWrapper = document.querySelector('.image-wrapper');
+    const heroImage = document.querySelector('#hero-image');
 
-  window.onresize = function() {    
-    doOnResize();
-  };
+    let starOverlays = [
+      document.querySelector('#star-overlay-1'),
+      document.querySelector('#star-overlay-2'),
+      document.querySelector('#star-overlay-3'),
+      document.querySelector('#star-overlay-4'),
+      document.querySelector('#star-overlay-5'),
+      document.querySelector('#star-overlay-6')
+    ];
 
-  function doOnResize() { 
-    // Example: Adjust an element's size or position based on the new window size
-    const element = document.querySelector('#floaters-holder');
-    const imgElement = document.querySelector('#hero-image');
-    if (element && imgElement) {
+    function updateStarPosition() {
+      const wrapperWidth = imageWrapper.offsetWidth;
+      const imageWidth = heroImage.offsetWidth;
+      const imageHeight = heroImage.offsetHeight;
 
-        const rect = imgElement.getBoundingClientRect();
-        element.style.left = rect.left + 'px';
-        element.style.top = '0px';
-        
-        console.log(rect);
+      if (imageWidth == 0) return;
 
-        // Apply the dimensions to the target element
-        element.style.width = rect.width + 'px';
-        element.style.height = rect.height + 'px';
+      // These values represent the star's position in the original image
+      // Adjust these to match your image (use percentages of the original image dimensions)
+      let stars = [{
+          x: 42.5,
+          y: 26
+        },{
+          x: 56.3,
+          y: 30
+        },{
+          x: 43.1,
+          y: 68
+        },{
+          x: 59,
+          y: 71
+        },{
+          x: 38.8,
+          y: 46
+        },{
+          x: 50,
+          y: 33
+        }
+      ];
+
+      let i = 0;
+      for (const star of stars) {
+        const starXPercent = star.x; // example: star is 30% from the left of the image
+        const starYPercent = star.y; // example: star is 40% from the top of the image
+
+        // Calculate the offset from the center of the wrapper
+        const xOffsetPercent = ((starXPercent / 100 * imageWidth) - (imageWidth / 2)) / (wrapperWidth / 2) * 100;
+
+        // Set CSS variables for positioning
+        starOverlays[i].style.setProperty('--star-offset-x', xOffsetPercent);
+        starOverlays[i].style.setProperty('--star-offset-y', starYPercent + '%');
+        starOverlays[i].style.opacity = 1;
+
+        i++;
+      }
     }
-  }
+
+    updateStarPosition();
+
+    // Update star position on load and resize
+    window.addEventListener('load', updateStarPosition);
+    window.addEventListener('resize', updateStarPosition);
+  });
 
 </script>
 
@@ -54,42 +95,43 @@
     <div class="image-wrapper relative">
       <img id="hero-image" src="hero.png" class="absolute hero-image border-b-2 border-teal-500">
 
-      <div class="star-overlay" style="left: 365px;top:165px;">
+      <div id="star-overlay-1" class="star-overlay">
         <a target="_new" href="https://ergexplorer.com/token/b0b312cde931c8bbdac0dac5bfd8e2c03bf4611275dc967988c8d15bd5ec20e0">
           <img src="https://i.imgur.com/jGbzNci.png" class="token-float float-start-1">
         </a>
       </div>
 
-      <div class="star-overlay" style="left: 803px;top:205px;">
+      <div id="star-overlay-2" class="star-overlay">
         <a target="_new" href="https://ergexplorer.com/token/01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f">
           <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f.svg" class="token-float float-start-2">
         </a>
       </div>
 
-      <div class="star-overlay" style="left: 375px;top:450px;">
+      <div id="star-overlay-3" class="star-overlay">
         <a target="_new" href="https://ergexplorer.com/token/8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b">
           <img src="https://spectrum.fi/logos/ergo/8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b.svg" class="token-float float-start-3">
         </a>
       </div>
 
-      <div class="star-overlay" style="left: 890px;top:475px;">
+      <div id="star-overlay-4" class="star-overlay">
         <a target="_new" href="https://ergexplorer.com/token/9a06d9e545a41fd51eeffc5e20d818073bf820c635e2a9d922269913e0de369d">
           <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/9a06d9e545a41fd51eeffc5e20d818073bf820c635e2a9d922269913e0de369d.svg" class="token-float float-start-4" style="width: 40px; height: 40px;">
         </a>
       </div>
 
-      <div class="star-overlay" style="left: 235px;top:310px;">
+      <div id="star-overlay-5" class="star-overlay">
         <a target="_new" href="https://ergexplorer.com/token/e023c5f382b6e96fbd878f6811aac73345489032157ad5affb84aefd4956c297">
           <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/2dee6788e99d2420a41447139db9afdc4b442948/logos/ergo/token-ada.svg" class="token-float float-start-5" style="width: 40px; height: 40px;">
         </a>
       </div>
 
-      <div class="star-overlay" style="left: 603px;top:230px;">
+      <div id="star-overlay-6" class="star-overlay">
         <a target="_new" href="https://ergexplorer.com/token/7a51950e5f548549ec1aa63ffdc38279505b11e7e803d01bcf8347e0123c88b0">
-          <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/7a51950e5f548549ec1aa63ffdc38279505b11e7e803d01bcf8347e0123c88b0.svg" class="token-float float-start-6" style="width: 35px; height: 35px;">
+          <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" class="token-float float-start-6" style="width: 35px; height: 35px;">
         </a>
       </div>
     </div>
+
     <div class="title-holder absolute left-1/2 max-w-screen-xl">
       <div class="text-center mr-auto place-self-center lg:col-span-7">
         <h1 class="z-1 text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-extrabold" style="font-family:'Manrope';">
@@ -99,7 +141,7 @@
         <p class="z-1 mb-9 mt-8 text-light lg:mb-8 md:text-lg lg:text-md py-2" style="font-family:'Azeret Mono'; ">{@html HERO_DESCRIPTION}<br></p>
         -->
       </div>
-  </div>
+    </div>
   </section>
 
   <section class="relative mt-4 mb-4 p-2 p-sm-4 overflow-x-hidden">
@@ -152,24 +194,25 @@
   }
 
   .hero-image {
-  z-index: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  width: auto;
-  max-width: none;
+    z-index: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    max-width: none;
   }
 
   .star-overlay {
-  position: absolute;
-  z-index: 1;
-  /* Adjust these percentages to match the star's position in your image */
-  width: 50px;  /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  transform: translate(-50%, -50%); /* Center the star div */
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
-}
+    position: absolute;
+    z-index: 1;
+    /* Adjust these percentages to match the star's position in your image */
+    left: calc(50% + (var(--star-offset-x) * 1%));
+    top: var(--star-offset-y);
+    transform: translate(-50%, -50%); /* Center the star div */
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+    opacity: 0;
+  }
 
   .card-link-left {
     border-radius: unset;
@@ -286,13 +329,13 @@
         transform: translateY(0) rotate(0deg);
     }
     25% {
-        transform: translateY(-5px) rotate(-6deg); /* Float up and rotate left */
+        transform: translateY(-7.5px) rotate(-6deg); /* Float up and rotate left */
     }
     50% {
-        transform: translateY(-10px) rotate(6deg); /* Float up and rotate right */
+        transform: translateY(-15px) rotate(6deg); /* Float up and rotate right */
     }
     75% {
-        transform: translateY(-5px) rotate(-6deg); /* Float down and rotate left */
+        transform: translateY(-7.5px) rotate(-6deg); /* Float down and rotate left */
     }
     100% {
         transform: translateY(0) rotate(0deg); /* Float down and return to center */
