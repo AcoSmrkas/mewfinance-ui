@@ -1,6 +1,4 @@
 <script>
-	import { onMount } from "svelte";
-	import Modal from "$lib/components/common/Modal.svelte";
 	import { FOOTER_TEXT } from '$lib/common/const.js';
 </script>
 

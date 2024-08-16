@@ -3,6 +3,7 @@
   import { offers, selected_wallet_ergo, connected_wallet_address } from "$lib/store/store";
   import { nFormatter, showCustomToast, getConnectedWalletAddress, isWalletConected } from '$lib/utils/utils.js';
   import { get } from 'svelte/store';
+  import { onMount } from 'svelte';
 
   let showModal = false;
   let connectedWalletAddress = '';
@@ -20,12 +21,74 @@
     }
   });
 
+  onMount(() => {
+    doOnResize();
+  });
+
+  window.onresize = function() {    
+    doOnResize();
+  };
+
+  function doOnResize() { 
+    // Example: Adjust an element's size or position based on the new window size
+    const element = document.querySelector('#floaters-holder');
+    const imgElement = document.querySelector('#hero-image');
+    if (element && imgElement) {
+
+        const rect = imgElement.getBoundingClientRect();
+        element.style.left = rect.left + 'px';
+        element.style.top = '0px';
+        
+        console.log(rect);
+
+        // Apply the dimensions to the target element
+        element.style.width = rect.width + 'px';
+        element.style.height = rect.height + 'px';
+    }
+  }
+
 </script>
 
 <div class="container p-0">  
   <section class="mt-[100px] relative h-auto">
-    <div class="image-wrapper">
-      <img src="hero.png" class="absolute hero-image border-b-2 border-teal-500">
+    <div class="image-wrapper relative">
+      <img id="hero-image" src="hero.png" class="absolute hero-image border-b-2 border-teal-500">
+
+      <div class="star-overlay" style="left: 365px;top:165px;">
+        <a target="_new" href="https://ergexplorer.com/token/b0b312cde931c8bbdac0dac5bfd8e2c03bf4611275dc967988c8d15bd5ec20e0">
+          <img src="https://i.imgur.com/jGbzNci.png" class="token-float float-start-1">
+        </a>
+      </div>
+
+      <div class="star-overlay" style="left: 803px;top:205px;">
+        <a target="_new" href="https://ergexplorer.com/token/01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f">
+          <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f.svg" class="token-float float-start-2">
+        </a>
+      </div>
+
+      <div class="star-overlay" style="left: 375px;top:450px;">
+        <a target="_new" href="https://ergexplorer.com/token/8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b">
+          <img src="https://spectrum.fi/logos/ergo/8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b.svg" class="token-float float-start-3">
+        </a>
+      </div>
+
+      <div class="star-overlay" style="left: 890px;top:475px;">
+        <a target="_new" href="https://ergexplorer.com/token/9a06d9e545a41fd51eeffc5e20d818073bf820c635e2a9d922269913e0de369d">
+          <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/9a06d9e545a41fd51eeffc5e20d818073bf820c635e2a9d922269913e0de369d.svg" class="token-float float-start-4" style="width: 40px; height: 40px;">
+        </a>
+      </div>
+
+      <div class="star-overlay" style="left: 235px;top:310px;">
+        <a target="_new" href="https://ergexplorer.com/token/e023c5f382b6e96fbd878f6811aac73345489032157ad5affb84aefd4956c297">
+          <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/2dee6788e99d2420a41447139db9afdc4b442948/logos/ergo/token-ada.svg" class="token-float float-start-5" style="width: 40px; height: 40px;">
+        </a>
+      </div>
+
+      <div class="star-overlay" style="left: 603px;top:230px;">
+        <a target="_new" href="https://ergexplorer.com/token/7a51950e5f548549ec1aa63ffdc38279505b11e7e803d01bcf8347e0123c88b0">
+          <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/7a51950e5f548549ec1aa63ffdc38279505b11e7e803d01bcf8347e0123c88b0.svg" class="token-float float-start-6" style="width: 35px; height: 35px;">
+        </a>
+      </div>
     </div>
     <div class="title-holder absolute left-1/2 max-w-screen-xl">
       <div class="text-center mr-auto place-self-center lg:col-span-7">
@@ -85,18 +148,28 @@
 
   .image-wrapper {
     position: relative;
-    height: 80vh; /* Adjust this to maintain aspect ratio if needed */
+    height: 100vh; /* Adjust this to maintain aspect ratio if needed */
   }
 
   .hero-image {
-    z-index: 0;
-    left: 50%;    
-    transform: translateX(-50%);
-    margin: 0 auto;
-    height: inherit;
-    max-width: fit-content;
-    overflow-x: hidden;
+  z-index: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  max-width: none;
   }
+
+  .star-overlay {
+  position: absolute;
+  z-index: 1;
+  /* Adjust these percentages to match the star's position in your image */
+  width: 50px;  /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  transform: translate(-50%, -50%); /* Center the star div */
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+}
 
   .card-link-left {
     border-radius: unset;
@@ -109,6 +182,10 @@
   @media (min-width: 576px) {
     .image-wrapper {
       height: 100vh;
+    }
+
+    .hero-image {
+      height: inherit;
     }
   }
 
@@ -174,5 +251,52 @@
   h6 {
     color: var(--main-color) !important;
   }
+
+  .token-float {
+    width: 50px;
+    height: 50px;
+  }
+
+  .float-start-1 {
+    animation: float 12s ease-in-out infinite 0s;
+  }
+
+  .float-start-2 {
+      animation: float 12s ease-in-out infinite -1s;
+  }
+
+  .float-start-3 {
+      animation: float 12s ease-in-out infinite -2s;
+  }
+
+  .float-start-4 {
+      animation: float 12s ease-in-out infinite -3s;
+  }
+
+  .float-start-5 {
+      animation: float 12s ease-in-out infinite -4s;
+  }
+
+  .float-start-6 {
+      animation: float 12s ease-in-out infinite -5s;
+  }
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(-6deg); /* Float up and rotate left */
+    }
+    50% {
+        transform: translateY(-10px) rotate(6deg); /* Float up and rotate right */
+    }
+    75% {
+        transform: translateY(-5px) rotate(-6deg); /* Float down and rotate left */
+    }
+    100% {
+        transform: translateY(0) rotate(0deg); /* Float down and return to center */
+    }
+}
 </style>
 
