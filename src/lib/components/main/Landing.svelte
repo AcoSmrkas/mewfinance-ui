@@ -90,7 +90,7 @@
 
 </script>
 
-<div class="container p-0">  
+<div class="container p-0 p-xl-4">  
   <section class="mt-[100px] relative h-auto">
     <div class="image-wrapper relative">
       <img id="hero-image" src="hero.png" class="absolute hero-image border-b-2 border-teal-500">
@@ -144,7 +144,7 @@
     </div>
   </section>
 
-  <section class="relative mt-4 mb-4 p-2 p-sm-4 overflow-x-hidden">
+  <section class="relative mt-4 mb-1 p-2 p-sm-4 overflow-x-hidden">
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-4 overflow-x-hidden">
       <div class="card mb-3 flex sm:flex-col lg:flex-row overflow-x-hidden">
         <div class="card-side sm:w-full lg:w-1/2 order-2 order-md-1">
@@ -329,13 +329,13 @@
         transform: translateY(0) rotate(0deg);
     }
     25% {
-        transform: translateY(-7.5px) rotate(-6deg); /* Float up and rotate left */
+        transform: translateY(-10px) rotate(-6deg); /* Float up and rotate left */
     }
     50% {
-        transform: translateY(-15px) rotate(6deg); /* Float up and rotate right */
+        transform: translateY(-20px) rotate(6deg); /* Float up and rotate right */
     }
     75% {
-        transform: translateY(-7.5px) rotate(-6deg); /* Float down and rotate left */
+        transform: translateY(-10px) rotate(-6deg); /* Float down and rotate left */
     }
     100% {
         transform: translateY(0) rotate(0deg); /* Float down and return to center */
