@@ -41,8 +41,6 @@
 
       if (imageWidth == 0) return;
 
-      // These values represent the star's position in the original image
-      // Adjust these to match your image (use percentages of the original image dimensions)
       let stars = [{
           x: 42.5,
           y: 26
@@ -66,13 +64,11 @@
 
       let i = 0;
       for (const star of stars) {
-        const starXPercent = star.x; // example: star is 30% from the left of the image
-        const starYPercent = star.y; // example: star is 40% from the top of the image
+        const starXPercent = star.x;
+        const starYPercent = star.y; 
 
-        // Calculate the offset from the center of the wrapper
         const xOffsetPercent = ((starXPercent / 100 * imageWidth) - (imageWidth / 2)) / (wrapperWidth / 2) * 100;
 
-        // Set CSS variables for positioning
         starOverlays[i].style.setProperty('--star-offset-x', xOffsetPercent);
         starOverlays[i].style.setProperty('--star-offset-y', starYPercent + '%');
         starOverlays[i].style.opacity = 1;
@@ -137,14 +133,12 @@
         <h1 class="z-1 text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-extrabold" style="font-family:'Manrope';">
           {@html LOGO_TEXT}
         </h1>
-        <div class="relative top-[110px] px-4 px-md-0 flex justify-center flex-col space-y-4 space-x-0 sm:flex-row sm:space-y-0 sm:space-x-4">
-          <a target="_new" href="https://dex.mewfinance.com" class="btn px-5 py-3 btn-primary border-0"><span class="text-black">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span></a>
-          <a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-secondary border-0"><span class="text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span></a>
-        </div>
-        <!--
-        <p class="z-1 mb-9 mt-8 text-light lg:mb-8 md:text-lg lg:text-md py-2" style="font-family:'Azeret Mono'; ">{@html HERO_DESCRIPTION}<br></p>
-        -->
       </div>
+    </div>
+
+    <div id="buttons-holder" class="px-4 px-md-0 flex justify-center flex-col space-y-4 space-x-0 sm:flex-row sm:space-y-0 sm:space-x-4">
+      <a target="_new" href="https://dex.mewfinance.com" class="btn px-5 py-3 btn-primary border-0"><span class="text-black">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span></a>
+      <a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-secondary border-0"><span class="text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span></a>
     </div>
   </section>
 
@@ -216,6 +210,15 @@
     transform: translate(-50%, -50%); /* Center the star div */
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
     opacity: 0;
+  }
+
+  #buttons-holder {
+    position: absolute;
+    width: 100%;
+    top: 39% !important;
+    left: 50%;
+    transform: translateX(-50%); /* Center the star div */
+    top: var(--buttons-holder-offset-y);
   }
 
   .card-link-left {
