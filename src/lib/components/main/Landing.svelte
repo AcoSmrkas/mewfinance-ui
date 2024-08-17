@@ -137,6 +137,10 @@
         <h1 class="z-1 text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-extrabold" style="font-family:'Manrope';">
           {@html LOGO_TEXT}
         </h1>
+        <div class="relative top-[110px] px-4 px-md-0 flex justify-center flex-col space-y-4 space-x-0 sm:flex-row sm:space-y-0 sm:space-x-4">
+          <a target="_new" href="https://dex.mewfinance.com" class="btn px-5 py-3 btn-primary border-0"><span class="text-black">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span></a>
+          <a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-secondary border-0"><span class="text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span></a>
+        </div>
         <!--
         <p class="z-1 mb-9 mt-8 text-light lg:mb-8 md:text-lg lg:text-md py-2" style="font-family:'Azeret Mono'; ">{@html HERO_DESCRIPTION}<br></p>
         -->

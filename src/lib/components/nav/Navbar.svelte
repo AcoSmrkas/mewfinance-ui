@@ -8,6 +8,9 @@
 
   $: page.subscribe((value) => {
     pageName = value.route.id.substr(1);
+    
+    navCollapsed = false;
+    toggleNav();
   });
 
   function toggleModal() {
