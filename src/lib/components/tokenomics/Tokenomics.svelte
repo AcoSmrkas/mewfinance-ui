@@ -1,174 +1,189 @@
 <script>
-    import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
   
-    const segments = [
-      { name: 'Segment 1', percentage: 30, color: '#00FFFF' },
-      { name: 'Segment 2', percentage: 25, color: '#FFD700' },
-      { name: 'Segment 3', percentage: 20, color: '#FF69B4' }, // Using a pink color for variety
-      { name: 'Segment 4', percentage: 15, color: '#9370DB' }, // Using a purple color for variety
-      { name: 'Segment 5', percentage: 10, color: '#20B2AA' }, // Using a light sea green for variety
-    ];
-  
-    const size = 400;
-    const radius = size / 2;
-    const centerX = size / 2;
-    const centerY = size / 2;
-    const innerRadius = radius * 0.6;
-  
-    let selectedSegment = null;
-  
-    function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-      const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
-      return {
-        x: centerX + (radius * Math.cos(angleInRadians)),
-        y: centerY + (radius * Math.sin(angleInRadians))
-      };
-    }
-  
-    function describeArc(x, y, radius, startAngle, endAngle, innerRadius) {
-      const start = polarToCartesian(x, y, radius, endAngle);
-      const end = polarToCartesian(x, y, radius, startAngle);
-      const innerStart = polarToCartesian(x, y, innerRadius, endAngle);
-      const innerEnd = polarToCartesian(x, y, innerRadius, startAngle);
-      const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-      return [
-        "M", start.x, start.y,
-        "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y,
-        "L", innerEnd.x, innerEnd.y,
-        "A", innerRadius, innerRadius, 0, largeArcFlag, 1, innerStart.x, innerStart.y,
-        "Z"
-      ].join(" ");
-    }
-  
-    let cumulativeAngle = 0;
-    const paths = segments.map(segment => {
-      const startAngle = cumulativeAngle;
-      const endAngle = cumulativeAngle + (segment.percentage / 100 * 360);
-      cumulativeAngle = endAngle;
-      return {
-        d: describeArc(centerX, centerY, radius, startAngle, endAngle, innerRadius),
-        fill: segment.color,
-        segment
-      };
-    });
-  
-    function handleSegmentClick(segment) {
-      selectedSegment = segment;
-    }
-	let plans = [
-	  { name: "Starter", price: 49 },
-	  { name: "Standard", price: 99 },
-	  { name: "Premium", price: 199 },
-	  { name: "Enterprise", price: 499 }
+	const segments = [
+	  { name: 'Presale', percentage: 35, color: '#00FFFF' },
+	  { name: 'IDO Liquidity', percentage: 15, color: '#FFD700' },
+	  { name: 'Team + Marketing', percentage: 20, color: '#FF69B4' },
+	  { name: 'Reserve (Locked)', percentage: 30, color: '#9370DB' },
 	];
-	
-	let selectedPlan = plans[1]; // Default to Standard plan
+  
+	const size = 300;
+	const radius = size / 2;
+	const centerX = size / 2;
+	const centerY = size / 2;
+	const innerRadius = radius * 0.6;
+  
+	let selectedSegment = null;
+  
+	function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+	  const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+	  return {
+		x: centerX + (radius * Math.cos(angleInRadians)),
+		y: centerY + (radius * Math.sin(angleInRadians))
+	  };
+	}
+  
+	function describeArc(x, y, radius, startAngle, endAngle, innerRadius) {
+	  const start = polarToCartesian(x, y, radius, endAngle);
+	  const end = polarToCartesian(x, y, radius, startAngle);
+	  const innerStart = polarToCartesian(x, y, innerRadius, endAngle);
+	  const innerEnd = polarToCartesian(x, y, innerRadius, startAngle);
+	  const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+	  return [
+		"M", start.x, start.y,
+		"A", radius, radius, 0, largeArcFlag, 0, end.x, end.y,
+		"L", innerEnd.x, innerEnd.y,
+		"A", innerRadius, innerRadius, 0, largeArcFlag, 1, innerStart.x, innerStart.y,
+		"Z"
+	  ].join(" ");
+	}
+  
+	let cumulativeAngle = 0;
+	const paths = segments.map(segment => {
+	  const startAngle = cumulativeAngle;
+	  const endAngle = cumulativeAngle + (segment.percentage / 100 * 360);
+	  cumulativeAngle = endAngle;
+	  return {
+		d: describeArc(centerX, centerY, radius, startAngle, endAngle, innerRadius),
+		fill: segment.color,
+		segment
+	  };
+	});
+  
+	function handleSegmentClick(segment) {
+	  selectedSegment = segment;
+	}
+  
+	function handleKeydown(event, segment) {
+	  if (event.key === 'Enter' || event.key === ' ') {
+		handleSegmentClick(segment);
+	  }
+	}
+  
+	let plans = [
+	  { name: "Tier 1", price: 5, mew: 5000 },
+	  { name: "Tier 2", price: 15, mew: 15000 },
+	  { name: "Tier 3", price: 45, mew: 45000 },
+	  { name: "Tier 4", price: 150, mew: 150000 },
+	  { name: "Tier 5", price: 300, mew: 300000 }
+	];
+  
+	let selectedPlan = plans[0]; // Default to Tier 1
   
 	function selectPlan(plan) {
 	  selectedPlan = plan;
 	}
   </script>
-
-
-  <div class="main-container bg-custom-dark text-custom-light p-4 sm:p-8 rounded-lg max-w-4xl mx-auto">
-	<div class="tokenomics-container">
-	  <h1>TOKENOMICS</h1>
-	  <h2>Token Distribution</h2>
+<div class="tokenomics-container bg-custom-dark text-custom-light">
+	<h1 class="text-custom-cyan">TOKENOMICS</h1>
+	<h2 class="text-custom-yellow">Token Distribution</h2>
   
-	  <div class="chart-container">
-		<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-		  {#each paths as path}
-			<path d={path.d} fill={path.fill} on:click={() => handleSegmentClick(path.segment)} />
+	<div class="content">
+	  <div class="chart-section">
+		<div class="chart-container">
+		  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+			{#each paths as path}
+			  <path 
+				d={path.d} 
+				fill={path.fill} 
+				on:click={() => handleSegmentClick(path.segment)}
+				on:keydown={(event) => handleKeydown(event, path.segment)}
+				tabindex="0"
+				role="button"
+				aria-label={`${path.segment.name}: ${path.segment.percentage}%`}
+			  />
+			{/each}
+		  </svg>
+		  <div class="center-text">
+			<span class="amount">1,000,000,000</span>
+			<span class="currency">$MEW</span>
+		  </div>
+		</div>
+  
+		<div class="allocation-details">
+		  {#each segments as segment}
+			<div class="allocation-item" class:selected={selectedSegment === segment}>
+			  <div class="color-indicator" style="background-color: {segment.color};"></div>
+			  <div class="allocation-text">
+				<span class="allocation-name">{segment.name}</span>
+				<span class="allocation-percentage">{segment.percentage}%</span>
+			  </div>
+			</div>
 		  {/each}
-		</svg>
-		<div class="center-text">
-		  <span class="amount">1,000,000,000</span>
-		  <span class="currency">$HIFI</span>
 		</div>
 	  </div>
   
-	  <div class="allocation-details">
-		{#each segments as segment}
-		  <div class="allocation-item" class:selected={selectedSegment === segment}>
-			<div class="color-indicator" style="background-color: {segment.color};"></div>
-			<div class="allocation-text">
-			  <span class="allocation-name">{segment.name}</span>
-			  <span class="allocation-percentage">{segment.percentage}%</span>
-			</div>
-		  </div>
-		{/each}
-	  </div>
-	</div>
-  
-	<div class="pricing-container mt-8">
-	  <div class="bg-custom-purple p-4 sm:p-6 rounded-lg mb-8">
-		<h2 class="text-xl mb-4 text-custom-yellow">Choose a tier plan:</h2>
-		<div class="flex flex-wrap mb-6">
+	  <div class="tier-section bg-custom-purple rounded-lg p-6">
+		<h3 class="text-xl mb-4 text-custom-yellow">Choose a tier plan:</h3>
+		<div class="tier-buttons mb-6">
 		  {#each plans as plan}
 		  <button
-			class="flex-1 py-2 px-4 text-custom-light mb-2 sm:mb-0 {selectedPlan === plan ? 'bg-custom-dark' : 'bg-custom-hover hover:bg-custom-dark'} 
-			  rounded-lg sm:rounded-none
-			  {plan === plans[0] ? 'sm:rounded-l-lg' : ''} 
-			  {plan === plans[plans.length - 1] ? 'sm:rounded-r-lg' : ''}"
+			class="tier-button {selectedPlan === plan ? 'active' : ''}"
 			on:click={() => selectPlan(plan)}
 		  >
 			{plan.name}
 		  </button>
 		  {/each}
 		</div>
-		<h3 class="text-lg mb-2">{selectedPlan.name} details:</h3>
-		<ul>
-		  <li>- 0% FEES</li>
-		  <li>Free cancellation</li>
-		</ul>
-	  </div>
-	  
-	  <div class="bg-custom-purple p-4 sm:p-6 rounded-lg">
-		<h2 class="text-2xl mb-2 text-custom-yellow">{selectedPlan.name} Tiers</h2>
-		<p class="text-sm text-gray-400 mb-4">Starts at</p>
-		<p class="text-4xl sm:text-5xl font-bold mb-6 text-custom-yellow">{selectedPlan.price} MEW</p>
-		<button class="w-full bg-custom-yellow hover:bg-custom-hover text-custom-dark py-2 rounded-lg mb-4">
-		  Buy now
-		</button>
-		<a href="#" class="text-custom-yellow hover:underline flex items-center justify-center sm:justify-start">
-		  View pricing
-		  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-			<path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-		  </svg>
-		</a>
+		<div class="tier-details">
+		  <div class="tier-info">
+			<h4 class="text-lg mb-2">{selectedPlan.name} details:</h4>
+			<ul>
+			  <li>Lock {selectedPlan.mew.toLocaleString()} MEW</li>
+			  <li>Staking booster: {0.5 * plans.indexOf(selectedPlan) + 0.5}%</li>
+			  <li>Sale allocation: {0.15 * (plans.indexOf(selectedPlan) + 1)}x</li>
+			</ul>
+		  </div>
+		  <div class="tier-action">
+			<p class="text-sm text-gray-400 mb-2">Lock amount</p>
+			<p class="text-3xl font-bold mb-2 text-custom-yellow">{selectedPlan.mew.toLocaleString()} MEW</p>
+			<p class="text-xl font-bold mb-4 text-custom-yellow">{selectedPlan.price} ERG</p>
+			<button class="lock-button bg-custom-yellow text-custom-dark">
+			  Lock now
+			</button>
+		  </div>
+		</div>
 	  </div>
 	</div>
   </div>
   
   <style>
-	.main-container {
-	  font-family: Arial, sans-serif;
-	  color: #FFFFFF;
-	  padding: 20px;
-	  margin-top: 40px;
-	}
-  
 	.tokenomics-container {
+	  font-family: Arial, sans-serif;
+	  padding: 13rem;
 	  text-align: center;
 	}
   
 	h1 {
-	  font-size: 1.8em;
+	  font-size: 2.5rem;
 	  margin-bottom: 0;
-	  color: #00FFFF;
 	}
   
 	h2 {
-	  font-size: 1.1em;
+	  font-size: 1.5rem;
 	  margin-top: 0;
-	  color: #FFD700;
+	}
+  
+	.content {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  gap: 2rem;
+	  margin-top: 2rem;
+	}
+  
+	.chart-section {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  gap: 1rem;
 	}
   
 	.chart-container {
 	  position: relative;
 	  width: 100%;
-	  max-width: 400px;
-	  margin: 30px auto;
+	  max-width: 300px;
 	}
   
 	.center-text {
@@ -180,96 +195,116 @@
 	}
   
 	.amount {
-	  font-size: 1.4em;
+	  font-size: 1.2rem;
 	  font-weight: bold;
 	  display: block;
 	}
   
 	.currency {
-	  font-size: 1em;
+	  font-size: 0.9rem;
 	}
   
 	.allocation-details {
-	  text-align: left;
-	  width: 100%;
-	  max-width: 400px;
-	  margin: 0 auto;
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	  gap: 1rem;
 	}
   
 	.allocation-item {
 	  display: flex;
 	  align-items: center;
-	  margin-bottom: 15px;
-	  padding: 5px;
-	  border-radius: 5px;
-	  transition: background-color 0.3s;
-	}
-  
-	.allocation-item.selected {
 	  background-color: rgba(255, 255, 255, 0.1);
+	  padding: 0.5rem;
+	  border-radius: 0.5rem;
 	}
   
 	.color-indicator {
-	  width: 20px;
-	  height: 20px;
+	  width: 1rem;
+	  height: 1rem;
 	  border-radius: 50%;
-	  margin-right: 10px;
-	  flex-shrink: 0;
+	  margin-right: 0.5rem;
 	}
   
-	.allocation-text {
+	.tier-section {
+	  width: 100%;
+	  max-width: 600px;
+	}
+  
+	.tier-buttons {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	  gap: 0.5rem;
+	}
+  
+	.tier-button {
+	  padding: 0.5rem 1rem;
+	  border-radius: 0.25rem;
+	  background-color: rgba(255, 255, 255, 0.1);
+	  color: #D3D0E7;
+	  transition: background-color 0.3s;
+	}
+  
+	.tier-button.active {
+	  background-color: #2B1640;
+	}
+  
+	.tier-details {
 	  display: flex;
 	  flex-direction: column;
+	  gap: 1rem;
 	}
   
-	.allocation-name {
+	.lock-button {
+	  width: 100%;
+	  padding: 0.75rem;
+	  border-radius: 0.5rem;
 	  font-weight: bold;
+	  transition: opacity 0.3s;
 	}
   
-	.allocation-percentage {
-	  font-size: 1.1em;
+	.lock-button:hover {
+	  opacity: 0.9;
 	}
   
 	@media (min-width: 768px) {
-	  h1 {
-		font-size: 2em;
+	  .content {
+		flex-direction: row;
+		align-items: flex-start;
 	  }
   
-	  h2 {
-		font-size: 1.2em;
+	  .chart-section {
+		flex: 1;
 	  }
   
-	  .amount {
-		font-size: 1.8em;
+	  .tier-section {
+		flex: 1;
 	  }
   
-	  .currency {
-		font-size: 1.2em;
+	  .tier-details {
+		flex-direction: row;
 	  }
   
-	  .allocation-percentage {
-		font-size: 1.2em;
+	  .tier-info, .tier-action {
+		flex: 1;
 	  }
+	}
+  
+	.text-custom-cyan {
+	  color: #00FFFF;
+	}
+  
+	.text-custom-yellow {
+	  color: #FFD700;
 	}
   
 	.bg-custom-dark {
 	  background-color: #0A0718;
 	}
   
-	.text-custom-light {
-	  color: #D3D0E7;
-	}
-  
 	.bg-custom-purple {
 	  background-color: #4E215F;
-	}
-  
-	.bg-custom-hover {
-	  background-color: #2B1640;
-	}
-  
-	.text-custom-yellow {
-	  color: #FFDF46;
 	}
   
 	.bg-custom-yellow {
