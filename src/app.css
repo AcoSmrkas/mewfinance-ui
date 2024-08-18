@@ -45,6 +45,10 @@ h2 {
   font-family: 'Manrope';
 }
 
+.top-margin {
+  margin-top: 70px;
+}
+
 .container {
   max-width: 1140px;
   margin: 0 auto;

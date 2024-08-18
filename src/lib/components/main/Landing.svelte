@@ -48,13 +48,13 @@
           x: 56.3,
           y: 30
         },{
-          x: 43.1,
+          x: 42.6,
           y: 68
         },{
-          x: 59,
+          x: 58,
           y: 71
         },{
-          x: 38.8,
+          x: 38.5,
           y: 46
         },{
           x: 50,
@@ -87,50 +87,52 @@
 </script>
 
 <div class="container p-0 p-xl-4">  
-  <section class="mt-[100px] relative h-auto">
+  <section class="top-margin relative h-auto">
     <div class="image-wrapper relative">
-      <img id="hero-image" src="hero.png" class="absolute hero-image border-b-2 border-teal-500">
-
-      <div id="star-overlay-1" class="star-overlay">
+      <img id="hero-image" src="hero.png" class="absolute hero-image">
+      <div class="full-gradient">
+        
+      </div>
+      <div id="star-overlay-1" class="star-overlay d-none d-sm-block">
         <a target="_new" href="https://ergexplorer.com/token/b0b312cde931c8bbdac0dac5bfd8e2c03bf4611275dc967988c8d15bd5ec20e0">
           <img src="https://i.imgur.com/jGbzNci.png" class="token-float float-start-1">
         </a>
       </div>
 
-      <div id="star-overlay-2" class="star-overlay">
+      <div id="star-overlay-2" class="star-overlay d-none d-sm-block">
         <a target="_new" href="https://ergexplorer.com/token/01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f">
           <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f.svg" class="token-float float-start-2">
         </a>
       </div>
 
-      <div id="star-overlay-3" class="star-overlay">
+      <div id="star-overlay-3" class="star-overlay d-none d-sm-block">
         <a target="_new" href="https://ergexplorer.com/token/8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b">
           <img src="https://spectrum.fi/logos/ergo/8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b.svg" class="token-float float-start-3">
         </a>
       </div>
 
-      <div id="star-overlay-4" class="star-overlay">
+      <div id="star-overlay-4" class="star-overlay d-none d-sm-block">
         <a target="_new" href="https://ergexplorer.com/token/9a06d9e545a41fd51eeffc5e20d818073bf820c635e2a9d922269913e0de369d">
           <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/9a06d9e545a41fd51eeffc5e20d818073bf820c635e2a9d922269913e0de369d.svg" class="token-float float-start-4" style="width: 40px; height: 40px;">
         </a>
       </div>
 
-      <div id="star-overlay-5" class="star-overlay">
+      <div id="star-overlay-5" class="star-overlay d-none d-sm-block">
         <a target="_new" href="https://ergexplorer.com/token/e023c5f382b6e96fbd878f6811aac73345489032157ad5affb84aefd4956c297">
           <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/2dee6788e99d2420a41447139db9afdc4b442948/logos/ergo/token-ada.svg" class="token-float float-start-5" style="width: 40px; height: 40px;">
         </a>
       </div>
 
-      <div id="star-overlay-6" class="star-overlay">
+      <div id="star-overlay-6" class="star-overlay d-none d-sm-block">
         <a target="_new" href="https://ergexplorer.com/token/7a51950e5f548549ec1aa63ffdc38279505b11e7e803d01bcf8347e0123c88b0">
           <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" class="token-float float-start-6" style="width: 35px; height: 35px;">
         </a>
       </div>
     </div>
 
-    <div class="title-holder absolute left-1/2 max-w-screen-xl">
+    <div id="title-holder" class="title-holder absolute left-1/2 max-w-screen-xl">
       <div class="text-center mr-auto place-self-center lg:col-span-7">
-        <h1 class="z-1 text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-extrabold" style="font-family:'Manrope';">
+        <h1 class="text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-extrabold" style="font-family:'Manrope';">
           {@html LOGO_TEXT}
         </h1>
       </div>
@@ -180,10 +182,14 @@
 </div>
 
 <style>
+  #title-holder {
+    z-index: 3;
+  }
+
   .title-holder {
     transform: translateX(-50%);
     width: 100%;
-    top: 12%;
+    top: 14%;
   }
 
   .image-wrapper {
@@ -192,7 +198,7 @@
   }
 
   .hero-image {
-    z-index: 0;
+    z-index: 1;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -203,7 +209,7 @@
 
   .star-overlay {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     /* Adjust these percentages to match the star's position in your image */
     left: calc(50% + (var(--star-offset-x) * 1%));
     top: var(--star-offset-y);
@@ -213,6 +219,7 @@
   }
 
   #buttons-holder {
+    z-index: 4;
     position: absolute;
     width: 100%;
     top: 39% !important;
@@ -348,5 +355,15 @@
         transform: translateY(0) rotate(0deg); /* Float down and return to center */
     }
 }
+  .full-gradient {
+    z-index: 0;
+    position: absolute;
+    left: -15%;
+    width: 110vw;
+    height: inherit;
+     background: rgb(0,0,0);
+     background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(159,4,255,0.2) 20%, rgba(159,4,255,0.2) 40%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%); 
+  }
+
 </style>
 
