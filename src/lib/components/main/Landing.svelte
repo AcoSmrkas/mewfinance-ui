@@ -341,7 +341,7 @@
       animation: float 12s ease-in-out infinite -5s;
   }
 
-@keyframes float {
+  @keyframes float {
     0% {
         transform: translateY(0) rotate(0deg);
     }
@@ -357,15 +357,16 @@
     100% {
         transform: translateY(0) rotate(0deg); /* Float down and return to center */
     }
-}
+  }
+
   .full-gradient {
     z-index: 0;
     position: absolute;
-    left: -15%;
-    width: 110vw;
+    left: -500%;
+    width: 1000%;
     height: inherit;
-     background: rgb(0,0,0);
-     background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(159,4,255,0.2) 20%, rgba(159,4,255,0.2) 40%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%); 
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(159,4,255,0.2) 20%, rgba(159,4,255,0.2) 40%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%); 
   }
 
 </style>
