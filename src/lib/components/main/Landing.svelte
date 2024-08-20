@@ -147,12 +147,12 @@
   <section class="relative mt-4 mb-1 p-2 p-sm-4 overflow-x-hidden">
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-4 overflow-x-hidden">
       <div class="card mb-3 flex sm:flex-col lg:flex-row overflow-x-hidden">
-        <div class="card-side sm:w-full lg:w-1/2 order-2 order-md-1">
-          <img src="https://i.pinimg.com/736x/3c/41/ec/3c41ecbf81b44318e045eb93ed7f0928.jpg">
+        <div class="card-side sm:w-full lg:w-1/2 order-2 order-md-1"  style="background-color: var(--color-info);">
+          <img src="dex.png">
           <a href="https://dex.mewfinance.com" target="_new" class="card-link card-link-left">
             <div class="card-content">
               <h2 class="card-title">Launch DEX <i class="fa-solid fa-up-right-from-square"></i></h2>
-              <p class="card-description">Swap tokens on Ergo blockchain.</p>
+              <p class="card-description">Swap tokens on the Ergo blockchain.</p>
             </div>
           </a>
         </div>
@@ -172,7 +172,7 @@
           <a href="https://mart.mewfinance.com" target="_new" class="card-link card-link-right">
             <div class="card-content">
               <h2 class="card-title">Launch Mart <i class="fa-solid fa-up-right-from-square"></i></h2>
-              <p class="card-description">Trade assets on Ergo blockchain.</p>
+              <p class="card-description">Trade assets on the Ergo blockchain.</p>
             </div>
           </a>
         </div>
@@ -222,7 +222,7 @@
     z-index: 4;
     position: absolute;
     width: 100%;
-    top: 39% !important;
+    top: 29% !important;
     left: 50%;
     transform: translateX(-50%); /* Center the star div */
     top: var(--buttons-holder-offset-y);
@@ -243,6 +243,10 @@
 
     .hero-image {
       height: inherit;
+    }
+
+    #buttons-holder {
+      top: 39% !important;
     }
   }
 
@@ -301,7 +305,6 @@
 
   .card-link:hover {
     background-color: #fff;
-    transform: translateY(-3px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   }
 
