@@ -1,91 +1,74 @@
 <script>
 	let ergAmount = 100;
-	let pdvAmount = 14286;
-	let agreed = false;
+	let mewAmount = 14286;
   
-	$: usdAmount = (ergAmount * 1.2821).toFixed(2);
+	$: usdAmount = (ergAmount * 0.75).toFixed(9);
+	$: mewAmount = (ergAmount / 0.01).toFixed(2);
   
 	function handleContribute() {
-	  if (agreed) {
-		console.log('Contribution submitted');
-	  } else {
-		console.log('Please agree to the Terms of Use and Privacy Policy');
-	  }
+	  
 	}
   </script>
   
-  <div class="staker-sale">
+  <div class="container p-0 top-margin text-custom-light mb-5">
+    <br>
+    <h1 class="section-title text-4xl font-bold text-custom-cyan text-center pt-2 mb-4">Presale</h1>
+    <br>
+  <div class="staker-sale px-2">
 	<div class="sale-container">
 	  <div class="sale-form">
-		<h1>Mew</h1>
-		<h3>Staker Sale contribution</h3>
-		
-		<p class="warning">
-		  This round is 1st ido presale to launch mart
-		</p>
-		
-		<p>Get Benefits like 0% fees on Mart and Dex</p>
-		
+		<h2>Mew</h2>
+		<h3>Sale contribution</h3>
+		<br>		
 		<div class="input-group">
 		  <input type="number" bind:value={ergAmount} />
-		  <span class="currency">ERG Σ</span>
-		  <span class="usd-amount">${usdAmount}</span>
+		  <span class="currency">ERG</span>
+		  <span class="usd-amount"> ~${usdAmount}</span>
 		</div>
 		
 		<div class="input-group">
-		  <input type="number" bind:value={pdvAmount} />
-		  <span class="currency">MeW</span>
-		  <span class="remaining">6,000,000 MeW remaining</span>
+		  <input type="number" bind:value={mewAmount} />
+		  <span class="currency">MEW</span>
 		</div>
 		
-		<label class="checkbox-container">
-		  <input type="checkbox" bind:checked={agreed}>
-		  I agree to the <a href="#" class="link">Terms of Use</a> and <a href="#" class="link">Privacy Policy</a>.
-		</label>
-		
-		<button on:click={handleContribute} disabled={!agreed}>Contribute now</button>
+		<br>		
+		<button on:click={handleContribute} disabled>Contribute now</button>
 	  </div>
 	  
-	  <div class="sale-info">
-	
+	  <div class="sale-info m-0" style="height: min-content;">
 		
 		<div class="info-item">
-		  <h4>ROUND CLOSED</h4>
-		  <span>2024-05-28 6:00pm</span>
+		  <h4 class="text-custom-yellow">ROUND CLOSED</h4>
+		  <span>Opens 14-09-2024 16:00 UTC</span>
 		</div>
 		
 		<div class="info-item">
-		  <h4>MEW CLAIMED</h4>
-		  <span>0</span>
+		  <h4 class="text-custom-yellow">MEW CLAIMED: 0</h4>
+		  
 		  <div class="progress-bar">
 			<div class="progress-fill" style="width: 0%"></div>
 		  </div>
 		  <span class="target">MEW TARGET: 6,000,000</span>
 		</div>
 		
-		<div class="info-item">
-		  <h4>PRICE</h4>
-		  <span>1 MEW = 0.007 Erg</span>
+		<div class="info-item m-0">
+		  <h4 class="text-custom-yellow">PRICE</h4>
+		  <span>1 MEW = 0.01 ERG</span>
 		</div>
-		
-		<div class="info-item">
-		  <h4>TOTAL ERG DEPOSITED</h4>
-		  <span>0 Σ</span>
-		</div>
-		
-		
 	  </div>
 	</div>
   </div>
+</div>
   
   <style>
+  	h4 {
+  		font-weight: bold;
+  	}
+
 	.staker-sale {
-	  font-family: Arial, sans-serif;
 	  color: #FFFFFF;
-	  padding: 20px;
 	  max-width: 1200px;
 	  margin: auto;
-	
 	  border-radius: 20px;
 	}
   
@@ -109,14 +92,10 @@
 		margin-bottom: 0;
 	  }
 	}
-  
-	h1, h2, h3, h4 {
-	  margin: 0;
-	  color: #f7d52c;
-	}
-  
-	h1 {
+   
+	h2 {
 	  font-size: 2.5em;
+	  color: #f7d52c;
 	}
   
 	.warning {

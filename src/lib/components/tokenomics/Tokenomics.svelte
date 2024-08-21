@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { clamp } from '$lib/utils/utils.js';
   
 	const segments = [
 	  { name: 'Presale', percentage: 35, color: '#00FFFF' },
@@ -66,7 +67,8 @@
 	  { name: "Tier 2", price: 15, mew: 15000 },
 	  { name: "Tier 3", price: 45, mew: 45000 },
 	  { name: "Tier 4", price: 150, mew: 150000 },
-	  { name: "Tier 5", price: 300, mew: 300000 }
+	  { name: "Tier 5", price: 300, mew: 300000 },
+	  { name: "Tier 6", price: 300, mew: 300000 }
 	];
   
 	let selectedPlan = plans[0]; // Default to Tier 1
@@ -75,10 +77,12 @@
 	  selectedPlan = plan;
 	}
   </script>
-<div class="tokenomics-container bg-custom-dark text-custom-light">
-	<h1 class="text-custom-cyan">TOKENOMICS</h1>
-	<h2 class="text-custom-yellow">Token Distribution</h2>
-  
+
+<div class="container p-0 top-margin text-custom-light mb-5">
+    <br>
+    <h1 class="section-title text-4xl font-bold text-custom-cyan text-center pt-2 mb-4">Tokenomics</h1>
+	<h2 class="text-custom-yellow text-center">Token Distribution</h2>
+  	<br>
 	<div class="content">
 	  <div class="chart-section">
 		<div class="chart-container">
@@ -130,15 +134,23 @@
 		  <div class="tier-info">
 			<h4 class="text-lg mb-2">{selectedPlan.name} details:</h4>
 			<ul>
-			  <li>Lock {selectedPlan.mew.toLocaleString()} MEW</li>
-			  <li>Staking booster: {0.5 * plans.indexOf(selectedPlan) + 0.5}%</li>
-			  <li>Sale allocation: {0.15 * (plans.indexOf(selectedPlan) + 1)}x</li>
+			  <li>DEX fee: {plans.indexOf(selectedPlan) < 5 ? '0.15%' : '0%'}</li>
+			  <li>Mart sale fee: {3.0 - 0.2 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
+			  <li>Mart list fee: {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} ERG</li>
+			  <li>Mart cancel fee: {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} ERG</li>
 			</ul>
 		  </div>
 		  <div class="tier-action">
-			<p class="text-sm text-gray-400 mb-2">Lock amount</p>
+			<p class="text-sm text-gray-200 mb-2">Lock amount</p>
 			<p class="text-3xl font-bold mb-2 text-custom-yellow">{selectedPlan.mew.toLocaleString()} MEW</p>
-			<p class="text-xl font-bold mb-4 text-custom-yellow">{selectedPlan.price} ERG</p>
+			{#if plans.indexOf(selectedPlan) == 5}
+			<p class="text-3xl font-bold mb-3 text-custom-yellow">+1 MEW NFT</p>
+			{:else}
+			<p class="text-3xl font-bold mb-3 text-custom-yellow"> </p>
+			{/if}
+			<!--
+			<p class="text-xl font-bold mb-4 text-custom-yellow">~{selectedPlan.price} ERG</p>
+			-->
 			<button class="lock-button bg-custom-yellow text-custom-dark">
 			  Lock now
 			</button>
@@ -146,19 +158,14 @@
 		</div>
 	  </div>
 	</div>
-  </div>
+</div>
   
   <style>
 	.tokenomics-container {
-	  font-family: Arial, sans-serif;
 	  padding: 13rem;
 	  text-align: center;
 	}
   
-	h1 {
-	  font-size: 2.5rem;
-	  margin-bottom: 0;
-	}
   
 	h2 {
 	  font-size: 1.5rem;
@@ -291,27 +298,4 @@
 	  }
 	}
   
-	.text-custom-cyan {
-	  color: #00FFFF;
-	}
-  
-	.text-custom-yellow {
-	  color: #FFD700;
-	}
-  
-	.bg-custom-dark {
-	  background-color: #0A0718;
-	}
-  
-	.bg-custom-purple {
-	  background-color: #4E215F;
-	}
-  
-	.bg-custom-yellow {
-	  background-color: #FFDF46;
-	}
-  
-	.text-custom-dark {
-	  color: #0A0718;
-	}
   </style>

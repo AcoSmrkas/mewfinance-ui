@@ -63,7 +63,9 @@
       <li class="text-lg {pageName == '' ? 'active' : ''}"><a href="./">Home</a></li>
       <li class="text-lg {pageName == 'tokenomics' ? 'active' : ''}"><a href="./tokenomics">Tokenomics</a></li>
       <li class="text-lg {pageName == 'presale' ? 'active' : ''}"><a href="./presale">Presale</a></li>
+      <!--
       <li class="text-lg {pageName == 'about' ? 'active' : ''}"><a href="./about">About</a></li>
+      -->
     </ul>
     <div class="flex items-center gap-4" style="margin-left: auto;flex: 0 1 auto; /* Allow items to have their natural widths */">
       <button type="button" on:click={toggleNav} class="d-block d-md-none navbar-toggler text-4xl"><i class="fa-solid fa-bars cursor-pointer"></i></button>
@@ -75,8 +77,10 @@
   transform: translateX(-50%);">
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == '' ? 'active' : ''}"><a href="./">   Home</a></li>
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'tokenomics' ? 'active' : ''}"><a href="./tokenomics">   Tokenomics</a></li>
-      <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'tokenomics' ? 'active' : ''}"><a href="./presale">   Presale</a></li>
+      <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'presale' ? 'active' : ''}"><a href="./presale">   Presale</a></li>
+      <!--
       <li class="leading-10 pb-2 text-lg {pageName == 'about' ? 'active' : ''}"><a href="./about">   About</a></li>
+      -->
     </ul>
   </div>
 </div>

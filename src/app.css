@@ -47,13 +47,12 @@ h2 {
 }
 
 .top-margin {
-  margin-top: 70px;
+  margin-top: 70px !important;
 }
 
 .container {
   max-width: 1140px;
   margin: 0 auto;
-  padding-top: 80px;
 }
 
 .section-title {
@@ -292,3 +291,24 @@ a {
 a:hover {
   color: var(--main-color) !important;
 }
+
+
+  .text-custom-cyan {
+    color: #00FFFF;
+  }
+  
+  .text-custom-yellow {
+    color: #FFD700;
+  }
+  
+  .bg-custom-purple {
+    background-color: #4E215F;
+  }
+  
+  .bg-custom-yellow {
+    background-color: #FFDF46;
+  }
+  
+  .text-custom-dark {
+    color: #0A0718;
+  }

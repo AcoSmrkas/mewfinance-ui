@@ -39,7 +39,10 @@
       const imageWidth = heroImage.offsetWidth;
       const imageHeight = heroImage.offsetHeight;
 
-      if (imageWidth == 0) return;
+      if (imageWidth == 0) {
+        setTimeout(updateStarPosition, 500);
+        return;
+      };
 
       let stars = [{
           x: 42.5,
@@ -273,8 +276,7 @@
     background-color: var(--main-color) ;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
 
   .card-content {
@@ -294,13 +296,13 @@
   .card-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #000000;
+    color: #0c0a18;
     margin-bottom: 10px;
   }
 
   .card-description {
     font-size: 1rem;
-    color: #000000;
+    color: #0c0a18;
   }
 
   .card-link:hover {
