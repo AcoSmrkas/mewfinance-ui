@@ -142,8 +142,12 @@
     </div>
 
     <div id="buttons-holder" class="px-4 px-md-0 flex justify-center flex-col space-y-4 space-x-0 sm:flex-row sm:space-y-0 sm:space-x-4">
-      <a target="_new" href="https://dex.mewfinance.com" class="btn px-5 py-3 btn-primary border-0"><span class="text-black">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span></a>
-      <a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-secondary border-0"><span class="text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span></a>
+      <!-- <a target="_new" href="https://dex.mewfinance.com" class="btn px-5 py-3 btn-primary border-0"> -->
+        <span class="disabled bg-gray-400 opacity-90 cursor-not-allowed rounded-lg px-5 py-3  border-0 text-black">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span>
+      <!-- </a> -->
+      <!-- <a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-secondary border-0"> -->
+        <span class="disabled bg-gray-400 opacity-90 cursor-not-allowed rounded-lg px-5 py-3  border-0 text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span>
+      <!-- </a> -->
     </div>
   </section>
 
@@ -152,12 +156,12 @@
       <div class="card mb-3 flex sm:flex-col lg:flex-row overflow-x-hidden">
         <div class="card-side sm:w-full lg:w-1/2 order-2 order-md-1"  style="background-color: var(--color-info);">
           <img src="dex.png">
-          <a href="https://dex.mewfinance.com" target="_new" class="card-link card-link-left">
-            <div class="card-content">
+          <!-- <a href="https://dex.mewfinance.com" target="_new" class="card-link card-link-left"> -->
+            <div class="disabled bg-gray-400 opacity-90 cursor-not-allowed card-link-left card-content">
               <h2 class="card-title">Launch DEX <i class="fa-solid fa-up-right-from-square"></i></h2>
               <p class="card-description">Swap tokens on the Ergo blockchain.</p>
             </div>
-          </a>
+          <!-- </a> -->
         </div>
         <div class="card-side sm:w-full lg:w-1/2 p-4 order-1 order-md-2">
           <h6 class="font-bold text-2xl text-white mb-3">DEX</h6>
@@ -172,12 +176,12 @@
         </div>
         <div class="card-side sm:w-full lg:w-1/2">
           <img src="https://i.pinimg.com/originals/f8/79/28/f879280dd2ea46948fec482792070bca.png">
-          <a href="https://mart.mewfinance.com" target="_new" class="card-link card-link-right">
-            <div class="card-content">
+          <!-- <a href="https://mart.mewfinance.com" target="_new" class="card-link card-link-right"> -->
+            <div class="disabled bg-gray-400 opacity-90 cursor-not-allowed card-link-right card-content">
               <h2 class="card-title">Launch Mart <i class="fa-solid fa-up-right-from-square"></i></h2>
               <p class="card-description">Trade assets on the Ergo blockchain.</p>
             </div>
-          </a>
+          <!-- </a> -->
         </div>
       </div>
     </div>
