@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { selected_wallet_ergo, connected_wallet_address } from '$lib/store/store.js';
+  import { selected_wallet_ergo, connected_wallet_address } from '$lib/store/store.ts';
   import { sleep, showCustomToast } from "$lib/utils/utils.js";
   import { connectErgoWallet } from "$lib/common/wallet.ts";
   import axios from 'axios';
@@ -202,7 +202,7 @@
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div 
-    class="rounded-lg p-4" style="background: var(--forms-bg)"
+    class="rounded-lg p-2 py-4 p-sm-4" style="background: var(--forms-bg)"
     on:click|stopPropagation>
     <div class="leading-6 pb-2 mb-3 text-white text-center font-bold w-100" style="font-family:'Manrope';font-size:1.5em;">Ergopay</div>
     <div id="qrcode" class="mb-2 border-2" style="border-color: var(--main-color)"></div>

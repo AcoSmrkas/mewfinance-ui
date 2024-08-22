@@ -10,7 +10,8 @@
 	}
   </script>
   
-  <div class="container p-0 top-margin text-custom-light mb-5">
+  <div class="h-full flex flex-col grow main-page">
+  <div class="container p-2 p-sm-4 top-margin text-custom-light mb-5">
     <br>
     <h1 class="section-title text-4xl font-bold text-custom-cyan text-center pt-2 mb-4">Presale</h1>
     <br>
@@ -58,6 +59,7 @@
 	  </div>
 	</div>
   </div>
+</div>
 </div>
   
   <style>

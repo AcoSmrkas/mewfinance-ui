@@ -78,7 +78,7 @@
 	}
   </script>
 
-<div class="container p-0 top-margin text-custom-light mb-5">
+<div class="container p-2 p-sm-4 top-margin text-custom-light mb-5">
     <br>
     <h1 class="section-title text-4xl font-bold text-custom-cyan text-center pt-2 mb-4">Tokenomics</h1>
 	<h2 class="text-custom-yellow text-center">Token Distribution</h2>
@@ -104,8 +104,8 @@
 			<span class="currency">$MEW</span>
 		  </div>
 		</div>
-  
-		<div class="allocation-details">
+  	
+		<div class="allocation-details mt-3">
 		  {#each segments as segment}
 			<div class="allocation-item" class:selected={selectedSegment === segment}>
 			  <div class="color-indicator" style="background-color: {segment.color};"></div>
@@ -151,9 +151,11 @@
 			<!--
 			<p class="text-xl font-bold mb-4 text-custom-yellow">~{selectedPlan.price} ERG</p>
 			-->
-			<button class="lock-button bg-custom-yellow text-custom-dark">
+			<a href="/profile">
+			<button class="btn btn-primary w-100">
 			  Lock now
 			</button>
+			</a>
 		  </div>
 		</div>
 	  </div>
@@ -224,6 +226,13 @@
 	  background-color: rgba(255, 255, 255, 0.1);
 	  padding: 0.5rem;
 	  border-radius: 0.5rem;
+	  width: 100%;
+	}
+
+	@media (min-width: 576px) {
+		.allocation-item {
+			width: 45%;
+		}
 	}
   
 	.color-indicator {

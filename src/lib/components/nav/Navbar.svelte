@@ -1,5 +1,6 @@
 <script>
   import { page } from '$app/stores';
+  import WalletButton from './WalletButton.svelte';
 
   let showModal = false;
   let walletConnected = false;
@@ -15,13 +16,6 @@
 
   function toggleModal() {
     showModal = !showModal;
-  }
-
-  // Function to handle wallet connection state change
-  function handleWalletConnection(connected) {
-    walletConnected = connected;
-    // Trigger refresh or additional actions here
-    console.log('Wallet connected:', connected);
   }
 
   function toggleNav() {
@@ -68,6 +62,7 @@
       -->
     </ul>
     <div class="flex items-center gap-4" style="margin-left: auto;flex: 0 1 auto; /* Allow items to have their natural widths */">
+      <WalletButton />
       <button type="button" on:click={toggleNav} class="d-block d-md-none navbar-toggler text-4xl"><i class="fa-solid fa-bars cursor-pointer"></i></button>
     </div>
   </div>

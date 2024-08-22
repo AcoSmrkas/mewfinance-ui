@@ -243,3 +243,12 @@ export function clamp(value, min, max) {
 export function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
+
+export function getCommonBoxIds(array1, array2) {
+    // Create sets of boxIds from both arrays
+    const set1 = new Set(array1.map(obj => obj.boxId));
+    const set2 = new Set(array2.map(obj => obj.boxId));
+
+    // Use filter and has method to find common boxIds
+    return Array.from(set1).filter(boxId => set2.has(boxId));
+}

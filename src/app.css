@@ -142,7 +142,7 @@ h2 {
 }
 
 .btn-info {
-  background-color: var(--main-color-buttons) !important;
+  background-color: #03e0fd !important;
   border: none;
   color: #EEE !important;
   font-weight: bold !important;
