@@ -21,6 +21,7 @@ export const offersMy = writable([]);
 export const assetsInfos = writable([]);
 export const totalBoxes = writable(0);
 export const mewTier = writable(0);
+export const mewStaked = writable(0);
 
 export const showNsfw = persistentWritable('showNsfw', false);
 
@@ -29,12 +30,15 @@ let selectedCategory, selectedAsset, selectedBundle, selectedSort, selectedSearc
 $: connected_wallet_address.subscribe(async (value) => {
   if (value == '') {
     mewTier.set(0);
+    mewStaked.set(0);
     return;
   }
 
-  const mewTierData = (await axios.post(`${API_HOST}staking/getDegenpadTier`, JSON.stringify([value]))).data.items[0];
+  const mewTierData = (await axios.get(`${API_HOST}mew/getStakeInfo?staker=${value}`)).data.items[0];
 
   mewTier.set(mewTierData.tier);
+  mewStaked.set(mewTierData.totalstaked);
+
   localStorage.setItem(MEW_TIER, get(mewTier));
 });
 

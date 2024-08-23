@@ -265,6 +265,10 @@ input{
   font-family: 'Azeret Mono';
 }
 
+.border-info {
+  border-color: var(--colof-info);
+}
+
 .bg-form {
   background: var(--forms-bg);
 }

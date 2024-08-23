@@ -48,61 +48,26 @@
       return;
     }
 
-    if (wallet != 'ergopay') {
-      try {
-        // Get ERG balance
-        balanceInNanoErg = await ergo.get_balance();
-        balanceErg = (+balanceInNanoErg / 10 ** 9).toFixed(2);
+    const balanceData =  await fetchConfirmedBalance($connected_wallet_address);
 
-        // Get wallet address
-        const addresses = await ergo.get_used_addresses();
-        if (addresses.length > 0) {
-          const address = addresses[0];
-          truncatedAddress = truncateAddress(address);
+    // Fetch balance from API
+    if (!balanceData) {
+      throw 'Failed to fetch balance';
+    }
+    
+    balanceInNanoErg = balanceData.nanoErgs;
+    balanceErg = (+balanceInNanoErg / 10 ** 9).toFixed(9);
 
-          // Fetch balance from API
-          const data = await fetchConfirmedBalance($connected_wallet_address);
+    const address = $connected_wallet_address;
+    truncatedAddress = address.substr(0, 6) + '...' + address.substr(address.length - 4);
 
-          if (!data) {
-            throw 'Failed to fetch balance';
-          }
-
-          // Find payment token
-          const paymentToken = data.tokens.find(token => token.tokenId === TOKEN_ID);
-
-          if (paymentToken) {
-            paymentTokenBalance = (paymentToken.amount / Math.pow(10, paymentToken.decimals)).toFixed(4);
-          } else {
-            paymentTokenBalance = '0.00';
-          }
-        }
-      } catch (error) {
-        console.error('Failed to fetch balance:', error);
-        showCustomToast('Failed to fetch balance', 3000, 'danger');
-      }
+    // Find payment token
+    const paymentToken = balanceData.tokens.find(token => token.tokenId === TOKEN_ID);
+    
+    if (paymentToken) {
+      paymentTokenBalance = nFormatter(paymentToken.amount / Math.pow(10, paymentToken.decimals), paymentToken.decimals);
     } else {
-        const balanceData =  await fetchConfirmedBalance($connected_wallet_address);
-
-        // Fetch balance from API
-        if (!balanceData) {
-          throw 'Failed to fetch balance';
-        }
-        
-        balanceInNanoErg = balanceData.nanoErgs;
-        balanceErg = (+balanceInNanoErg / 10 ** 9).toFixed(2);
-
-        const address = $connected_wallet_address;
-        truncatedAddress = address.substr(0, 6) + '...' + address.substr(address.length - 4);
-
-
-        // Find payment token
-        const paymentToken = balanceData.tokens.find(token => token.tokenId === TOKEN_ID);
-        
-        if (paymentToken) {
-          paymentTokenBalance = (paymentToken.amount / Math.pow(10, paymentToken.decimals)).toFixed(4);
-        } else {
-          paymentTokenBalance = '0.0000';
-        }
+      paymentTokenBalance = '0.0';
     }
   }
 
@@ -157,7 +122,7 @@
 </style>
 
 <div class="wallet-button gap-x-2">
-  <Tooltip show={showTooltip} message={$selected_wallet_ergo ? `<b style="color: var(--main-color); display:inline-block; width:100px;">Connection:</b> ${get(selected_wallet_ergo).charAt(0).toUpperCase() + get(selected_wallet_ergo).slice(1).toLowerCase()}\n<b style="color: var(--main-color); display:inline-block; width:100px;">Address:</b> ${truncatedAddress} \n <b style="color: var(--main-color); display:inline-block; width:100px;">ERG:</b> ${nFormatter(balanceErg, 9)}\n <b style="color: var(--main-color); display:inline-block;width:100px;">${TOKEN_NAME}:</b> ${paymentTokenBalance}\n <b style="color: var(--main-color); display:inline-block;width:100px;">MEW Tier: </b>${$mewTier}`
+  <Tooltip show={showTooltip} message={$selected_wallet_ergo ? `<b style="color: var(--main-color); display:inline-block; width:100px;">Connection:</b> ${get(selected_wallet_ergo).charAt(0).toUpperCase() + get(selected_wallet_ergo).slice(1).toLowerCase()}\n<b style="color: var(--main-color); display:inline-block; width:100px;">Address:</b> ${truncatedAddress} \n <b style="color: var(--main-color); display:inline-block; width:100px;">ERG:</b> ${nFormatter(balanceErg, 9)}\n <b style="color: var(--main-color); display:inline-block;width:100px;">${TOKEN_NAME}:</b> ${paymentTokenBalance}\n <b style="color: var(--main-color); display:inline-block;width:100px;">${TOKEN_NAME} Tier: </b>${$mewTier}`
                                       : "Connect your wallet to view details."}>
 {#if $selected_wallet_ergo}
   <button class="btn btn-secondary" style="text-wrap: nowrap;" on:click={clickOnNautilusButton}>

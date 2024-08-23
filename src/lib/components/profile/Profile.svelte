@@ -1,8 +1,8 @@
 <script lang="ts">
   import MyOrders from "$lib/components/main/MyOrders.svelte";
   import { TOKEN_DECIMALS, TOKEN_ID, TOKEN_NAME, CONTRACT, CONTRACT_CRC32, API_HOST } from '$lib/common/const.js';
-  import { offers, selected_wallet_ergo, connected_wallet_address, mewTier } from "$lib/store/store";
-  import { nFormatter, showCustomToast, getConnectedWalletAddress, isWalletConected, getCommonBoxIds } from '$lib/utils/utils.js';
+  import { offers, selected_wallet_ergo, connected_wallet_address, mewTier, mewStaked } from "$lib/store/store";
+  import { nFormatter, showCustomToast, getConnectedWalletAddress, isWalletConected, getCommonBoxIds, clamp } from '$lib/utils/utils.js';
   import { get } from 'svelte/store';
   import { stakeTx } from '$lib/contract/stakeTx.ts';
   import { ErgoAddress } from "@fleet-sdk/core";
@@ -87,41 +87,79 @@
     }
   }
 
+  function setMax() {
+    
+  }
+
   $: connected_wallet_address.subscribe(async (value) => {
     if (value == '') {
       walletConnected = false;
     } else {
       walletConnected = true;
-
-      let stakeData = (await axios.get(`${API_HOST}mew/getStakes?contract=${CONTRACT_CRC32}&staker=${get(connected_wallet_address)}&status=Stake`)).data.items;
-
-      const totalValue = stakeData.reduce((sum, item) => sum + parseInt(item.stakeamount), 0);
-
-      totalStaked = new BigNumber(totalValue).dividedBy(10 ** TOKEN_DECIMALS);
     }
   });
 
+  let tiers = [];
   onMount(async () => {
+    tiers = (await axios.get(`${API_HOST}mew/getTiers`)).data.items;
 
-  })
+    $mewTier = 0;
+  });
 
 </script>
 
 <div class="container p-2 p-sm-4 top-margin text-custom-light mb-5">
     <br>
-    <h1 class="section-title text-4xl font-bold text-custom-cyan text-center pt-2 mb-4">Profile</h1>
+    <h1 class="section-title text-4xl font-bold text-custom-cyan text-center pt-2 mb-5">Profile</h1>
   {#if walletConnected}
-    <p>Current {TOKEN_NAME} tier: {$mewTier}</p>
-    <p>Total {TOKEN_NAME} staked: {nFormatter(totalStaked)}</p>
-    <br>
-
-    <form class="form-group bg-purple-900 p-4 rounded-lg w-auto">
-      <h1 class="font-bold text-xl mb-2 text-yellow-400">Stake</h1>
-      <input style="width:100px;display:inline;" bind:value={mewAmount} type="number" class="form-control" /> {TOKEN_NAME}
-      <br>
-      <br>
-      <button class="btn btn-primary" on:click={stake}>Stake</button>
-    </form>
+    <div class="flex flex-col sm:flex-row space-x-0 sm:space-x-3 space-y-3 sm:space-y-0">
+      <div class="flex-1 form-group bg-form p-3 p-md-4 rounded-lg w-auto">
+          <div class="flex flex-col lg:flex-row space-x-0 lg:space-x-3 space-y-4 lg:space-y-0">
+            <div class="flex-1">
+              <h1 class="font-bold text-2xl mb-3 text-yellow-400">Info</h1>
+              <p><b class="inline-block w-[150px]"><span class="text-primary">{TOKEN_NAME}</span> tier:</b> {$mewTier}</p>
+              <p><b class="inline-block w-[150px]">Total <span class="text-primary">{TOKEN_NAME}</span> staked:</b> {nFormatter($mewStaked)}</p>
+            </div>
+            <div class="flex-1">
+              <h1 class="font-bold text-2xl mb-3 text-yellow-400">Benefits</h1>
+              <ul>
+                <li><b class="inline-block w-[150px]">DEX fee:</b> {$mewTier < 5 ? '0.15%' : '0%'}</li>
+                <li><b class="inline-block w-[150px]">Mart sale fee:</b> {3.0 - 0.2 * clamp($mewTier, 0, 5)}%</li>
+                <li><b class="inline-block w-[150px]">Mart list fee:</b> {$mewTier < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
+                <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {$mewTier < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
+              </ul>
+            </div>
+          </div>
+          {#if $mewTier != 6 && tiers.length != 0}
+            <div class="p-3 mt-4 border-2 border-info rounded-lg">
+            <p class="mb-2"><b class="">Next <span class="text-primary">{TOKEN_NAME}</span> tier at:</b> {nFormatter(tiers[$mewTier].amount)} <span class="text-primary font-bold">{TOKEN_NAME}</span></p>
+                          <h1 class="font-bold text-xl mb-2 text-yellow-400">Benefits</h1>
+              <ul class="mb-3">
+                <li><b class="inline-block w-[150px]">DEX fee:</b> {($mewTier + 1) < 5 ? '0.15%' : '0%'}</li>
+                <li><b class="inline-block w-[150px]">Mart sale fee:</b> {3.0 - 0.2 * clamp(($mewTier + 1), 0, 5)}%</li>
+                <li><b class="inline-block w-[150px]">Mart list fee:</b> {($mewTier + 1) < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
+                <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {($mewTier + 1) < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
+              </ul>
+            <a target="_new" href="https://dex.mewfinance.com">
+              <button class="btn btn-primary mx-auto block mb-2">Buy</button>
+            </a>
+            </div>
+          {/if}
+      </div>
+      <div class="flex-1 form-group bg-form  p-3 p-md-4 rounded-lg w-auto" style="height: fit-content;">
+      <form class="">
+        <h1 class="font-bold text-2xl mb-3 text-yellow-400">Stake</h1>
+        <div class="form-section">
+          <label class="block text-sm font-medium mb-2" for="token">Amount:</label>
+          <div class="p-0 flex mb-4 w-100 max-w mx-auto">
+            <input id="token" bind:value={mewAmount} class="p-0 h-[50px] w-100 border-0 text-white focus-primary p-3" style="border-radius: 10px 0 0 10px" type="text" placeholder="Search by seller address...">
+            <button on:click={setMax} class="justify-center h-[50px] btn btn-lg btn-primary" style="border-radius: 0 10px 10px 0 !important;" type="button">MAX</button>
+          </div>
+        </div>
+        <button class="btn btn-primary block mx-auto" on:click={stake}>Stake</button>
+      </form>
+      </div>
+    </div>
 
     <h2 class="section-title text-3xl font-bold text-white pt-2">My Stake</h2>
     <div class="offers-container my-orders">
