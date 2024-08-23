@@ -157,7 +157,13 @@
     connectedWalletAddress = await getConnectedWalletAddress();
    
     offer.stakeassetname = TOKEN_NAME;
-    offer.stakeamount = parseFloat(nFormatter(new BigNumber(offer.stakeamount / 10 ** TOKEN_DECIMALS) , TOKEN_DECIMALS));
+    let stakeAmount = new BigNumber(offer.stakeamount);
+
+    if (TOKEN_DECIMALS > 0) {
+      stakeAmount = stakeAmount.dividedBy(10 ** TOKEN_DECIMALS);
+    }
+
+    offer.stakeamount = stakeAmount.toString();
     offer.stakeasseturl = `https://ergexplorer.com/token/${TOKEN_ID}`;
 
     await updateOffer();
@@ -204,7 +210,7 @@
       <div class="pt-2 flex justify-between items-center">
         <div class="w-100">
           <span class="text-sm text-light">Amount</span>          
-            <span class="font-bold float-right">{nFormatter(offer.stakeamount)}
+            <span class="font-bold float-right">{nFormatter(offer.stakeamount, TOKEN_DECIMALS)}
               {#if offer.stakeasseturl}<a target="_new" href="{offer.stakeasseturl}" class="text-primary">{offer.stakeassetname ? offer.stakeassetname : 'ERG'}</a>
               {:else}
                 <span class="text-primary">{offer.stakeassetname ? offer.stakeassetname : 'ERG'}</span>
