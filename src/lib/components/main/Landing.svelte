@@ -174,8 +174,10 @@
           <h6 class="font-bold text-2xl text-white mb-3">Mart</h6>
             <p class="text-white text-xl text-justify leading-8">Picture a cute asset trading service where every transaction feels like a charming game. The platform is filled soft pastel colors, making the experience of buying, selling, and managing your assets both fun and inviting. The user-friendly interface is designed to feel like a playful adventure, where each trade is a step on your journey. Whether you're a seasoned investor or just starting, this service adds a touch of whimsy to the world of asset trading..</p>
         </div>
-        <div class="card-side sm:w-full lg:w-1/2">
-          <img src="https://i.pinimg.com/originals/f8/79/28/f879280dd2ea46948fec482792070bca.png">
+        <div class="card-side sm:w-full lg:w-1/2 order-2 order-md-1" >
+          <div style="background-color: #d8fd03;">
+          <img src="mart.png">
+          </div>
           <!-- <a href="https://mart.mewfinance.com" target="_new" class="card-link card-link-right"> -->
             <div class="disabled bg-gray-400 opacity-90 cursor-not-allowed card-link-right card-content">
               <h2 class="card-title">Launch Mart <i class="fa-solid fa-up-right-from-square"></i></h2>
