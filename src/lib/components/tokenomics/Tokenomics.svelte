@@ -78,9 +78,9 @@
 	}
   </script>
 
-<div class="container p-2 p-sm-4 top-margin text-custom-light mb-5">
+<div class="container top-margin text-custom-light mb-5">
     <br>
-    <h1 class="section-title text-4xl font-bold text-custom-cyan text-center pt-2 mb-4">Tokenomics</h1>
+    <h1 class="section-title text-4xl font-bold text-white text-center pt-2 mb-4">Tokenomics</h1>
 	<h2 class="text-custom-yellow text-center">Token Distribution</h2>
   	<br>
 	<div class="content">
@@ -100,8 +100,8 @@
 			{/each}
 		  </svg>
 		  <div class="center-text">
-			<span class="amount">1,000,000,000</span>
-			<span class="currency">$MEW</span>
+			<span class="amount text-white">1,000,000,000</span>
+			<span class="currency font-bold text-primary">MEW</span>
 		  </div>
 		</div>
   	
@@ -118,7 +118,7 @@
 		</div>
 	  </div>
   
-	  <div class="tier-section bg-custom-purple rounded-lg p-6">
+	  <div class="tier-section bg-form rounded-lg p-6">
 		<h3 class="text-xl mb-4 text-custom-yellow">Choose a tier plan:</h3>
 		<div class="tier-buttons mb-6">
 		  {#each plans as plan}
@@ -132,12 +132,12 @@
 		</div>
 		<div class="tier-details">
 		  <div class="tier-info">
-			<h4 class="text-lg mb-2">{selectedPlan.name} details:</h4>
+			<h4 class="text-lg mb-2"><b class="text-primary">{selectedPlan.name}</b> details:</h4>
 			<ul>
-			  <li>DEX fee: {plans.indexOf(selectedPlan) < 5 ? '0.15%' : '0%'}</li>
-			  <li>Mart sale fee: {3.0 - 0.2 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
-			  <li>Mart list fee: {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} ERG</li>
-			  <li>Mart cancel fee: {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} ERG</li>
+			  <li><b>DEX fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.15%' : '0%'}</li>
+			  <li><b>Mart sale fee:</b> {3.0 - 0.2 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
+			  <li><b>Mart list fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} <b class="text-primary">ERG</b></li>
+			  <li><b>Mart cancel fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} <b class="text-primary">ERG</b></li>
 			</ul>
 		  </div>
 		  <div class="tier-action">
@@ -223,7 +223,7 @@
 	.allocation-item {
 	  display: flex;
 	  align-items: center;
-	  background-color: rgba(255, 255, 255, 0.1);
+	  background-color: var(--forms-bg);
 	  padding: 0.5rem;
 	  border-radius: 0.5rem;
 	  width: 100%;
@@ -257,13 +257,14 @@
 	.tier-button {
 	  padding: 0.5rem 1rem;
 	  border-radius: 0.25rem;
-	  background-color: rgba(255, 255, 255, 0.1);
+	  background-color: var(--footer);
 	  color: #D3D0E7;
 	  transition: background-color 0.3s;
 	}
   
 	.tier-button.active {
-	  background-color: #2B1640;
+	  background-color: var(--main-color);
+	  color: var(--background);
 	}
   
 	.tier-details {

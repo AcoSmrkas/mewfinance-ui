@@ -43,6 +43,7 @@
       showErgopayModal = true;
     }
   }
+  
   async function loadBalance(wallet) {
     if (!selected_wallet_ergo || !wallet) {
       return;

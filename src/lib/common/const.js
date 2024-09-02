@@ -1,9 +1,9 @@
 export const MIN_ERG_VAL = 1000000;		// 0.001 ERG
 
 export const ITEMS_PER_PAGE = 30;
-export const TOKEN_DECIMALS = 0;
+export const TOKEN_DECIMALS = 2;
 export const TOKEN_ID = 'f0d5bdf474fcbd4249608e6dc6e9cf34a327b218f66445ea545b4c711b4676e3';
-export const TOKEN_NAME = 'COS';
+export const TOKEN_NAME = 'MEW';
 export const DEV_FEE_DENOM = 10000;
 export const ERG_DEV_FEE = 10000;
 export const VIP_MEW_TIER = 6;

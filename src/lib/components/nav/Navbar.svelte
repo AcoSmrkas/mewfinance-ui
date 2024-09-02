@@ -45,7 +45,7 @@
 <div id="navbar"
   class="backdrop-blur-sm z-10 fixed items-center w-full h-[112px]" style="padding-top:25px; background: #0c0a18dd; transition: all 0.5s ease;"
 >
-  <div class="flex relative items-center justify-between nav-container ps-3 pe-3 ps-sm-4 pe-sm-4" style="  display: flex;
+  <div class="flex relative items-center justify-between nav-container" style="  display: flex;
   justify-content: space-between;
   align-items: center; /* Optional: for vertical centering if needed */">
     <a href="/" class="flex items-center gap-2" style="margin-right: auto;flex: 0 1 auto; /* Allow items to have their natural widths */">

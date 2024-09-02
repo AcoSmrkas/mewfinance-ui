@@ -252,3 +252,23 @@ export function getCommonBoxIds(array1, array2) {
     // Use filter and has method to find common boxIds
     return Array.from(set1).filter(boxId => set2.has(boxId));
 }
+
+export function parseDate(dateString) {
+  const components = dateString.split(/[- :]/);
+  return new Date(Date.UTC(
+    components[0], components[1] - 1, components[2],
+    components[3], components[4], components[5]
+  ));
+} 
+
+export function getCurrentUTCDate() {
+    const currentDate = new Date();
+    return new Date(Date.UTC(
+        currentDate.getUTCFullYear(), 
+        currentDate.getUTCMonth(), 
+        currentDate.getUTCDate(),
+        currentDate.getUTCHours(),
+        currentDate.getUTCMinutes(),
+        currentDate.getUTCSeconds()
+    ));
+}

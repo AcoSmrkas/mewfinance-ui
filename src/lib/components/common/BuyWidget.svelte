@@ -390,34 +390,6 @@
     margin-top: 20px;
   }
 
-  .btn {
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .btn-primary {
-    background-color: #4b3f72; /* Adjusted button color for visibility */
-    color: white;
-    width: 100%;
-  }
-
-  .btn-secondary {
-    background-color: #6c757d;
-    color: white;
-    margin-left: 10px;
-  }
-
-  .btn-primary:hover {
-    background-color: #3e2b59;
-  }
-
-  .btn-secondary:hover {
-    background-color: #5a6268;
-  }
-
   .invalid-offer-message {
     text-align: center;
     padding: 20px;

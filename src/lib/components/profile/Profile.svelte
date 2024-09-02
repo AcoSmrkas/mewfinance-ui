@@ -6,7 +6,8 @@
   import { get } from 'svelte/store';
   import { stakeTx } from '$lib/contract/stakeTx.ts';
   import { ErgoAddress } from "@fleet-sdk/core";
-  import { fetchBoxes, getBlockHeight, fetchContractBoxFromTx, updateTempBoxes } from '$lib/api-explorer/explorer.ts';
+  import ErgopayModal from '$lib/components/common/ErgopayModal.svelte';
+  import { fetchBoxes, getBlockHeight, fetchContractBoxFromTx, updateTempBoxes, fetchConfirmedBalance } from '$lib/api-explorer/explorer.ts';
   import { BigNumber } from 'bignumber.js';
   import { onMount } from "svelte";
   import axios from 'axios';
@@ -19,10 +20,34 @@
   let isAuth = false;
   let showErgopayModal = false;
   let totalStaked = 0;
+  let paymentTokenBalance = 0;
 
   function toggleModal() {
     showModal = !showModal;
   }
+
+  async function loadBalance(wallet) {
+    if (!selected_wallet_ergo || !wallet) {
+      return;
+    }
+
+    const balanceData =  await fetchConfirmedBalance($connected_wallet_address);
+
+    // Fetch balance from API
+    if (!balanceData) {
+      throw 'Failed to fetch balance';
+    }
+    
+    // Find payment token
+    const paymentToken = balanceData.tokens.find(token => token.tokenId === TOKEN_ID);
+    
+    if (paymentToken) {
+      paymentTokenBalance = paymentToken.amount / Math.pow(10, paymentToken.decimals), paymentToken.decimals;
+    } else {
+      paymentTokenBalance = "0".toFixed(paymentToken.decimals);
+    }
+  }
+
 
   async function stake() {
         const selectedWalletErgo = get(selected_wallet_ergo);
@@ -88,7 +113,7 @@
   }
 
   function setMax() {
-    
+    mewAmount = paymentTokenBalance;
   }
 
   $: connected_wallet_address.subscribe(async (value) => {
@@ -96,6 +121,7 @@
       walletConnected = false;
     } else {
       walletConnected = true;
+      loadBalance($selected_wallet_ergo)
     }
   });
 
@@ -108,9 +134,9 @@
 
 </script>
 
-<div class="container p-2 p-sm-4 top-margin text-custom-light mb-5">
+<div class="container top-margin text-white mb-5">
     <br>
-    <h1 class="section-title text-4xl font-bold text-custom-cyan text-center pt-2 mb-5">Profile</h1>
+    <h1 class="section-title text-4xl font-bold text-white  text-center pt-2 mb-5">Profile</h1>
   {#if walletConnected}
     <div class="flex flex-col sm:flex-row space-x-0 sm:space-x-3 space-y-3 sm:space-y-0">
       <div class="flex-1 form-group bg-form p-3 p-md-4 rounded-lg w-auto">
@@ -150,7 +176,7 @@
       <form class="">
         <h1 class="font-bold text-2xl mb-3 text-yellow-400">Stake</h1>
         <div class="form-section">
-          <label class="block text-sm font-medium mb-2" for="token">Amount:</label>
+          <label class="block text-sm font-medium mb-2" for="token"><b class="text-primary">{TOKEN_NAME}</b> Amount:</label>
           <div class="p-0 flex mb-4 w-100 max-w mx-auto">
             <input id="token" bind:value={mewAmount} class="p-0 h-[50px] w-100 border-0 text-white focus-primary p-3" style="border-radius: 10px 0 0 10px" type="text" placeholder="Search by seller address...">
             <button on:click={setMax} class="justify-center h-[50px] btn btn-lg btn-primary" style="border-radius: 0 10px 10px 0 !important;" type="button">MAX</button>
@@ -170,6 +196,13 @@
     <p>Please connect wallet to see your profile.</p>
   {/if}  
 </div>
+
+{#if showErgopayModal}
+ <ErgopayModal bind:showErgopayModal bind:isAuth bind:unsignedTx>
+   <button slot="btn">Close</button>
+ </ErgopayModal>
+{/if}
+
 
 <style>
   .section-title {

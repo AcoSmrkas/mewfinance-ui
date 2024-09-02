@@ -4,10 +4,10 @@
 
 :root {
   --main-color: #f9d72d;
-  --secondary-color: #d5a0a133;
+  --secondary-color: #fff;
   --main-color-buttons: #ddf247;
-  --main-color-hover: #fff;
-  --color-info: #03e0fd;
+  --main-color-hover: var(--info-color);
+  --info-color: #04dfff;
 
   --striped-1: #141a2a;
   --striped-2: #192033;
@@ -47,7 +47,7 @@ h2 {
 }
 
 .top-margin {
-  margin-top: 70px !important;
+  margin-top: 80px !important;
 }
 
 .container {
@@ -96,12 +96,14 @@ h2 {
 }
 
 .btn {
+  border: unset;  
+  padding: 10px 20px;
   border-radius: 12px !important;
   font-size: 0.9em !important;
 }
 
 .btn-big {
-  padding: 30px 30px !important;    
+  padding: 15px 30px !important;     
 }
 
 .btn-primary {
@@ -117,14 +119,14 @@ h2 {
 }
 
 .btn-secondary {
-  background-color: var(--main-color-hover) !important;
+  background-color: var(--secondary-color) !important;
   color: var(--background) !important;
   font-weight: bold !important;
   text-transform: unset !important;
 }
 
 .btn-secondary:hover {
-  background-color: var(--main-color) !important;
+  background-color: var(--main-color-hover) !important;
   border-color: var(--main-color-hover) !important;
 }
 
@@ -315,4 +317,10 @@ a:hover {
   
   .text-custom-dark {
     color: #0A0718;
+  }
+
+  
+  .loading-holder {
+    margin-top: 200px;
+    min-height: 500px;
   }

@@ -9,7 +9,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <dialog
-  class="bg-transparent border-0"
+  class="bg-transparent border-2 border-info"
   bind:this={dialog}
   on:close={() => {showWalletsModal = false}}
 >
