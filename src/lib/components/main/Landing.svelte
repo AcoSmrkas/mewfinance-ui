@@ -86,114 +86,223 @@
     window.addEventListener('load', updateStarPosition);
     window.addEventListener('resize', updateStarPosition);
   });
+  const partners = [
+    { 
+        name: 'Cyberverse', 
+        logo: 'https://static.wikia.nocookie.net/cyberverse/images/5/54/Cyberverse_Logo.png', 
+        url: 'https://cyberverse.io/', 
+        description: 'Cyberverse is a next-gen blockchain platform focused on immersive experiences.' 
+    },
+    { 
+        name: 'RosenBridge', 
+        logo: 'https://rosen.tech/assets/logo/rosen-logo.svg', 
+        url: 'https://rosen.tech/', 
+        description: 'RosenBridge connects various blockchain networks for seamless interoperability.' 
+    },
+    { 
+        name: 'Crooks-finance', 
+        logo: 'https://crooks-fi.com/images/logo.png', 
+        url: 'https://crooks-fi.com/', 
+        description: 'Crooks-finance is a decentralized finance platform for secure and fast transactions.' 
+    },
+    { 
+        name: 'Bober', 
+        logo: 'https://bobertoken.io/img/bober.webp', 
+        url: 'https://bobertoken.io/', 
+        description: 'Bober is a community-driven token with unique rewards and staking features.' 
+    },
+];
+
+  const reviews = [
+  { name: 'Kushti', content: 'MewFinance has revolutionized my crypto trading experience. The interface is intuitive and the features are top-notch!', rating: 5 },
+  { name: 'Andruis', content: 'I love how easy it is to use the Mart feature. It\'s made asset trading so much more accessible for me.', rating: 4 },
+  { name: 'Maverick', content: 'The DEX is incredibly fast and efficient. MewFinance has become my go-to platform for all my crypto needs.', rating: 5 }
+];
+const supportedChains = [
+    { name: 'Ethereum', logo: '/path/to/ethereum-logo.png' },
+    { name: 'Binance Smart Chain', logo: '/path/to/bsc-logo.png' },
+    { name: 'Polygon', logo: '/path/to/polygon-logo.png' },
+    { name: 'Avalanche', logo: '/path/to/avalanche-logo.png' }
+  ];
+    document.querySelectorAll('[data-tooltip-target]').forEach(function (element) {
+    const tooltipId = element.getAttribute('data-tooltip-target');
+    const tooltip = document.getElementById(tooltipId);
+
+    element.addEventListener('mouseenter', function () {
+      tooltip.classList.remove('invisible');
+    });
+
+    element.addEventListener('mouseleave', function () {
+      tooltip.classList.add('invisible');
+    });
+  });
 
 </script>
-
 <div class="container p-0 p-xl-0 mb-3 lg:mb-0">  
-  <section class="top-margin relative h-auto">
-    <div class="image-wrapper relative">
-      <img id="hero-image" src="hero.png" class="absolute hero-image">
-      <div class="full-gradient">
-        
-      </div>
-      <div id="star-overlay-1" class="star-overlay d-none d-sm-block">
-        <a target="_new" href="https://ergexplorer.com/token/b0b312cde931c8bbdac0dac5bfd8e2c03bf4611275dc967988c8d15bd5ec20e0">
-          <img src="https://i.imgur.com/jGbzNci.png" class="token-float float-start-1">
-        </a>
-      </div>
 
-      <div id="star-overlay-2" class="star-overlay d-none d-sm-block">
-        <a target="_new" href="https://ergexplorer.com/token/01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f">
-          <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f.svg" class="token-float float-start-2">
-        </a>
-      </div>
 
-      <div id="star-overlay-3" class="star-overlay d-none d-sm-block">
-        <a target="_new" href="https://ergexplorer.com/token/8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b">
-          <img src="https://spectrum.fi/logos/ergo/8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b.svg" class="token-float float-start-3">
-        </a>
-      </div>
-
-      <div id="star-overlay-4" class="star-overlay d-none d-sm-block">
-        <a target="_new" href="https://ergexplorer.com/token/9a06d9e545a41fd51eeffc5e20d818073bf820c635e2a9d922269913e0de369d">
-          <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo/9a06d9e545a41fd51eeffc5e20d818073bf820c635e2a9d922269913e0de369d.svg" class="token-float float-start-4" style="width: 40px; height: 40px;">
-        </a>
-      </div>
-
-      <div id="star-overlay-5" class="star-overlay d-none d-sm-block">
-        <a target="_new" href="https://ergexplorer.com/token/e023c5f382b6e96fbd878f6811aac73345489032157ad5affb84aefd4956c297">
-          <img src="https://raw.githubusercontent.com/spectrum-finance/token-logos/2dee6788e99d2420a41447139db9afdc4b442948/logos/ergo/token-ada.svg" class="token-float float-start-5" style="width: 40px; height: 40px;">
-        </a>
-      </div>
-
-      <div id="star-overlay-6" class="star-overlay d-none d-sm-block">
-        <a target="_new" href="https://ergexplorer.com/token/7a51950e5f548549ec1aa63ffdc38279505b11e7e803d01bcf8347e0123c88b0">
-          <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" class="token-float float-start-6" style="width: 35px; height: 35px;">
-        </a>
-      </div>
-    </div>
-
-    <div id="title-holder" class="title-holder absolute left-1/2 max-w-screen-xl">
-      <div class="text-center mr-auto place-self-center lg:col-span-7">
-        <h1 class="text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-extrabold" style="font-family:'Manrope';">
-          {@html LOGO_TEXT}
+<!-- Section 2 -->
+<section class="px-2 py-32 md:px-0">
+<div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+  <div class="flex flex-wrap items-center sm:-mx-3">
+    <div class="w-full md:w-1/2 md:px-3">
+      <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+          <span class="block xl:inline text-white">Non-custodial</span>
+          <span class="block text-main-color xl:inline">Decentralized Tradehouse on Ergo.</span>
+          
         </h1>
+        <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">It's never been easier to build beautiful websites that convey your message and tell your story.</p>
+   
       </div>
     </div>
-
-    <div id="buttons-holder" class="px-4 px-md-0 flex justify-center flex-col space-y-4 space-x-0 sm:flex-row sm:space-y-0 sm:space-x-4">
-      <!-- <a target="_new" href="https://dex.mewfinance.com" class="btn px-5 py-3 btn-primary border-0"> -->
-        <span class="disabled bg-gray-400 opacity-90 cursor-not-allowed rounded-lg px-5 py-3  border-0 text-black">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span>
-      <!-- </a> -->
-<a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-primary border-0">
-        <span class="border-0 text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span>
-      </a>
+    <div class="w-full md:w-1/2">
+      <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
+          <img src="hero.png">
+        </div>
     </div>
-  </section>
+  </div>
+</div>
+</section>
 
-  <section class="relative mt-4 mb-1 p-2 p-sm-4 overflow-x-hidden">
-    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-4 overflow-x-hidden">
-      <div class="card mb-3 flex sm:flex-col lg:flex-row overflow-x-hidden">
-        <div class="card-side sm:w-full lg:w-1/2 order-2 order-md-1"  style="background-color: var(--info-color);">
-          <img src="dex.png">
-          <!-- <a href="https://dex.mewfinance.com" target="_new" class="card-link card-link-left"> -->
-            <div class="disabled bg-gray-400 opacity-90 cursor-not-allowed card-link-left card-content">
-              <h2 class="card-title">Launch DEX <i class="fa-solid fa-up-right-from-square"></i></h2>
-              <p class="card-description">Swap tokens on the Ergo blockchain.</p>
-            </div>
-          <!-- </a> -->
-        </div>
-        <div class="card-side sm:w-full lg:w-1/2 p-4 order-1 order-md-2">
-          <h6 class="font-bold text-2xl text-white mb-3">DEX</h6>
-          <p class="text-white text-lg text-justify leading-8">Imagine a cute and playful crypto DEX where transactions happen in a vibrant, colorful world. This DEX is designed to make trading crypto fun and accessible, with easy-to-use interfaces and whimsical visuals that bring a smile to your face. Whether you're swapping tokens or staking your assets, the experience feels like a delightful adventure, combining the thrill of crypto trading with engaging environment. Perfect for both beginners and seasoned traders who want to add a touch of joy to their crypto journey!</p>
-        </div>
-      </div>
-
-      <div class="card flex sm:flex-col lg:flex-row">
-        <div class="card-side sm:w-full lg:w-1/2 p-4">
-          <h6 class="font-bold text-2xl text-white mb-3">Mart</h6>
-            <p class="text-white text-lg text-justify leading-8">Picture a cute asset trading service where every transaction feels like a charming game. The platform is filled soft pastel colors, making the experience of buying, selling, and managing your assets both fun and inviting. The user-friendly interface is designed to feel like a playful adventure, where each trade is a step on your journey. Whether you're a seasoned investor or just starting, this service adds a touch of whimsy to the world of asset trading..</p>
-        </div>
-        <div class="card-side sm:w-full lg:w-1/2 order-2 order-md-1" >
-          <div style="background-color: #d8fd03;">
-          <img src="mart.png">
+  <section class="relative mt-8 mb-4 px-4 max-w-6xl mx-auto">
+    <!-- Content for your DEX and Mart sections -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden shadow-lg border border-purple-500 transform hover:scale-105 transition-transform duration-300">
+        <div class="relative h-48 bg-cyan-300 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <img src="dex.png" alt="DEX" class="object-contain max-w-full max-h-full">
           </div>
-          <a href="https://mart.mewfinance.com" target="_new" class="card-link card-link-right">            <div class="card-content">
-              <h2 class="card-title">Launch Mart <i class="fa-solid fa-up-right-from-square"></i></h2>
-              <p class="card-description">Trade assets on the Ergo blockchain.</p>
-            </div>
+          <div class="absolute inset-0 bg-[url('path/to/stars-bg.png')] opacity-50"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-cyan-300 mb-2">DEX</h3>
+          <p class="text-purple-200 mb-4">Looking for a one-stop place to trade all Ergo native and wrapped assets with low fees?</p>
+          <button class="btn btn-primary w-full">
+            Launch DEX <i class="fa-solid fa-rocket ml-2"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden shadow-lg border border-purple-500 transform hover:scale-105 transition-transform duration-300">
+        <div class="relative h-48 bg-yellow-300 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <img src="mart.png" alt="Mart" class="object-contain max-w-full max-h-full">
+          </div>
+          <div class="absolute inset-0 bg-[url('path/to/stars-bg.png')] opacity-50"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Mart</h3>
+          <p class="text-purple-200 mb-4">Tradehouse | Marketplace to trade assets as individual sales and bundle packs and payments in native and wrapped assets.</p>
+          <a href="https://mart.mewfinance.com" target="_new" class="btn btn-primary w-full">
+            Launch Mart <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
     </div>
   </section>
+  
+  <!-- Partners Section -->
+  <section class="partners mt-16 p-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Partners</h2>
+    <div class="partners-container">
+      {#each partners as partner}
+        <div class="partner-logo p-4">
+          <img src={partner.logo} alt={partner.name} class="w-full h-auto mb-4">
+          <a href={partner.url} class="block text-center">
+            <h3 class="font-semibold">{partner.name}</h3>
+          </a>
+        </div>
+      {/each}
+    </div>
+  </section>
+
+  <!-- User Reviews Section -->
+  <section class="user-reviews mt-16 p-4">
+    <h2 class="text-3xl font-bold text-center mb-8">What Our Users Say</h2>
+    <div class="reviews-container">
+      {#each reviews as review}
+        <div class="review-card p-6 rounded-lg shadow-lg" style="background: var(--forms-bg);">
+          <div class="flex items-center mb-4">
+            <div>
+              <h3 class="font-semibold">{review.name}</h3>
+              <div class="flex">
+                {#each Array(5) as _, i}
+                  <span class="text-yellow-400">{i < review.rating ? '★' : '☆'}</span>
+                {/each}
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-300">{review.content}</p>
+        </div>
+      {/each}
+    </div>
+  </section>
 </div>
 
 <style>
+  .text-main-color {
+  color: var(--main-color); /* Use the variable for text color */
+}
   #title-holder {
     z-index: 3;
   }
+/* General card styling */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
 
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tooltip styling */
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+.tooltip-content {
+  display: none;
+  white-space: nowrap;
+  z-index: 20;
+  top: -10px; /* Adjust as needed */
+  right: 0;
+  width: 300px; /* Adjust width as needed */
+}
+
+.tooltip-container .tooltip-icon:focus + .tooltip-content,
+.tooltip-container .tooltip-icon:hover + .tooltip-content {
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (min-width: 1024px) {
+  .card {
+    display: flex;
+  }
+  
+  .card-side {
+    padding: 16px;
+  }
+  
+  .card-side img {
+    max-width: 150px;
+  }
+}
   .title-holder {
     transform: translateX(-50%);
     width: 100%;
@@ -213,8 +322,65 @@
     height: 100%;
     width: auto;
     max-width: none;
+  }.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack image and text vertically */
+    padding: 10px; /* Reduced padding around the logos */
+    background-color: var(--forms-bg); /* Light gray background for each logo */
+    border-radius: 8px; /* Rounded corners for each logo container */
+    transition: transform 0.1s ease;
+    max-width: 150px; /* Set a maximum width for the logo containers */
+}
+
+.partner-logo img {
+    max-width: 100px; /* Limit the image size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 8px; /* Add space between the image and the text */
+}
+
+.partners-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 16px; /* Add some padding to the bottom to prevent the scrollbar from overlapping content */
+    scroll-snap-type: x mandatory;
+    gap: 16px; /* Adjust the gap between the partner logos */
+}
+
+.partner-logo {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    text-align: center; /* Center-align text below the image */
+    font-size: 14px; /* Adjust font size if needed */
+}
+  .reviews-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 16px; /* Add some padding to the bottom to prevent the scrollbar from overlapping content */
+    scroll-snap-type: x mandatory;
+    gap: 16px; /* Adjust the gap between the reviews */
   }
 
+  .review-card {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    width: 100%; /* Make the review card width more flexible for scrolling */
+    max-width: 300px; /* Optional: Limit the max width of each review card */
+  }
+
+  @media (min-width: 1024px) {
+    .partners-container, .reviews-container {
+      overflow-x: hidden; /* Hide overflow on larger screens */
+      flex-wrap: wrap; /* Allow wrapping on larger screens */
+    }
+
+    .partner-logo, .review-card {
+      flex: 1 0 21%; /* Display items in a row with wrapping */
+    }
+  }
   .star-overlay {
     position: absolute;
     z-index: 2;
