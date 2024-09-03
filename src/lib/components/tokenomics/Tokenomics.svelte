@@ -152,7 +152,7 @@
 			<p class="text-xl font-bold mb-4 text-custom-yellow">~{selectedPlan.price} ERG</p>
 			-->
 			<a href="/profile">
-			<button class="btn btn-primary w-100">
+			<button class="btn btn-primary btn-big w-100">
 			  Lock now
 			</button>
 			</a>

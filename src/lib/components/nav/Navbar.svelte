@@ -81,6 +81,12 @@
 </div>
 
 <style>
+  ul > li > a {
+    display: inline-block;
+    width: 100% !important;
+    text-align: center;
+  }
+  
   .nav-mob {
     background: var(--background);
     transition: all 0.2s ease;

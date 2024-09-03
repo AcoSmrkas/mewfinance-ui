@@ -89,7 +89,7 @@
 
 </script>
 
-<div class="container p-0 p-xl-4">  
+<div class="container p-0 p-xl-0 mb-3 lg:mb-0">  
   <section class="top-margin relative h-auto">
     <div class="image-wrapper relative">
       <img id="hero-image" src="hero.png" class="absolute hero-image">
@@ -145,9 +145,9 @@
       <!-- <a target="_new" href="https://dex.mewfinance.com" class="btn px-5 py-3 btn-primary border-0"> -->
         <span class="disabled bg-gray-400 opacity-90 cursor-not-allowed rounded-lg px-5 py-3  border-0 text-black">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span>
       <!-- </a> -->
-      <!-- <a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-secondary border-0"> -->
-        <span class="disabled bg-gray-400 opacity-90 cursor-not-allowed rounded-lg px-5 py-3  border-0 text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span>
-      <!-- </a> -->
+<a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-primary border-0">
+        <span class="border-0 text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span>
+      </a>
     </div>
   </section>
 
@@ -178,12 +178,11 @@
           <div style="background-color: #d8fd03;">
           <img src="mart.png">
           </div>
-          <!-- <a href="https://mart.mewfinance.com" target="_new" class="card-link card-link-right"> -->
-            <div class="disabled bg-gray-400 opacity-90 cursor-not-allowed card-link-right card-content">
+          <a href="https://mart.mewfinance.com" target="_new" class="card-link card-link-right">            <div class="card-content">
               <h2 class="card-title">Launch Mart <i class="fa-solid fa-up-right-from-square"></i></h2>
               <p class="card-description">Trade assets on the Ergo blockchain.</p>
             </div>
-          <!-- </a> -->
+          </a>
         </div>
       </div>
     </div>
@@ -312,7 +311,7 @@
   }
 
   .card-link:hover {
-    background-color: #fff;
+    background-color: var(--info-color);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   }
 
