@@ -11,6 +11,7 @@
 <dialog
   class="bg-transparent border-2 border-info"
   bind:this={dialog}
+  on:click={() => {dialog.close();}}
   on:close={() => {showWalletsModal = false}}
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->

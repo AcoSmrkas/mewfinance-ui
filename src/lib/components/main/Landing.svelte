@@ -143,7 +143,7 @@
 
     <div id="buttons-holder" class="px-4 px-md-0 flex justify-center flex-col space-y-4 space-x-0 sm:flex-row sm:space-y-0 sm:space-x-4">
       <!-- <a target="_new" href="https://dex.mewfinance.com" class="btn px-5 py-3 btn-primary border-0"> -->
-        <span class="disabled bg-gray-400 opacity-90 cursor-not-allowed rounded-lg px-5 py-3  border-0 text-black">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span>
+        <span class="disabled bg-gray-400 opacity-90 cursor-not-allowed rounded-lg px-5 py-3 border-0 text-black text-center`">Launch DEX  <i class="fa-solid fa-up-right-from-square"></i></span>
       <!-- </a> -->
 <a target="_new" href="https://mart.mewfinance.com" class="btn px-5 py-3 btn-primary border-0">
         <span class="border-0 text-black">Launch Mart  <i class="fa-solid fa-up-right-from-square"></i></span>
