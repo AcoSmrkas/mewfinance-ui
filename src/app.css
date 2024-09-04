@@ -16,8 +16,16 @@
   --borders: #ffffff22;
   --text-light: #ffffff77;
   --text-strong: #CCC;
-  --background: #0c0a18;
-  --footer: #150d24;
+  --background: #160d25;
+  --footer: #0e0917;
+}
+
+.text-bg {
+  color: var(--background) !important;
+}
+
+.text-bg:hover {
+  color: var(--background) !important;
 }
 
 @font-face {
@@ -214,6 +222,10 @@ input{
   100% {
     opacity: 1;
   }
+}
+
+.bg-primary {
+  background: var(--main-color) !important;
 }
 
 .bg-info {

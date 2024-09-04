@@ -22,6 +22,7 @@
   });
 
   onMount(() => {
+    return;
     const imageWrapper = document.querySelector('.image-wrapper');
     const heroImage = document.querySelector('#hero-image');
 
@@ -88,19 +89,19 @@
   });
   const partners = [
     { 
-        name: 'Cyberverse', 
+        name: 'CyberVerse', 
         logo: 'https://static.wikia.nocookie.net/cyberverse/images/5/54/Cyberverse_Logo.png', 
         url: 'https://cyberverse.io/', 
         description: 'Cyberverse is a next-gen blockchain platform focused on immersive experiences.' 
     },
     { 
-        name: 'RosenBridge', 
+        name: 'Rosen Bridge', 
         logo: 'https://rosen.tech/assets/logo/rosen-logo.svg', 
         url: 'https://rosen.tech/', 
         description: 'RosenBridge connects various blockchain networks for seamless interoperability.' 
     },
     { 
-        name: 'Crooks-finance', 
+        name: 'Crooks Finance', 
         logo: 'https://crooks-fi.com/images/logo.png', 
         url: 'https://crooks-fi.com/', 
         description: 'Crooks-finance is a decentralized finance platform for secure and fast transactions.' 
@@ -139,37 +140,43 @@ const supportedChains = [
 
 </script>
 <div class="container p-0 p-xl-0 mb-3 lg:mb-0">  
-
-
-<!-- Section 2 -->
-<section class="px-2 py-32 md:px-0">
-<div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
-  <div class="flex flex-wrap items-center sm:-mx-3">
-    <div class="w-full md:w-1/2 md:px-3">
-      <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
-        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
-          <span class="block xl:inline text-white">Non-custodial</span>
-          <span class="block text-main-color xl:inline">Decentralized Tradehouse on Ergo.</span>
-          
+  <section class="mt-[150px] relative h-auto flex flex-col sm:flex-row">
+    <div id="title-holder" class="mb-2 title-holder flex-1 space-y-3">
+      <div class="text-center mr-auto place-self-center lg:col-span-7">
+        <h1 class="text-5xl leading-[60px] tracking-tight md:text-6xl md:leading-11 xl:text-6xl xl:leading-12 text-white font-extrabold" style="font-family:'Manrope';">
+          {@html LOGO_TEXT}
         </h1>
-        <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">It's never been easier to build beautiful websites that convey your message and tell your story.</p>
-   
+      </div>
+      <div>
+        <p class="text-light text-center mb-4 md:text-lg lg:text-md py-2" style="font-family:'Azeret Mono'; ">{@html HERO_DESCRIPTION}<br></p>
+      </div>
+      
+       <div id="buttons-holder" class="px-4 px-md-0 flex justify-center text-center flex-col space-y-4 space-x-0 md:flex-row md:space-y-0 md:space-x-4">
+        <a target="_new" href="/mewfinance-whitepaper-v1.pdf">
+          <button class="btn btn-big btn-secondary w-[190px]">Whitepaper</button>
+        </a>
+        <a href="#dapps">
+          <button class="btn btn-big btn-primary w-[190px]">Launch dApps</button>
+        </a>
       </div>
     </div>
-    <div class="w-full md:w-1/2">
-      <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
-          <img src="hero.png">
-        </div>
-    </div>
-  </div>
-</div>
-</section>
 
-  <section class="relative mt-8 mb-4 px-4 max-w-6xl mx-auto">
+    <div class="image-wrapper relative flex-1">
+      <img id="hero-image" src="hero.png" class="hero-image">
+      <div class="full-gradient">
+        
+      </div>
+    </div>
+
+  </section>
+
+  <div id="dapps" class="relative top-[-30px]"></div>
+
+  <section  class="relative mt-10 mb-4 p-2 p-md-4 max-w-6xl mx-auto">
     <!-- Content for your DEX and Mart sections -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden shadow-lg border border-purple-500 transform hover:scale-105 transition-transform duration-300">
-        <div class="relative h-48 bg-cyan-300 flex items-center justify-center overflow-hidden">
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
+        <div class="relative h-100 bg-cyan-300 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="dex.png" alt="DEX" class="object-contain max-w-full max-h-full">
           </div>
@@ -184,8 +191,8 @@ const supportedChains = [
         </div>
       </div>
       
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden shadow-lg border border-purple-500 transform hover:scale-105 transition-transform duration-300">
-        <div class="relative h-48 bg-yellow-300 flex items-center justify-center overflow-hidden">
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
+        <div class="relative h-100 bg-primary flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="mart.png" alt="Mart" class="object-contain max-w-full max-h-full">
           </div>
@@ -194,7 +201,7 @@ const supportedChains = [
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Mart</h3>
           <p class="text-purple-200 mb-4">Tradehouse | Marketplace to trade assets as individual sales and bundle packs and payments in native and wrapped assets.</p>
-          <a href="https://mart.mewfinance.com" target="_new" class="btn btn-primary w-full">
+          <a href="https://mart.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Mart <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
@@ -203,13 +210,15 @@ const supportedChains = [
   </section>
   
   <!-- Partners Section -->
-  <section class="partners mt-16 p-4">
-    <h2 class="text-3xl font-bold text-center mb-8">Our Partners</h2>
+  <section class="partners mt-10 p-2 p-md-4">
+    <h2 class="text-3xl font-bold text-center text-white mb-8">Our partners</h2>
     <div class="partners-container">
       {#each partners as partner}
-        <div class="partner-logo p-4">
-          <img src={partner.logo} alt={partner.name} class="w-full h-auto mb-4">
-          <a href={partner.url} class="block text-center">
+        <div class="partner-logo p-4 space-y-4">
+          <div class="h-[100px] align-content-center">
+            <img src={partner.logo} alt={partner.name} class="w-full h-auto">
+          </div>
+          <a target="_new" href={partner.url} class="block text-center">
             <h3 class="font-semibold">{partner.name}</h3>
           </a>
         </div>
@@ -218,11 +227,11 @@ const supportedChains = [
   </section>
 
   <!-- User Reviews Section -->
-  <section class="user-reviews mt-16 p-4">
-    <h2 class="text-3xl font-bold text-center mb-8">What Our Users Say</h2>
+  <section class="user-reviews mt-7 p-2 p-md-4">
+    <h2 class="text-3xl font-bold text-center text-white mb-8">What our users say</h2>
     <div class="reviews-container">
       {#each reviews as review}
-        <div class="review-card p-6 rounded-lg shadow-lg" style="background: var(--forms-bg);">
+        <div class="review-card p-6 rounded-lg " style="background: var(--forms-bg);">
           <div class="flex items-center mb-4">
             <div>
               <h3 class="font-semibold">{review.name}</h3>
@@ -244,9 +253,6 @@ const supportedChains = [
   .text-main-color {
   color: var(--main-color); /* Use the variable for text color */
 }
-  #title-holder {
-    z-index: 3;
-  }
 /* General card styling */
 .card {
   background: #fff;
@@ -303,29 +309,12 @@ const supportedChains = [
     max-width: 150px;
   }
 }
-  .title-holder {
-    transform: translateX(-50%);
-    width: 100%;
-    top: 14%;
-  }
 
-  .image-wrapper {
-    position: relative;
-    height: 100vh; /* Adjust this to maintain aspect ratio if needed */
-  }
 
-  .hero-image {
-    z-index: 1;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
-    width: auto;
-    max-width: none;
-  }.partner-logo {
+
+  .partner-logo {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column; /* Stack image and text vertically */
     padding: 10px; /* Reduced padding around the logos */
     background-color: var(--forms-bg); /* Light gray background for each logo */
@@ -392,36 +381,12 @@ const supportedChains = [
     opacity: 0;
   }
 
-  #buttons-holder {
-    z-index: 4;
-    position: absolute;
-    width: 100%;
-    top: 29% !important;
-    left: 50%;
-    transform: translateX(-50%); /* Center the star div */
-    top: var(--buttons-holder-offset-y);
-  }
-
   .card-link-left {
     border-radius: unset;
   }
 
   .card-link-right {
     border-radius: 0 0 0.5rem 0.5rem;
-  }
-
-  @media (min-width: 576px) {
-    .image-wrapper {
-      height: 100vh;
-    }
-
-    .hero-image {
-      height: inherit;
-    }
-
-    #buttons-holder {
-      top: 39% !important;
-    }
   }
 
   @media (min-width: 768px) { 
@@ -446,7 +411,6 @@ const supportedChains = [
     color: inherit;
     background-color: var(--main-color) ;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
   }
 
@@ -478,7 +442,6 @@ const supportedChains = [
 
   .card-link:hover {
     background-color: var(--info-color);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   }
 
   h6 {
@@ -537,9 +500,62 @@ const supportedChains = [
     position: absolute;
     left: -500%;
     width: 1000%;
+    top: -20px;
     height: inherit;
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(159,4,255,0.2) 20%, rgba(159,4,255,0.2) 40%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%); 
+  }
+
+
+  .title-holder {
+    align-self: center;
+  }
+
+  .image-wrapper {
+    position: relative;
+    height: 500px;
+  }
+
+   #title-holder {
+    z-index: 5;
+    position: relative;
+  }
+
+  .hero-image {
+    z-index: 4;
+    position: relative;
+    left: 0;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-image {
+      max-width: 200%;
+      left: -100px !important;
+    }
+  }
+
+  @media (min-width: 1240px) {
+    .hero-image {
+      max-width: 200%;
+      left: -100px !important;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .hero-image {
+      max-width: 200%;
+      left: -200px;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .hero-image {
+      max-width: 200%;
+      left: -200px;
+    }
   }
 
 </style>

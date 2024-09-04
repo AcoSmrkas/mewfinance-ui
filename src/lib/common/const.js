@@ -12,7 +12,7 @@ export const VIP_MEW_TIER = 6;
 export const MART_NAME = 'Mew Finance';
 export const LOGO_TEXT = '<span style="color:cyan;font-family:Satisfy;font-size:1.3em;margin-right:3px;">Mew</span> Finance';
 export const FOOTER_TEXT = '<span style="color:cyan;font-family:Satisfy;font-size:1.3em;">Mew </span> Finance';
-export const HERO_DESCRIPTION = "Can't talk, I'm mewing.";
+export const HERO_DESCRIPTION = "The cutest decentralized finance on the Ergo Blockchain!";
 export const HERO_IMAGE = 'https://crooks-fi.com/images/mascot-splash.png';
 
 //Dev
