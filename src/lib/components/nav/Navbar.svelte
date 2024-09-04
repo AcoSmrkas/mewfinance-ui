@@ -43,7 +43,7 @@
 </script>
 
 <div id="navbar"
-  class="backdrop-blur-sm z-10 fixed items-center w-full h-[112px]" style="padding-top:25px; background: #0c0a18dd; transition: all 0.5s ease;"
+  class="z-10 fixed items-center w-full h-[112px]" style="padding-top:25px; background: var(--background); transition: all 0.5s ease;"
 >
   <div class="flex relative items-center justify-between nav-container" style="  display: flex;
   justify-content: space-between;
