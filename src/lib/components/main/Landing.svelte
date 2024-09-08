@@ -115,9 +115,9 @@
 ];
 
   const reviews = [
-  { name: 'Kushti', content: 'MewFinance has revolutionized my crypto trading experience. The interface is intuitive and the features are top-notch!', rating: 5 },
+  { name: 'Kushti', content: 'Mew Finance has revolutionized my crypto trading experience. The interface is intuitive and the features are top-notch!', rating: 5 },
   { name: 'Andruis', content: 'I love how easy it is to use the Mart feature. It\'s made asset trading so much more accessible for me.', rating: 4 },
-  { name: 'Maverick', content: 'The DEX is incredibly fast and efficient. MewFinance has become my go-to platform for all my crypto needs.', rating: 5 }
+  { name: 'Maverick', content: 'The DEX is incredibly fast and efficient. Mew Finance has become my go-to platform for all my crypto needs.', rating: 5 }
 ];
 const supportedChains = [
     { name: 'Ethereum', logo: '/path/to/ethereum-logo.png' },
@@ -179,12 +179,11 @@ const supportedChains = [
           <div class="flex items-center justify-center w-full h-full">
             <img src="dex.png" alt="DEX" class="object-contain max-w-full max-h-full">
           </div>
-          <div class="absolute inset-0 bg-[url('path/to/stars-bg.png')] opacity-50"></div>
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-cyan-300 mb-2">DEX</h3>
           <p class="text-purple-200 mb-4">Looking for a one-stop place to trade all Ergo native and wrapped assets with low fees?</p>
-          <button class="btn btn-primary w-full">
+          <button class="disabled bg-gray cursor-not-allowed btn btn-primary w-full">
             Launch DEX <i class="fa-solid fa-rocket ml-2"></i>
           </button>
         </div>
@@ -195,7 +194,6 @@ const supportedChains = [
           <div class="flex items-center justify-center w-full h-full">
             <img src="mart.png" alt="Mart" class="object-contain max-w-full max-h-full">
           </div>
-          <div class="absolute inset-0 bg-[url('path/to/stars-bg.png')] opacity-50"></div>
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Mart</h3>
@@ -213,11 +211,11 @@ const supportedChains = [
     <h2 class="text-3xl font-bold text-center text-white mb-8">Our partners</h2>
     <div class="partners-container">
       {#each partners as partner}
-        <div class="partner-logo p-4 space-y-4">
-          <div class="h-[100px] align-content-center">
-            <img src={partner.logo} alt={partner.name} class="w-full h-auto">
-          </div>
-          <a target="_new" href={partner.url} class="block text-center">
+        <div class="partner-logo p-4">
+          <a target="_new" href={partner.url} class="block text-center space-y-4">
+            <div class="h-[100px] align-content-center">
+              <img src={partner.logo} alt={partner.name} class="w-full h-auto">
+            </div>
             <h3 class="font-semibold">{partner.name}</h3>
           </a>
         </div>
