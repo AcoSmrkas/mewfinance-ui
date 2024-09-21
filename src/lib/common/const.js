@@ -2,7 +2,7 @@ export const MIN_ERG_VAL = 1000000;		// 0.001 ERG
 
 export const ITEMS_PER_PAGE = 30;
 export const TOKEN_DECIMALS = 2;
-export const TOKEN_ID = 'f0d5bdf474fcbd4249608e6dc6e9cf34a327b218f66445ea545b4c711b4676e3';
+export const TOKEN_ID = '6c35aa395c7c75b0f67f7804d6930f0e11ef93c3387dc1faa86498d54af7962c';
 export const TOKEN_NAME = 'MEW';
 export const DEV_FEE_DENOM = 10000;
 export const ERG_DEV_FEE = 10000;
@@ -18,6 +18,6 @@ export const HERO_IMAGE = 'https://crooks-fi.com/images/mascot-splash.png';
 //Dev
 export const API_HOST = 'https://api.crooks-fi.com/';
 export const DEV_PK    = '9f9ApDfCA7BcPEoSQKgFzsTdBmdV31hLxoWZt4wJgcwr7mtQ6qp'
-export const CONTRACT = '2Czxg7U54ZzULLiVr7TSqLXHBg3ATQpcnwdm3rG9Yx89CrJUgN2hsciMta3JUWSybU42p1y9tfFei3SoyAfB1XzAwg';
+export const CONTRACT = '2Czxg7U54ZyGMzjt35EYX9g98H9UjFqteuYWX5CSgGCYWAjg1ng2jgm4BHjA6u1Azeo7EYQsBMVLbhRreNASJu54ho';
 export const CONTRACT_CRC32 = 2692129003;
 export const MAIN_PAGE_ITEMS = 5;
