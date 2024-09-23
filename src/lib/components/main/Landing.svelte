@@ -106,6 +106,18 @@
         url: 'https://crooks-fi.com/', 
         description: 'Crooks-finance is a decentralized finance platform for secure and fast transactions.' 
     },
+  { 
+    name: 'Ergone', 
+    logo: 'https://www.ergone.io/img/background.png', 
+    url: 'https://www.ergone.io/', 
+    description: 'A unique approach to blockchain engagement. promoting and supporting the Ergo ecosystem..' 
+},
+{ 
+  name: 'Sigmanauts', 
+  logo: 'https://sigmanauts.com/img/sigmanaut-logo.png', 
+  url: 'https://sigmanauts.com/', 
+  description: 'Sigmanauts is a community that believes in a decentralized, open, permissionless and secure platform..' 
+},
     { 
         name: 'Bober', 
         logo: 'https://bobertoken.io/img/bober.webp', 
@@ -117,7 +129,10 @@
   const reviews = [
   { name: 'Kushti', content: 'Mew Finance has revolutionized my crypto trading experience. The interface is intuitive and the features are top-notch!', rating: 5 },
   { name: 'Andruis', content: 'I love how easy it is to use the Mart feature. It\'s made asset trading so much more accessible for me.', rating: 4 },
-  { name: 'Maverick', content: 'The DEX is incredibly fast and efficient. Mew Finance has become my go-to platform for all my crypto needs.', rating: 5 }
+  { name: 'Maverick', content: 'The DEX is incredibly fast and efficient. Mew Finance has become my go-to platform for all my crypto needs.', rating: 5 },
+  { name: 'Ergone', content: 'Whether you are a beginner or a seasoned crypto enthusiast, MewFinance provides the tools needed to explore decentralized finance in a smart and efficient way. A solid option for those looking to expand their DeFi experience!', rating: 5 },
+
+   { name: 'TheSTOPHE', content: 'MewFi is a great peer-to-peer marketplace and trading experience, wrapping great tech in a cute, fun spot. Love the sell bundle option. Looking forward to exploring escrow sales.', rating: 5 }
 ];
 const supportedChains = [
     { name: 'Ethereum', logo: '/path/to/ethereum-logo.png' },
@@ -224,26 +239,27 @@ const supportedChains = [
   </section>
 
   <!-- User Reviews Section -->
-  <section class="user-reviews mt-7 p-2 p-md-4">
-    <h2 class="text-3xl font-bold text-center text-white mb-8">What our users say</h2>
-    <div class="reviews-container">
-      {#each reviews as review}
-        <div class="review-card p-6 rounded-lg " style="background: var(--forms-bg);">
-          <div class="flex items-center mb-4">
-            <div>
-              <h3 class="font-semibold">{review.name}</h3>
-              <div class="flex">
-                {#each Array(5) as _, i}
-                  <span class="text-yellow-400">{i < review.rating ? '★' : '☆'}</span>
-                {/each}
-              </div>
+ <!-- User Reviews Section -->
+<section class="user-reviews mt-7 p-2 p-md-4">
+  <h2 class="text-3xl font-bold text-center text-white mb-8">What our users say</h2>
+  <div class="reviews-container">
+    {#each reviews as review}
+      <div class="review-card p-6 rounded-lg" style="background: var(--forms-bg);">
+        <div class="flex items-center mb-4">
+          <div>
+            <h3 class="font-semibold">{review.name}</h3>
+            <div class="flex">
+              {#each Array(5) as _, i}
+                <span class="text-yellow-400">{i < review.rating ? '★' : '☆'}</span>
+              {/each}
             </div>
           </div>
-          <p class="text-gray-300">{review.content}</p>
         </div>
-      {/each}
-    </div>
-  </section>
+        <p class="text-gray-300">{review.content}</p>
+      </div>
+    {/each}
+  </div>
+</section>
 </div>
 
 <style>
@@ -341,20 +357,34 @@ const supportedChains = [
     text-align: center; /* Center-align text below the image */
     font-size: 14px; /* Adjust font size if needed */
 }
-  .reviews-container {
+.reviews-container {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-bottom: 16px; /* Add some padding to the bottom to prevent the scrollbar from overlapping content */
     scroll-snap-type: x mandatory;
-    gap: 16px; /* Adjust the gap between the reviews */
+    gap: 16px; /* Gap between each card */
+    padding-bottom: 16px; /* Padding to avoid scrollbar overlap */
   }
 
   .review-card {
     flex: 0 0 auto;
     scroll-snap-align: center;
-    width: 100%; /* Make the review card width more flexible for scrolling */
-    max-width: 300px; /* Optional: Limit the max width of each review card */
+    width: 100%;
+    max-width: 300px; /* Maximum width of each card */
+  }
+
+  @media (min-width: 1024px) {
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* Display 4 cards in a row */
+      gap: 24px; /* Adjust gap between review cards */
+      overflow-x: hidden; /* Disable horizontal scrolling on larger screens */
+    }
+
+    .review-card {
+      flex: 1 0 21%; /* Adjust width for responsive layout */
+      max-width: none; /* Remove max-width restriction */
+    }
   }
 
   @media (min-width: 1024px) {
