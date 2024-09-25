@@ -40,11 +40,11 @@
     
     // Find payment token
     const paymentToken = balanceData.tokens.find(token => token.tokenId === TOKEN_ID);
-    
+
     if (paymentToken) {
       paymentTokenBalance = paymentToken.amount / Math.pow(10, paymentToken.decimals), paymentToken.decimals;
     } else {
-      paymentTokenBalance = "0".toFixed(paymentToken.decimals);
+      paymentTokenBalance = "0";
     }
   }
 
@@ -144,7 +144,7 @@
             <div class="flex-1">
               <h1 class="font-bold text-2xl mb-3 text-yellow-400">Info</h1>
               <p><b class="inline-block w-[150px]"><span class="text-primary">{TOKEN_NAME}</span> tier:</b> {$mewTier}</p>
-              <p><b class="inline-block w-[150px]">Total <span class="text-primary">{TOKEN_NAME}</span> staked:</b> {nFormatter($mewStaked)}</p>
+              <p><b class="inline-block w-[150px]">Total <span class="text-primary">{TOKEN_NAME}</span> locked:</b> {nFormatter($mewStaked)}</p>
             </div>
             <div class="flex-1">
               <h1 class="font-bold text-2xl mb-3 text-yellow-400">Benefits</h1>
@@ -174,7 +174,7 @@
       </div>
       <div class="flex-1 form-group bg-form  p-3 p-md-4 rounded-lg w-auto" style="height: fit-content;">
       <form class="">
-        <h1 class="font-bold text-2xl mb-3 text-yellow-400">Stake</h1>
+        <h1 class="font-bold text-2xl mb-3 text-yellow-400">Lock</h1>
         <div class="form-section">
           <label class="block text-sm font-medium mb-2" for="token"><b class="text-primary">{TOKEN_NAME}</b> Amount:</label>
           <div class="p-0 flex mb-4 w-100 max-w mx-auto">
@@ -182,7 +182,7 @@
             <button on:click={setMax} class="justify-center h-[50px] btn btn-lg btn-primary" style="border-radius: 0 10px 10px 0 !important;" type="button">MAX</button>
           </div>
         </div>
-        <button class="btn btn-primary block mx-auto" on:click={stake}>Stake</button>
+        <button class="btn btn-primary block mx-auto" on:click={stake}>Lock</button>
       </form>
       </div>
     </div>

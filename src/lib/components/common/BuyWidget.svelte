@@ -202,7 +202,7 @@
         on:click={unstake} 
         disabled={isLoading}
       >
-        {offer.staker === connectedWalletAddress ? 'Unstake' : 'Buy'}
+        {offer.staker === connectedWalletAddress ? 'Unlock' : 'Buy'}
       </button>
     </div>
     
