@@ -63,12 +63,12 @@
 	}
   
 	let plans = [
-	  { name: "Tier 1", price: 5, mew: 5000 },
-	  { name: "Tier 2", price: 15, mew: 15000 },
-	  { name: "Tier 3", price: 45, mew: 45000 },
-	  { name: "Tier 4", price: 150, mew: 150000 },
-	  { name: "Tier 5", price: 300, mew: 300000 },
-	  { name: "Tier 6", price: 300, mew: 300000 }
+	  { name: "Tier 1", price: 5, mew: 15000 },
+	  { name: "Tier 2", price: 15, mew: 50000 },
+	  { name: "Tier 3", price: 45, mew: 150000 },
+	  { name: "Tier 4", price: 150, mew: 400000 },
+	  { name: "Tier 5", price: 300, mew: 500000 },
+	  { name: "Tier 6", price: 300, mew: 500000 }
 	];
   
 	let selectedPlan = plans[0]; // Default to Tier 1
@@ -134,10 +134,10 @@
 		  <div class="tier-info">
 			<h4 class="text-lg mb-2"><b class="text-primary">{selectedPlan.name}</b> details:</h4>
 			<ul>
-			  <li><b>DEX fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.15%' : '0%'}</li>
-			  <li><b>Mart sale fee:</b> {3.0 - 0.2 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
-			  <li><b>Mart list fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} <b class="text-primary">ERG</b></li>
-			  <li><b>Mart cancel fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} <b class="text-primary">ERG</b></li>
+				<li><b>DEX fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.15%' : '0%'}</li>
+				<li><b>Mart sale fee:</b> {3.0 - 0.2 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
+				<li><b>Mart list fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} <b class="text-primary">ERG</b></li>
+				<li><b>Mart cancel fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.01' : '0.01'} <b class="text-primary">ERG</b></li>
 			</ul>
 		  </div>
 		  <div class="tier-action">
