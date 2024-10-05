@@ -22,6 +22,7 @@
   let isAuth = false;
   let showErgopayModal = false;
   let saleClosed = true;
+  let mewSold = 0;
 
   $: usdAmount = (ergAmount * prices['ERG']).toFixed(2);
   $: mewAmount = (ergAmount / presaleData?.price).toFixed(TOKEN_DECIMALS);
@@ -89,8 +90,11 @@
 
   onMount(async () => {
     presaleData = (await axios.get(`${API_HOST}tokens/getSale?id=34`)).data.items[0];
+    let presaleInfo = (await axios.get(`${API_HOST}tokens/saleStats?id=34`)).data.items[0];
 
-    soldPercent = (presaleData.amountsold / presaleData.amount) * 100;
+    mewSold = presaleInfo.totalprofit / 0.002;
+    soldPercent = (mewSold / presaleData.amount) * 100;
+
     ergLimit = presaleData.buylimit * presaleData.price;
 
     const saleDate = parseDate(presaleData.salestart);
@@ -156,7 +160,7 @@
     </div>
     
     <div class="info-item">
-      <h4 class="text-custom-yellow">TOTAL MEW CLAIMED: {parseFloat(presaleData.amountsold).toFixed(TOKEN_DECIMALS)}</h4>
+      <h4 class="text-custom-yellow">TOTAL MEW CLAIMED: {nFormatter(mewSold, TOKEN_DECIMALS)}</h4>
       
       <div class="progress-bar">
       <div class="progress-fill" style="width: {soldPercent}%"></div>
