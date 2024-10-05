@@ -128,8 +128,6 @@
   let tiers = [];
   onMount(async () => {
     tiers = (await axios.get(`${API_HOST}mew/getTiers`)).data.items;
-
-    $mewTier = 0;
   });
 
 </script>
@@ -149,10 +147,11 @@
             <div class="flex-1">
               <h1 class="font-bold text-2xl mb-3 text-yellow-400">Benefits</h1>
               <ul>
-                <li><b class="inline-block w-[150px]">DEX fee:</b> {$mewTier < 5 ? '0.15%' : '0%'}</li>
+                <li><b class="inline-block w-[150px]">DEX fee:</b> {($mewTier) < 5 ? 0.3 - 0.03 * clamp($mewTier, 0, 5) : '0'}%</li>
                 <li><b class="inline-block w-[150px]">Mart sale fee:</b> {3.0 - 0.2 * clamp($mewTier, 0, 5)}%</li>
                 <li><b class="inline-block w-[150px]">Mart list fee:</b> {$mewTier < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
-                <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {$mewTier < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
+                <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {$mewTier < 5 ? '0.01' : '0'} <span class="text-primary font-bold">ERG</span></li>
+                {@html $mewTier < 4 ? '' : `<li class="benefits-list-item">Share of <b class="text-primary">Mew Mart</b>'s revenue as rewards every quarter.</li>`}
               </ul>
             </div>
           </div>
@@ -161,10 +160,11 @@
             <p class="mb-2"><b class="">Next <span class="text-primary">{TOKEN_NAME}</span> tier at:</b> {nFormatter(tiers[$mewTier].amount)} <span class="text-primary font-bold">{TOKEN_NAME}</span></p>
                           <h1 class="font-bold text-xl mb-2 text-yellow-400">Benefits</h1>
               <ul class="mb-3">
-                <li><b class="inline-block w-[150px]">DEX fee:</b> {($mewTier + 1) < 5 ? '0.15%' : '0%'}</li>
+                <li><b class="inline-block w-[150px]">DEX fee:</b> {($mewTier + 1) < 5 ? 0.3 - 0.03 * clamp($mewTier + 1, 0, 5) : '0'}%</li>
                 <li><b class="inline-block w-[150px]">Mart sale fee:</b> {3.0 - 0.2 * clamp(($mewTier + 1), 0, 5)}%</li>
                 <li><b class="inline-block w-[150px]">Mart list fee:</b> {($mewTier + 1) < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
-                <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {($mewTier + 1) < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
+                <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {($mewTier + 1) < 5 ? '0.01' : '0'} <span class="text-primary font-bold">ERG</span></li>
+                {@html $mewTier + 1 < 4 ? '' : `<li class="benefits-list-item">Share of <b class="text-primary">Mew Mart</b>'s revenue as rewards every quarter.</li>`}
               </ul>
             <a target="_new" href="https://dex.mewfinance.com">
               <button class="btn btn-primary mx-auto block mb-2">Buy</button>

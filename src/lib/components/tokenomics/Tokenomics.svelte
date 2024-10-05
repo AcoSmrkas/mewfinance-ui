@@ -66,7 +66,7 @@
 	  { name: "Tier 1", price: 5, mew: 15000 },
 	  { name: "Tier 2", price: 15, mew: 50000 },
 	  { name: "Tier 3", price: 45, mew: 150000 },
-	  { name: "Tier 4", price: 150, mew: 400000 },
+	  { name: "Tier 4", price: 150, mew: 300000 },
 	  { name: "Tier 5", price: 300, mew: 500000 },
 	  { name: "Tier 6", price: 300, mew: 500000 }
 	];
