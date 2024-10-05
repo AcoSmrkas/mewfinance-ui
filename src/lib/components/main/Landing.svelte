@@ -107,16 +107,16 @@
         description: 'Crooks-finance is a decentralized finance platform for secure and fast transactions.' 
     },
   { 
-    name: 'Ergone', 
+    name: 'ErgOne', 
     logo: 'https://www.ergone.io/img/background.png', 
     url: 'https://www.ergone.io/', 
-    description: 'A unique approach to blockchain engagement. promoting and supporting the Ergo ecosystem..' 
+    description: 'A unique approach to blockchain engagement. promoting and supporting the Ergo ecosystem.' 
 },
 { 
   name: 'Sigmanauts', 
   logo: 'https://sigmanauts.com/img/sigmanaut-logo.png', 
   url: 'https://sigmanauts.com/', 
-  description: 'Sigmanauts is a community that believes in a decentralized, open, permissionless and secure platform..' 
+  description: 'Sigmanauts is a community that believes in a decentralized, open, permissionless and secure platform.' 
 },
     { 
         name: 'Bober', 

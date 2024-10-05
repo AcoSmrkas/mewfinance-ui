@@ -134,10 +134,10 @@
 		  <div class="tier-info">
 			<h4 class="text-lg mb-2"><b class="text-primary">{selectedPlan.name}</b> details:</h4>
 			<ul>
-				<li><b>DEX fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.15%' : '0%'}</li>
+				<li><b>DEX fee:</b> {plans.indexOf(selectedPlan) == 5 ? 0 : 0.3 - 0.03 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
 				<li><b>Mart sale fee:</b> {3.0 - 0.2 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
 				<li><b>Mart list fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} <b class="text-primary">ERG</b></li>
-				<li><b>Mart cancel fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.01' : '0.01'} <b class="text-primary">ERG</b></li>
+				<li><b>Mart cancel fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.01' : '0'} <b class="text-primary">ERG</b></li>
 			</ul>
 		  </div>
 		  <div class="tier-action">
