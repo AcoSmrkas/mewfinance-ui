@@ -133,11 +133,12 @@
 		<div class="tier-details">
 		  <div class="tier-info">
 			<h4 class="text-lg mb-2"><b class="text-primary">{selectedPlan.name}</b> details:</h4>
-			<ul>
-				<li><b>DEX fee:</b> {plans.indexOf(selectedPlan) == 5 ? 0 : 0.3 - 0.03 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
-				<li><b>Mart sale fee:</b> {3.0 - 0.2 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
-				<li><b>Mart list fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} <b class="text-primary">ERG</b></li>
-				<li><b>Mart cancel fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.01' : '0'} <b class="text-primary">ERG</b></li>
+			<ul id="benefits-list">
+				<li class="benefits-list-item"><b>DEX fee:</b> {plans.indexOf(selectedPlan) == 5 ? 0 : 0.3 - 0.03 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
+				<li class="benefits-list-item"><b>Mart sale fee:</b> {3.0 - 0.2 * clamp(plans.indexOf(selectedPlan) + 1, 0, 5)}%</li>
+				<li class="benefits-list-item"><b>Mart list fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.03' : '0'} <b class="text-primary">ERG</b></li>
+				<li class="benefits-list-item"><b>Mart cancel fee:</b> {plans.indexOf(selectedPlan) < 5 ? '0.01' : '0'} <b class="text-primary">ERG</b></li>
+				{@html plans.indexOf(selectedPlan) < 3 ? '' : `<li class="benefits-list-item">Share of <b class="text-primary">Mew Mart</b>'s revenue as rewards every quarter.</li>`}
 			</ul>
 		  </div>
 		  <div class="tier-action">
@@ -163,6 +164,14 @@
 </div>
   
   <style>
+  	#benefits-list {
+  		list-style: square;
+  	}
+
+  	:global(ul li::marker) {
+    	color: var(--main-color);
+  	}	
+
 	.tokenomics-container {
 	  padding: 13rem;
 	  text-align: center;
