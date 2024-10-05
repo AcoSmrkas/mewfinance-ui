@@ -19,5 +19,5 @@ export const HERO_IMAGE = 'https://crooks-fi.com/images/mascot-splash.png';
 export const API_HOST = 'https://api.crooks-fi.com/';
 export const DEV_PK    = '9f9ApDfCA7BcPEoSQKgFzsTdBmdV31hLxoWZt4wJgcwr7mtQ6qp'
 export const CONTRACT = '2Czxg7U54ZyGMzjt35EYX9g98H9UjFqteuYWX5CSgGCYWAjg1ng2jgm4BHjA6u1Azeo7EYQsBMVLbhRreNASJu54ho';
-export const CONTRACT_CRC32 = 2692129003;
+export const CONTRACT_CRC32 = 1455648221;
 export const MAIN_PAGE_ITEMS = 5;
