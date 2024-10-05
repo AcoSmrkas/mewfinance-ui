@@ -198,9 +198,10 @@ const supportedChains = [
         <div class="p-4">
           <h3 class="text-2xl font-bold text-cyan-300 mb-2">DEX</h3>
           <p class="text-purple-200 mb-4">Looking for a one-stop place to trade all Ergo native and wrapped assets with low fees?</p>
-          <button class="disabled bg-gray cursor-not-allowed btn btn-primary w-full">
+          <a href="https://dex.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+          <button class="bg-gray cursor-not-allowed btn btn-primary w-full">
             Launch DEX <i class="fa-solid fa-rocket ml-2"></i>
-          </button>
+          </button></a>
         </div>
       </div>
       
