@@ -92,7 +92,7 @@
     presaleData = (await axios.get(`${API_HOST}tokens/getSale?id=34`)).data.items[0];
     let presaleInfo = (await axios.get(`${API_HOST}tokens/saleStats?id=34`)).data.items[0];
 
-    mewSold = presaleInfo.totalprofit / 0.002;
+    mewSold = 10000000;
     soldPercent = (mewSold / presaleData.amount) * 100;
 
     ergLimit = presaleData.buylimit * presaleData.price;
@@ -149,7 +149,7 @@
     
     <br>
     <br>    
-    <button class="btn btn-primary w-100 btn-big" disabled={saleClosed} on:click={handleContribute}>Contribute</button>
+    <button class="btn btn-primary w-100 btn-big" disabled on:click={handleContribute}>Contribute</button>
     </div>
     
     <div class="sale-info m-0" style="height: min-content;">
