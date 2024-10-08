@@ -89,18 +89,21 @@
   }
 
   onMount(async () => {
-    presaleData = (await axios.get(`${API_HOST}tokens/getSale?id=34`)).data.items[0];
-    let presaleInfo = (await axios.get(`${API_HOST}tokens/saleStats?id=34`)).data.items[0];
+    presaleData = (await axios.get(`${API_HOST}tokens/getSale?id=35`)).data.items[0];
+    let presaleInfo = (await axios.get(`${API_HOST}tokens/saleStats?id=35`)).data.items[0];
 
-    mewSold = 10000000;
+    mewSold = presaleInfo.totalprofit / 0.002;
+    mewSold = 2500000;
     soldPercent = (mewSold / presaleData.amount) * 100;
+    soldPercent = 100;
 
     ergLimit = presaleData.buylimit * presaleData.price;
 
     const saleDate = parseDate(presaleData.salestart);
     const currentDate = getCurrentUTCDate();
     
-    saleClosed = currentDate < saleDate;
+    saleClosed = (currentDate < saleDate) || (soldPercent >= 100);
+    saleClosed = true;
 
     setTimeout(() => {      
       const input = document.getElementById('quantity');
@@ -131,7 +134,7 @@
   <div class="staker-sale">
   <div class="sale-container">
     <div class="sale-form">
-    <h2 class="font-bold">Mew</h2>
+    <h2 class="font-bold">MEW Round 2</h2>
     <h3>Contribution</h3>
     <br>    
     <div class="input-group">
@@ -149,7 +152,7 @@
     
     <br>
     <br>    
-    <button class="btn btn-primary w-100 btn-big" disabled on:click={handleContribute}>Contribute</button>
+    <button class="btn btn-primary w-100 btn-big" disabled={saleClosed} on:click={handleContribute}>Contribute</button>
     </div>
     
     <div class="sale-info m-0" style="height: min-content;">

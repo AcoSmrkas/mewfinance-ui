@@ -10,13 +10,7 @@ export async function unstakeTx(
     stakerUtxos: Array<any>,
     height: number)
   : any {
-    console.log(contractBox);
-    console.log(stakerBase58PK);
-    console.log(stakerUtxos);
-    console.log(height);
-
   const stakerAddress = ErgoAddress.fromBase58(stakerBase58PK);
-
   const sellerBox = new OutputBuilder(
     contractBox.value,
     stakerBase58PK

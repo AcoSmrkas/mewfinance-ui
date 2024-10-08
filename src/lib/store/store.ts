@@ -34,7 +34,7 @@ $: connected_wallet_address.subscribe(async (value) => {
     return;
   }
 
-  const mewTierData = (await axios.get(`${API_HOST}mew/getStakeInfo?staker=${value}`)).data.items[0];
+  const mewTierData = (await axios.get(`${API_HOST}staking/getMewTier?staker=${value}`)).data.items[0];
 
   mewTier.set(mewTierData.tier);
   mewStaked.set(mewTierData.totalstaked);
