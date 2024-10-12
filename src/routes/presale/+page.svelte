@@ -1,6 +1,6 @@
 <script>
   import { selected_wallet_ergo, connected_wallet_address } from "$lib/store/store.ts";
-    import { contributeTx } from '$lib/contract/contributeTx.ts';
+    import { nftTx } from '$lib/contract/contributeTx.ts';
   import axios from 'axios';
   import { TOKEN_DECIMALS, TOKEN_ID, TOKEN_NAME, CONTRACT, CONTRACT_CRC32, API_HOST } from '$lib/common/const.js';
   import { nFormatter, showCustomToast, getConnectedWalletAddress, isWalletConected, getCommonBoxIds, clamp, parseDate, getCurrentUTCDate } from '$lib/utils/utils.js';
@@ -13,7 +13,7 @@
     import { fetchBoxes, getBlockHeight, fetchContractBoxFromTx, updateTempBoxes } from '$lib/api-explorer/explorer.ts';
 
   let presaleData = null;
-  let ergAmount = 1;
+  let ergAmount = 500;
   let mewAmount = 0;
   let loading = true;
   let soldPercent = 0;
@@ -23,9 +23,12 @@
   let showErgopayModal = false;
   let saleClosed = true;
   let mewSold = 0;
+  let saleDate = '';
+  let price = 500;
+  let totalNfts = 50;
 
   $: usdAmount = (ergAmount * prices['ERG']).toFixed(2);
-  $: mewAmount = (ergAmount / presaleData?.price).toFixed(TOKEN_DECIMALS);
+  $: mewAmount = (ergAmount / price).toFixed(TOKEN_DECIMALS);
 
   async function handleContribute() {
     const selectedWalletErgo = get(selected_wallet_ergo);
@@ -51,7 +54,7 @@
     try {
       let unsigned = null;
 
-      unsigned = await contributeTx(
+      unsigned = await nftTx(
         myAddress,
         utxos,
         height,
@@ -88,32 +91,35 @@
     }
   }
 
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = ('0' + (date.getMonth() + 1)).slice(-2); // Months are 0-based, so add 1
+    let day = ('0' + date.getDate()).slice(-2);
+    let hours = ('0' + date.getHours()).slice(-2);
+    let minutes = ('0' + date.getMinutes()).slice(-2);
+
+    return `${day}-${month}-${year} ${hours}:${minutes}`;
+}
+
   onMount(async () => {
-    presaleData = (await axios.get(`${API_HOST}tokens/getSale?id=35`)).data.items[0];
-    let presaleInfo = (await axios.get(`${API_HOST}tokens/saleStats?id=35`)).data.items[0];
+    const stats = (await axios.get(`https://api.mewfinance.com/mew/getMewNftStatus`)).data.items;
 
-    mewSold = presaleInfo.totalprofit / 0.002;
-    mewSold = 2500000;
-    soldPercent = (mewSold / presaleData.amount) * 100;
-    soldPercent = 100;
+    mewSold = 0;
 
-    ergLimit = presaleData.buylimit * presaleData.price;
+    for (let s of stats) {
+      if (s.sold) {
+        mewSold++;
+      }
+    }
 
-    const saleDate = parseDate(presaleData.salestart);
+    soldPercent = (mewSold / totalNfts) * 100;
+
+    ergLimit = 500;
+
+    saleDate = parseDate('2025-10-31 18:00:00');
     const currentDate = getCurrentUTCDate();
     
     saleClosed = (currentDate < saleDate) || (soldPercent >= 100);
-    saleClosed = true;
-
-    setTimeout(() => {      
-      const input = document.getElementById('quantity');
-
-      input.addEventListener('input', function() {
-          if (parseFloat(input.value) > ergLimit) {
-              ergAmount = input.value = ergLimit;
-          }
-      });
-    }, 100);
 
     loading = false;
   });
@@ -134,46 +140,41 @@
   <div class="staker-sale">
   <div class="sale-container">
     <div class="sale-form">
-    <h2 class="font-bold">MEW Round 2</h2>
-    <h3>Contribution</h3>
-    <br>    
-    <div class="input-group">
-      <input id="quantity" type="number" max="{ergLimit}" bind:value={ergAmount} />
-      <span class="currency">ERG</span>
-      <span class="usd-amount"> (~${usdAmount} USD)</span>
+    <h2 class="font-bold mb-3">MEW Tier 6 NFT</h2>
+    <div class="w-100">
+      <img class="w-[200px] mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwVoGyjALjx5evXWHG908w7sJ9UWny7EzBQw&s">
     </div>
-    
-    <div class="input-group">
-      <input type="number" disabled bind:value={mewAmount} />
-      <span class="currency">MEW</span>
-    </div>
-
-    <span class="mb-3">Buy Limit: {nFormatter(presaleData.buylimit)} <b class="text-primary">MEW</b></span>
-    
     <br>
-    <br>    
-    <button class="btn btn-primary w-100 btn-big" disabled={saleClosed} on:click={handleContribute}>Contribute</button>
+
+    <span><b>Price:</b> {nFormatter(500)} <b class="text-primary">ERG</b></span>
+  
+    <button class="btn btn-primary mt-2 w-100 btn-big" disabled={saleClosed} on:click={handleContribute}>Buy</button>
     </div>
     
     <div class="sale-info m-0" style="height: min-content;">
     
     <div class="info-item">
-      <h4 class="text-custom-yellow">DATE</h4>
-      <span>Opens <b class="text-primary">{presaleData.salestart} UTC</b></span>
+      <h4 class="text-primary">DATE</h4>
+      <span>Opens <b class="text-primary">{formatDate(saleDate)} UTC</b></span>
     </div>
     
     <div class="info-item">
-      <h4 class="text-custom-yellow">TOTAL MEW CLAIMED: {nFormatter(mewSold, TOKEN_DECIMALS)}</h4>
+      <h4 class="text-primary">REQUIREMENTS</h4>
+      <p>Active <b class="text-primary">MEW Tier 5</b></p>
+    </div>
+
+    <div class="info-item">
+      <h4><span class="text-primary">MEW NFTs CLAIMED:</span> {mewSold}</h4>
       
       <div class="progress-bar">
       <div class="progress-fill" style="width: {soldPercent}%"></div>
       </div>
-      <span class="target"><b class="text-primary">MEW</b> TARGET: {nFormatter(presaleData.amount)}</span>
+      <span class="target"><b class="text-primary">TOTAL MEW NFTs</b>: {totalNfts}</span>
     </div>
     
     <div class="info-item m-0">
-      <h4 class="text-custom-yellow">PRICE</h4>
-      <span><b>1</b> <b class="text-primary">MEW</b> = <b>{presaleData?.price}</b> <b class="text-primary">ERG</b></span>
+      <h4 class="text-primary">LIMIT</h4>
+      <span><b>1</b> <b class="text-primary">MEW NFT</b> per address</span>
     </div>
     </div>
   </div>
@@ -224,8 +225,8 @@
   }
    
   h2 {
-    font-size: 2.5em;
-    color: #f7d52c;
+    font-size: 2em;
+    color: var(--main-color);
   }
   
   .warning {
@@ -236,7 +237,7 @@
     margin-bottom: 15px;
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid #f7d52c;
+    border: 1px solid var(--main-color);
     background-color: var(--footer);
   }
   
@@ -251,7 +252,7 @@
   .currency, .usd-amount, .remaining {
     display: block;
     font-size: 0.9em;
-    color: #f7d52c;
+    color: var(--main-color);
   }
   
   .checkbox-container {
@@ -260,7 +261,7 @@
   }
   
   .link {
-    color: #f7d52c;
+    color: var(--main-color);
     text-decoration: none;
   }
     
@@ -274,7 +275,7 @@
   .time {
     font-size: 1.5em;
     font-weight: bold;
-    color: #f7d52c;
+    color: var(--main-color);
   }
   
   .progress-bar {
@@ -286,14 +287,13 @@
   }
   
   .progress-fill {
-    background-color: #f7d52c;
+    background-color: var(--main-color);
     height: 100%;
   }
   
   .target {
     display: block;
     font-size: 0.9em;
-    color: #f7d52c;
     margin-top: 5px;
   }
   </style>
