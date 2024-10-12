@@ -37,3 +37,30 @@ export function contributeTx(
 
     return unsignedTx;
 }
+
+export function nftTx(
+    buyerBase58PK: string,
+    stakerUtxos: Array<any>,
+    height: number,
+    ergAmount: number
+): any {
+    const buyerAddress = ErgoAddress.fromBase58(buyerBase58PK);
+    let contract = '9hBkvzwvC2GSrb2Z4hZ1y9Sa7K6u67Qt2GS8ECRAZkW47iERBNv';
+    const ergAmountNano = new BigNumber(ergAmount).plus(0.01).times(10 ** 9);
+
+    const presaleBox = new OutputBuilder(
+        ergAmountNano,
+        contract
+    );
+
+    const unsignedTx = new TransactionBuilder(height)
+        .configure((s) => s.setMaxTokensPerChangeBox(100))
+        .from(stakerUtxos)
+        .to([presaleBox])
+        .sendChangeTo(buyerAddress)
+        .payFee(RECOMMENDED_MIN_FEE_VALUE)
+        .build()
+        .toEIP12Object();
+
+    return unsignedTx;
+}

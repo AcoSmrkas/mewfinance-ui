@@ -1,5 +1,5 @@
 <script>
-  import { selected_wallet_ergo, connected_wallet_address } from "$lib/store/store.ts";
+  import { selected_wallet_ergo, connected_wallet_address, mewTier } from "$lib/store/store.ts";
     import { nftTx } from '$lib/contract/contributeTx.ts';
   import axios from 'axios';
   import { TOKEN_DECIMALS, TOKEN_ID, TOKEN_NAME, CONTRACT, CONTRACT_CRC32, API_HOST } from '$lib/common/const.js';
@@ -119,7 +119,7 @@
     saleDate = parseDate('2025-10-31 18:00:00');
     const currentDate = getCurrentUTCDate();
     
-    saleClosed = (currentDate < saleDate) || (soldPercent >= 100);
+    saleClosed = (currentDate < saleDate) || (soldPercent >= 100) || $mewTier != 5;
 
     loading = false;
   });
