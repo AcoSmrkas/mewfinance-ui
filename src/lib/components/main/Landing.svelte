@@ -212,9 +212,27 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Mart</h3>
-          <p class="text-purple-200 mb-4">Tradehouse | Marketplace to trade assets as individual sales and bundle packs and payments in native and wrapped assets.</p>
+          <p class="text-purple-200 mb-4">A marketplace for trading assets as individual or bundled packs, with support for payments in native and wrapped assets.</p>
           <a href="https://mart.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Mart <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <div class="sm:w-100 md:w-1/2 mx-auto card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
+        <div class="relative h-100 bg-lime-400 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <div class="object-contain max-w-full max-h-full py-5">
+              <i class="fas fa-tools" style="font-size: 13rem; color: var(--background);"></i>
+            </div>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-cyan-300 mb-2">Tools</h3>
+          <p class="text-purple-200 mb-4">An essential toolkit for your wallet: mint, burn, airdrop, and consolidate with ease.</p>
+          <a href="https://tools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Tools <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
