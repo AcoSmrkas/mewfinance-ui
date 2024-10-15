@@ -23,6 +23,7 @@
   let saleDate = '';
   let price = 500;
   let totalNfts = 50;
+  let updateTimeout = null;
 
   async function handleContribute() {
     const selectedWalletErgo = get(selected_wallet_ergo);
@@ -99,12 +100,16 @@
     await updateSaleData($connected_wallet_address, $mewTier);
   });
 
-  async function updateSaleData(address, tier) {
-    const stats = (await axios.get(`https://api.mewfinance.com/mew/getMewNftStatus`)).data.items;
+  async function updateStats() {
+    const stats = (await axios.get(`${API_HOST}mew/getMewNftStatus`)).data.items;
 
     totalNfts = stats.length;
+
+    if (totalNfts == 0) {
+      totalNfts = 50;
+    }
+
     mewSold = 0;
-    price = 500;
 
     for (let s of stats) {
       if (s.sold) {
@@ -113,6 +118,19 @@
     }
 
     soldPercent = (mewSold / totalNfts) * 100;
+
+    if (updateTimeout) {
+      clearTimeout(updateTimeout);
+      updateTimeout = null;
+    }
+
+    updateTimeout = setTimeout(updateStats, 1000 * 15);
+  }
+
+  async function updateSaleData(address, tier) {
+    await updateStats();
+
+    price = 500;
 
     saleDate = parseDate('2025-10-31 18:00:00');
     const currentDate = getCurrentUTCDate();
@@ -130,8 +148,8 @@
     if ((address == '9gvDVNy1XvDeFoi4ZHn5v6u3tFRECMXGKbwuHbijJu6Z2hLQTQz'
       || address == '9fLXRjthKecc7LsHyQAF9w2DfqVbsFxsHqUBpz2ouBPYRmaBxfT')
       && tier == 5) {
-      saleClosed = false;
-      price = 1;
+      //saleClosed = false;
+      //price = 1;
     }
   }
 
