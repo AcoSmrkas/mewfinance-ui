@@ -25,6 +25,13 @@
   let totalNfts = 50;
   let updateTimeout = null;
 
+  let nftImgTimeout = null;
+  let nftImgIndex = 0;
+  const nftImgs = [
+    "nft.png",
+    "nft2.png"
+  ];
+
   async function handleContribute() {
     const selectedWalletErgo = get(selected_wallet_ergo);
 
@@ -98,7 +105,30 @@
 
   onMount(async () => {
     await updateSaleData($connected_wallet_address, $mewTier);
+
+    animateNft();
   });
+
+  function animateNft() {
+    jQuery("#nft-white").css("opacity", 0).fadeTo(200, 1, function() {
+      nftImgIndex++;
+
+      if (nftImgIndex == nftImgs.length) {
+        nftImgIndex = 0;
+      }
+
+      jQuery("#nft-image").attr("src", nftImgs[nftImgIndex]);
+      
+      jQuery("#nft-white").fadeTo(200, 0, function() {
+        if (nftImgTimeout) {
+          clearTimeout(nftImgTimeout);
+          nftImgTimeout = null;
+        }
+
+        nftImgTimeout = setTimeout(animateNft, 3000);
+      });
+    });
+}
 
   async function updateStats() {
     const stats = (await axios.get(`${API_HOST}mew/getMewNftStatus`)).data.items;
@@ -170,8 +200,9 @@
   <div class="sale-container">
     <div class="sale-form">
     <h2 class="font-bold mb-3">MEW Tier 6 NFT</h2>
-    <div class="w-100 mb-3">
-      <img class="w-[230px] mx-auto" style="border: 2px solid var(--main-color)" src="nft.png">
+    <div class="w-100 mb-3 relative">
+      <img id="nft-image" class="w-[230px] mx-auto" style="border: 2px solid var(--main-color)" src="nft.png">
+      <div id="nft-white" class="absolute w-[230px] h-[230px] top-0 inset-0 mx-auto bg-white"></div>
     </div>
 
     <span><b>Price:</b> {nFormatter(price)} <b class="text-primary">ERG</b></span>
