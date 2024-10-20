@@ -86,7 +86,9 @@
 			{#if !isLoading}
 				{#each kittyInfos as kitty}
 					<div class="kitty-holder">
-						<img src="{kitty.cachedurl}">
+						<a href="https://ergexplorer.com/token/{kitty.id}">
+							<img class="rounded-xl" src="{kitty.cachedurl}">
+						</a>
 					</div>
 				{/each}
 			{/if}
@@ -105,6 +107,10 @@
 
 	.kitty-holder:hover {
 		scale: 1.05;
+	}
+
+	.kitty-holder:hover img {
+		border: 2px solid var(--main-color);
 	}
 
 	.kitty-holder {

@@ -30,7 +30,7 @@
   const nftImgs = [
     "nft.png",
     "nft2.png",
-    "nft4.png"
+    "nft3.png"
   ];
 
   async function handleContribute() {
@@ -226,7 +226,7 @@
     <div class="sale-form">
     <h2 class="font-bold mb-3">Mew Kitties (Founders Edition)</h2>
     <div class="w-100 mb-3 relative">
-      <img id="nft-image" class="w-[230px] mx-auto" style="border: 2px solid var(--main-color)" src="nft.png">
+      <img id="nft-image" class="w-[230px] mx-auto rounded-xl" style="border: 2px solid var(--main-color)" src="nft.png">
       <div id="nft-white" style="opacity: 0;" class="absolute w-[230px] h-[230px] top-0 inset-0 mx-auto bg-white"></div>
     </div>
 
