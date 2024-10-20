@@ -77,6 +77,10 @@
   function toggleTooltip(e) {
     showTooltip = !showTooltip;
 
+    if (showTooltip) {
+      loadBalance($selected_wallet_ergo, $connected_wallet_address);
+    }
+
     e.stopPropagation();
   }
 

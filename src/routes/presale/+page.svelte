@@ -29,7 +29,8 @@
   let nftImgIndex = 0;
   const nftImgs = [
     "nft.png",
-    "nft2.png"
+    "nft2.png",
+    "nft4.png"
   ];
 
   async function handleContribute() {
@@ -106,7 +107,7 @@
   onMount(async () => {
     await updateSaleData($connected_wallet_address, $mewTier);
 
-    animateNft();
+    preloadImages(nftImgs, animateNft);
   });
 
   function animateNft() {
@@ -162,7 +163,7 @@
 
     price = 500;
 
-    saleDate = parseDate('2025-10-31 18:00:00');
+    saleDate = parseDate('2024-10-25 18:00:00');
     const currentDate = getCurrentUTCDate();
     
     saleClosed = (currentDate < saleDate) || (soldPercent >= 100) || $mewTier != 5;
@@ -183,6 +184,30 @@
     }
   }
 
+  function preloadImages(imageArray, callback) {
+    let loadedImages = 0;
+    const totalImages = imageArray.length;
+
+    imageArray.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+
+        // Increment the loadedImages counter when the image loads
+        img.onload = () => {
+            loadedImages++;
+            // If all images are loaded, call the callback function
+            if (loadedImages === totalImages) {
+                setTimeout(callback, 3000);
+            }
+        };
+
+        // Optional: handle image loading errors
+        img.onerror = () => {
+            console.error(`Error loading image: ${src}`);
+        };
+    });
+  }
+
   </script>
   
   {#if loading}
@@ -199,15 +224,15 @@
   <div class="staker-sale">
   <div class="sale-container">
     <div class="sale-form">
-    <h2 class="font-bold mb-3">MEW Tier 6 NFT</h2>
+    <h2 class="font-bold mb-3">Mew Kitties (Founders Edition)</h2>
     <div class="w-100 mb-3 relative">
       <img id="nft-image" class="w-[230px] mx-auto" style="border: 2px solid var(--main-color)" src="nft.png">
-      <div id="nft-white" class="absolute w-[230px] h-[230px] top-0 inset-0 mx-auto bg-white"></div>
+      <div id="nft-white" style="opacity: 0;" class="absolute w-[230px] h-[230px] top-0 inset-0 mx-auto bg-white"></div>
     </div>
 
     <span><b>Price:</b> {nFormatter(price)} <b class="text-primary">ERG</b></span>
   
-    <button class="btn btn-primary mt-2 w-100 btn-big" disabled={saleClosed} on:click={handleContribute}>Buy</button>
+    <button class="btn btn-primary mt-2 w-100 btn-big" disabled={saleClosed} on:click={handleContribute}>Claim</button>
     </div>
     
     <div class="sale-info m-0" style="height: min-content;">
