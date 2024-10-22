@@ -76,7 +76,31 @@
 
 <div class="container top-margin text-white mb-3">
     <br>
-    <h1 class="section-title text-4xl font-bold text-white  text-center pt-2 mb-5">Mew Kitties</h1>
+	<img class="pt-2 mb-4" src="mewbanner.jpg">	
+	<p>The <span class="text-primary font-bold">Mew Kitties</span> are a collection of unique utility NFTs living on the Ergo blockchain.</p>
+	<br>
+	<h2 class="mb-2 font-bold text-2xl text-primary"><span class="text-primary font-bold">MEW Tier 6</span> Benefits</h2>
+
+	<p>More than just a undeniably rare piece of art, the ​​<span class="text-primary font-bold">Mew Kitty NFT</span> serves as the gateway to unlocking the most exclusive <span class="text-primary font-bold">MEW Tier 6</span>.</p>
+
+	<p><span class="text-primary font-bold">MEW</span> holders who lockup 500,000 <span class="text-primary font-bold">MEW</span> and hold a <span class="text-primary font-bold">Mew Kitty NFT</span> can become <span class="text-primary font-bold">MEW Tier 6</span> members, giving them access to a wide range of enhanced DeFi benefits:</p>
+	<br>
+
+	<ul class="">
+		<li class="benefits-list-item"><b><b class="text-primary">Mew DEX</b> fee:</b> 0%</li>
+		<li class="benefits-list-item"><b><b class="text-primary">Mew Mart</b> sale fee:</b> 2%</li>
+		<li class="benefits-list-item"><b><b class="text-primary">Mew Mart</b> list fee:</b> 0 <b class="text-primary">ERG</b></li>
+		<li class="benefits-list-item"><b><b class="text-primary">Mew Mart</b> cancel fee:</b> 0 <b class="text-primary">ERG</b></li>
+		<li class="benefits-list-item">Share of <b class="text-primary">Mew Mart</b>'s revenue as rewards every quarter	</li>
+		<li class="benefits-list-item">Share of <b class="text-primary">Mew DEX</b>'s revenue as rewards every quarter</li>
+	</ul>
+
+	<br>
+	<h2 class="mb-2 font-bold text-2xl text-primary">Founders Edition</h2>
+
+	<p>The Founders Edition is the first-ever release of 50 exclusive <span class="text-primary font-bold">Mew Kitty NFTs</span>.</p>
+
+	<br>
 	{#if isLoading}
 		<div class="loading-holder">
 			<Loading />
@@ -84,11 +108,14 @@
 	{:else}
 		<div class="kitties-container">
 			{#if !isLoading}
-				{#each kittyInfos as kitty}
-					<div class="kitty-holder">
+				{#each kittyInfos as kitty, i}
+					<div class="kitty-holder relative">
 						<a href="https://ergexplorer.com/token/{kitty.id}">
 							<img class="rounded-xl" src="{kitty.cachedurl}">
 						</a>
+						<div class="absolute text-center bottom-0 right-0 w-[25%] h-[15%]" style="background: #000000AA; border-radius: 10px 0 10px 0">
+							<p class="text-primary font-bold relative top-[50%]" style="transform: translateY(-50%)">#{i + 1}</p>
+						</div>
 					</div>
 				{/each}
 			{/if}
@@ -97,6 +124,15 @@
 </div>
 
 <style type="text/css">
+	ul {
+  		list-style: square;
+  		list-style-position: inside;
+  	}
+
+  	:global(ul li::marker) {
+    	color: var(--main-color);
+  	}	
+
 	.kitties-container {
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);

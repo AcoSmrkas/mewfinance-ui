@@ -211,16 +211,30 @@ const supportedChains = [
           </div>
         </div>
         <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Mart</h3>
-          <p class="text-purple-200 mb-4">A marketplace for trading assets as individual or bundled packs, with support for payments in native and wrapped assets.</p>
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">NFT Mart</h3>
+          <p class="text-purple-200 mb-4">A marketplace for trading digital assets as individual or bundled packs, with support for payments in native and wrapped assets.</p>
           <a href="https://mart.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Mart <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
-    </div>
-    <div class="mt-4">
-      <div class="sm:w-100 md:w-1/2 mx-auto card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
+
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
+        <div class="relative h-100 bg-pink-500 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <img src="mart.png" alt="Mart" class="object-contain max-w-full max-h-full">
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Phygital Store</h3>
+          <p class="text-purple-200 mb-4">A marketplace for trading phygital assets and services, with support for payments in native and wrapped assets.</p>
+          <a href="https://store.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Store <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
         <div class="relative h-100 bg-lime-400 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <div class="object-contain max-w-full max-h-full py-5">

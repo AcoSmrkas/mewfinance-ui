@@ -128,6 +128,7 @@
   let tiers = [];
   onMount(async () => {
     tiers = (await axios.get(`${API_HOST}mew/getTiers`)).data.items;
+    $mewTier = 5;
   });
 
 </script>
@@ -147,17 +148,18 @@
             <div class="flex-1">
               <h1 class="font-bold text-2xl mb-3 text-yellow-400">Benefits</h1>
               <ul>
-                <li><b class="inline-block w-[150px]">DEX fee:</b> {($mewTier) < 5 ? 0.3 - 0.03 * clamp($mewTier, 0, 5) : '0'}%</li>
+                <li><b class="inline-block w-[150px]">DEX fee:</b> {($mewTier) <= 5 ? 0.3 - 0.03 * clamp($mewTier, 0, 5) : '0'}%</li>
                 <li><b class="inline-block w-[150px]">Mart sale fee:</b> {3.0 - 0.2 * clamp($mewTier, 0, 5)}%</li>
-                <li><b class="inline-block w-[150px]">Mart list fee:</b> {$mewTier < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
-                <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {$mewTier < 5 ? '0.01' : '0'} <span class="text-primary font-bold">ERG</span></li>
+                <li><b class="inline-block w-[150px]">Mart list fee:</b> {$mewTier <= 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
+                <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {$mewTier <= 5 ? '0.01' : '0'} <span class="text-primary font-bold">ERG</span></li>
                 {@html $mewTier < 4 ? '' : `<li class="benefits-list-item">Share of <b class="text-primary">Mew Mart</b>'s revenue as rewards every quarter.</li>`}
+                {@html  $mewTier <= 5 ? '' : `<li class="benefits-list-item">Share of <b class="text-primary">Mew DEX</b>'s revenue as rewards every quarter</li>`}
               </ul>
             </div>
           </div>
           {#if $mewTier != 6 && tiers.length != 0}
             <div class="p-3 mt-4 border-2 border-info rounded-lg">
-            <p class="mb-2"><b class="">Next <span class="text-primary">{TOKEN_NAME}</span> tier at:</b> {nFormatter(tiers[$mewTier].amount)} <span class="text-primary font-bold">{TOKEN_NAME}</span></p>
+            <p class="mb-2"><b class="">Next <span class="text-primary">{TOKEN_NAME}</span> tier at:</b> {nFormatter(tiers[$mewTier].amount)} <span class="text-primary font-bold">{TOKEN_NAME}</span>{#if $mewTier == 5} + <a href="kitties"><span class="text-primary font-bold">Mew Kitty NFT</span></a> {/if}</p>
                           <h1 class="font-bold text-xl mb-2 text-yellow-400">Benefits</h1>
               <ul class="mb-3">
                 <li><b class="inline-block w-[150px]">DEX fee:</b> {($mewTier + 1) < 5 ? 0.3 - 0.03 * clamp($mewTier + 1, 0, 5) : '0'}%</li>
@@ -165,6 +167,7 @@
                 <li><b class="inline-block w-[150px]">Mart list fee:</b> {($mewTier + 1) < 5 ? '0.03' : '0'} <span class="text-primary font-bold">ERG</span></li>
                 <li><b class="inline-block w-[150px]">Mart cancel fee:</b> {($mewTier + 1) < 5 ? '0.01' : '0'} <span class="text-primary font-bold">ERG</span></li>
                 {@html $mewTier + 1 < 4 ? '' : `<li class="benefits-list-item">Share of <b class="text-primary">Mew Mart</b>'s revenue as rewards every quarter.</li>`}
+                {@html  $mewTier + 1 <= 5 ? '' : `<li class="benefits-list-item">Share of <b class="text-primary">Mew DEX</b>'s revenue as rewards every quarter</li>`}
               </ul>
             <a target="_new" href="https://dex.mewfinance.com">
               <button class="btn btn-primary mx-auto block mb-2">Buy</button>
@@ -174,7 +177,7 @@
       </div>
       <div class="flex-1 form-group bg-form  p-3 p-md-4 rounded-lg w-auto" style="height: fit-content;">
       <form class="">
-        <h1 class="font-bold text-2xl mb-3 text-yellow-400">Lock</h1>
+        <h1 class="font-bold text-2xl mb-3 text-yellow-400">Lock MEW</h1>
         <div class="form-section">
           <label class="block text-sm font-medium mb-2" for="token"><b class="text-primary">{TOKEN_NAME}</b> Amount:</label>
           <div class="p-0 flex mb-4 w-100 max-w mx-auto">
@@ -187,7 +190,7 @@
       </div>
     </div>
 
-    <h2 class="section-title text-3xl font-bold text-white pt-2">My Stake</h2>
+    <h2 class="section-title text-3xl font-bold text-white pt-2">My Locks</h2>
     <div class="offers-container my-orders">
       <MyOrders />
     </div>

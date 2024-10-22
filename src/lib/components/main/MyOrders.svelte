@@ -42,5 +42,5 @@
     <BuyWidget {offer}></BuyWidget>
   {/each}
 {:else}
-  <p>No staked tokens found.</p>
+  <p>No locked tokens found.</p>
 {/if}
