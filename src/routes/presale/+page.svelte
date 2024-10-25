@@ -163,7 +163,7 @@
 
     price = 500;
 
-    saleDate = parseDate('2024-10-25 18:00:00');
+    saleDate = parseDate('2024-10-25 20:00:00');
     const currentDate = getCurrentUTCDate();
     
     saleClosed = (currentDate < saleDate) || (soldPercent >= 100) || $mewTier != 5;
@@ -239,7 +239,7 @@
     
     <div class="info-item">
       <h4 class="text-primary">DATE</h4>
-      <span>Opens <b class="text-primary">{formatDate(saleDate)} UTC</b></span>
+      <span>Opens <b class="text-primary">25-10-2024 20:00 UTC</b></span>
     </div>
     
     <div class="info-item">
