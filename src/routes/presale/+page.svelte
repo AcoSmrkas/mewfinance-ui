@@ -219,7 +219,7 @@
   <div class="h-full flex flex-col grow main-page">
   <div class="container top-margin text-custom-light mb-5">
     <br>
-    <h1 class="section-title text-4xl font-bold text-white text-center pt-2 mb-4">Presale</h1>
+    <h1 class="section-title text-4xl font-bold text-white text-center pt-2 mb-4">Claim Kitty</h1>
     <br>
   <div class="staker-sale">
   <div class="sale-container">
@@ -244,21 +244,21 @@
     
     <div class="info-item">
       <h4 class="text-primary">REQUIREMENTS</h4>
-      <p>Active <b class="text-primary">MEW Tier 5</b></p>
+      <p>Active <b class="text-primary"><a href="tokenomics">MEW Tier 5</a></b></p>
     </div>
 
     <div class="info-item">
-      <h4><span class="text-primary">MEW NFTs CLAIMED:</span> {mewSold}</h4>
+      <h4><span class="text-primary">MEW KITTIES CLAIMED:</span> {mewSold}</h4>
       
       <div class="progress-bar">
       <div class="progress-fill" style="width: {soldPercent}%"></div>
       </div>
-      <span class="target"><b class="text-primary">TOTAL MEW NFTs</b>: {totalNfts}</span>
+      <span class="target"><b class="text-primary">TOTAL MEW KITTIES</b>: {totalNfts}</span>
     </div>
     
     <div class="info-item m-0">
       <h4 class="text-primary">LIMIT</h4>
-      <span><b>1</b> <b class="text-primary">MEW NFT</b> per address</span>
+      <span><b>1</b> <b class="text-primary">Mew Kitty NFT</b> per address</span>
     </div>
     </div>
   </div>

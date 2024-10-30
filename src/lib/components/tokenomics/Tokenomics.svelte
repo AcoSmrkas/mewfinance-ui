@@ -80,9 +80,7 @@
 
 <div class="container top-margin text-custom-light mb-5">
     <br>
-    <h1 class="section-title text-4xl font-bold text-white text-center pt-2 mb-4">Tokenomics</h1>
-	<h2 class="text-custom-yellow text-center">Token Distribution</h2>
-  	<br>
+    <h1 class="section-title text-4xl font-bold text-white text-center pt-2 mb-5">Tokenomics</h1>
 	<div class="content">
 	  <div class="chart-section">
 		<div class="chart-container">
@@ -119,7 +117,7 @@
 	  </div>
   
 	  <div class="tier-section bg-form rounded-lg p-6">
-		<h3 class="text-xl mb-4 text-custom-yellow">Choose a tier plan:</h3>
+		<h3 class="text-xl mb-4 text-custom-yellow">Choose your MEW Tier plan:</h3>
 		<div class="tier-buttons mb-6">
 		  {#each plans as plan}
 		  <button
@@ -143,7 +141,7 @@
 			</ul>
 		  </div>
 		  <div class="tier-action">
-			<p class="text-sm text-gray-200 mb-2">Lock amount</p>
+			<p class="text-xl text-gray-200 mb-2">Lock requirement</p>
 			<p class="text-3xl font-bold mb-2 text-custom-yellow">{selectedPlan.mew.toLocaleString()} MEW</p>
 			{#if plans.indexOf(selectedPlan) == 5}
 			<p class="text-3xl font-bold mb-3 text-custom-yellow">+1 MEW NFT</p>
