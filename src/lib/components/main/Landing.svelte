@@ -235,7 +235,7 @@ const supportedChains = [
       </div>
       
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
-        <div class="relative h-100 bg-lime-400 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-orange-400 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <div class="object-contain max-w-full max-h-full py-5">
               <i class="fas fa-tools" style="font-size: 13rem; color: var(--background);"></i>
@@ -243,10 +243,26 @@ const supportedChains = [
           </div>
         </div>
         <div class="p-4">
-          <h3 class="text-2xl font-bold text-cyan-300 mb-2">Tools</h3>
+          <h3 class="text-2xl font-bold text-cyan-300 mb-2">Ergo Tools</h3>
           <p class="text-purple-200 mb-4">An essential toolkit for your wallet: mint, burn, airdrop, and consolidate with ease.</p>
           <a href="https://tools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Tools <i class="fa-solid fa-rocket ml-2"></i>
+            Launch Ergo Tools <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
+        <div class="relative h-100 bg-blue-500 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <div class="object-contain max-w-full max-h-full py-5">
+              <i class="fas fa-tools" style="font-size: 13rem; color: var(--background);"></i>
+            </div>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-cyan-300 mb-2">Cardano Tools</h3>
+          <p class="text-purple-200 mb-4">An essential toolkit for your wallet: mint and airdrop with ease.</p>
+          <a href="https://ctools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Cardano Tools <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
