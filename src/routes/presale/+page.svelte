@@ -105,6 +105,7 @@
 }
 
   onMount(async () => {
+    
     await updateSaleData($connected_wallet_address, $mewTier);
 
     preloadImages(nftImgs, animateNft);
@@ -131,37 +132,40 @@
     });
 }
 
-  async function updateStats() {
-    const stats = (await axios.get(`${API_HOST}mew/getMewNftStatus`)).data.items;
+async function updateKittyPrice() {
+  price = (await axios.get(`${API_HOST}mart/getConfig`)).data.config.KITTY_PRICE_ERG;
+}
 
-    totalNfts = stats.length;
+async function updateStats() {
+  const stats = (await axios.get(`${API_HOST}mew/getMewNftStatus`)).data.items;
 
-    if (totalNfts == 0) {
-      totalNfts = 50;
-    }
+  totalNfts = stats.length;
 
-    mewSold = 0;
-
-    for (let s of stats) {
-      if (s.sold) {
-        mewSold++;
-      }
-    }
-
-    soldPercent = (mewSold / totalNfts) * 100;
-
-    if (updateTimeout) {
-      clearTimeout(updateTimeout);
-      updateTimeout = null;
-    }
-
-    updateTimeout = setTimeout(updateStats, 1000 * 15);
+  if (totalNfts == 0) {
+    totalNfts = 50;
   }
+
+  mewSold = 0;
+
+  for (let s of stats) {
+    if (s.sold) {
+      mewSold++;
+    }
+  }
+
+  soldPercent = (mewSold / totalNfts) * 100;
+
+  if (updateTimeout) {
+    clearTimeout(updateTimeout);
+    updateTimeout = null;
+  }
+
+  updateTimeout = setTimeout(updateStats, 1000 * 15);
+}
 
   async function updateSaleData(address, tier) {
     await updateStats();
-
-    price = 500;
+    await updateKittyPrice();
 
     saleDate = parseDate('2024-10-25 20:00:00');
     const currentDate = getCurrentUTCDate();
