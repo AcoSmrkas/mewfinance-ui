@@ -1,7 +1,9 @@
 <script type="ts">
 	import { fetchAssetInfos } from '$lib/api-explorer/explorer.ts';
     import { onMount } from "svelte";
+	import { API_HOST } from '$lib/common/const.js';
 	import Loading from "$lib/components/common/Loading.svelte";
+	import axios from 'axios';
 
     let isLoading = true;
 	let kittyIds = [
@@ -58,9 +60,12 @@
 	];
 
 	let kittyInfos = [];
+	let kittyData = [];
 
   	onMount(async () => {
   		kittyInfos = await fetchAssetInfos(kittyIds);
+		kittyData = (await axios.get(`${API_HOST}mew/getMewNftStatus`)).data.items;
+		console.log(kittyData);
 
   		kittyInfos.sort((a, b) => {
 		  const numA = parseInt(a.name.match(/\d+/)[0]);
@@ -71,6 +76,10 @@
 
   		isLoading = false;
   	});
+
+	function isSold(tokenId) {
+		return kittyData.some(item => item.tokenid == tokenId && item.sold);
+	}
 
 </script>
 
@@ -111,9 +120,9 @@
 				{#each kittyInfos as kitty, i}
 					<div class="kitty-holder relative">
 						<a href="https://ergexplorer.com/token/{kitty.id}">
-							<img class="rounded-xl" src="{kitty.cachedurl}">
+							<img class="rounded-xl" class:kitty-sold={isSold(kitty.id)} src="{kitty.cachedurl}" alt="Kitty #{kitty.id}">
 						</a>
-						<div class="absolute text-center bottom-0 right-0 w-[25%] h-[15%]" style="background: #000000AA; border-radius: 10px 0 10px 0">
+						<div class="absolute text-center bottom-0 right-0 w-[25%] h-[15%] kitty-number" style="background: #000000AA; border-radius: 10px 0 10px 0">
 							<p class="text-primary font-bold relative top-[50%]" style="transform: translateY(-50%)">#{i + 1}</p>
 						</div>
 					</div>
@@ -153,6 +162,15 @@
 		scale: 1.0;
 		transition: 0.2s all;
 		cursor: pointer;
+	}
+
+	.kitty-holder:hover .kitty-number {
+		bottom: 2px !important;
+		right: 2px !important;
+	}
+
+	.kitty-sold {
+		box-shadow: 0 0 10px 2px var(--info-color);
 	}
 
 	 @media (min-width: 400px) {
