@@ -207,7 +207,7 @@ const supportedChains = [
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
         <div class="relative h-100 bg-primary flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <img src="mart.png" alt="Mart" class="object-contain max-w-full max-h-full">
+            <img src="nftmart.png" alt="Mart" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
