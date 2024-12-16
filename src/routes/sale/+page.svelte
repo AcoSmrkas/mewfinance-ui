@@ -125,7 +125,7 @@
     <div class="h-full flex flex-col grow main-page">
     <div class="container top-margin text-custom-light mb-5">
       <br>
-      <h1 class="section-title text-4xl font-bold text-white text-center pt-2 mb-4">Presale</h1>
+      <h1 class="section-title text-4xl font-bold text-white text-center pt-2 mb-4">Sale</h1>
       <br>
     <div class="staker-sale">
     <div class="sale-container">
