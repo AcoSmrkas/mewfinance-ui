@@ -143,7 +143,7 @@
         <span class="currency">MEW</span>
       </div>
   
-      <span class="mb-3 hidden">Buy Limit: {nFormatter(presaleData.buylimit)} <b class="text-primary">MEW</b></span>
+      <span class="mb-3">Buy Limit: {nFormatter(presaleData.buylimit)} <b class="text-primary">MEW</b></span>
       
       <button class="btn btn-primary w-100 btn-big mt-3" disabled={saleClosed} on:click={handleContribute}>Buy</button>
       </div>
