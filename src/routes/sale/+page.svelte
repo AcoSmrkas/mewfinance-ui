@@ -94,7 +94,7 @@
       mewSold = presaleInfo.totalprofit / 0.01;
       soldPercent = (mewSold / presaleData.amount) * 100;
   
-      ergLimit = 20000;
+      ergLimit = presaleData.buylimit * presaleData.price;;
   
       const saleDate = parseDate(presaleData.salestart);
       const currentDate = getCurrentUTCDate();
