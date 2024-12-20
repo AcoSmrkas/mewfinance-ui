@@ -22,6 +22,7 @@
     let showErgopayModal = false;
     let saleClosed = true;
     let mewSold = 0;
+    let saleId = 37;
   
     $: usdAmount = (ergAmount * prices['ERG']).toFixed(2);
     $: mewAmount = (ergAmount / presaleData?.price).toFixed(TOKEN_DECIMALS);
@@ -54,7 +55,8 @@
           myAddress,
           utxos,
           height,
-          ergAmount
+          ergAmount,
+          saleId
         );
   
         if (selectedWalletErgo != 'ergopay') {
@@ -88,8 +90,8 @@
     }
   
     onMount(async () => {
-      presaleData = (await axios.get(`${API_HOST}tokens/getSale?id=37`)).data.items[0];
-      let presaleInfo = (await axios.get(`${API_HOST}tokens/saleStats?id=37`)).data.items[0];
+      presaleData = (await axios.get(`${API_HOST}tokens/getSale?id=${saleId}`)).data.items[0];
+      let presaleInfo = (await axios.get(`${API_HOST}tokens/saleStats?id=${saleId}`)).data.items[0];
       
       mewSold = presaleInfo.totalprofit / 0.01;
       soldPercent = (mewSold / presaleData.amount) * 100;
