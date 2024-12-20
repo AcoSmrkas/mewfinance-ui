@@ -196,7 +196,7 @@ const supportedChains = [
           </div>
         </div>
         <div class="p-4">
-          <h3 class="text-2xl font-bold text-cyan-300 mb-2">DEX</h3>
+          <h3 class="text-2xl font-bold text-primary mb-2">DEX</h3>
           <p class="text-purple-200 mb-4">Looking for a one-stop place to trade all Ergo native and wrapped assets with low fees, provide token liquidity, and yield farm?</p>
           <a href="https://dex.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch DEX <i class="fa-solid fa-rocket ml-2"></i>
@@ -250,13 +250,13 @@ const supportedChains = [
       </div>
       
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
-        <div class="relative h-100 bg-white flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-[#67b9c7] flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <img src="https://santa.mewfinance.com/logo.png" alt="Mart" class="object-contain max-w-[250px] max-h-[250px]">
+            <img src="santa.png" alt="Mart" class="object-contain max-w-[250px] max-h-[250px]">
           </div>
         </div>
         <div class="p-4">
-          <h3 class="text-2xl font-bold text-cyan-300 mb-2">Ergosanta</h3>
+          <h3 class="text-2xl font-bold text-primary mb-2">Ergosanta</h3>
           <p class="text-purple-200 mb-4">Santa has embraced the digital age, and with the magic of proof of work, checking his list twice is a thing of the past.</p>
           <a href="https://santa.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Ergosanta <i class="fa-solid fa-rocket ml-2"></i>
@@ -272,7 +272,7 @@ const supportedChains = [
           </div>
         </div>
         <div class="p-4">
-          <h3 class="text-2xl font-bold text-cyan-300 mb-2">Ergo Tools</h3>
+          <h3 class="text-2xl font-bold text-primary mb-2">Ergo Tools</h3>
           <p class="text-purple-200 mb-4">An essential toolkit for your wallet: mint, burn, airdrop, and consolidate with ease.</p>
           <a href="https://tools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Ergo Tools <i class="fa-solid fa-rocket ml-2"></i>
@@ -288,7 +288,7 @@ const supportedChains = [
           </div>
         </div>
         <div class="p-4">
-          <h3 class="text-2xl font-bold text-cyan-300 mb-2">Cardano Tools</h3>
+          <h3 class="text-2xl font-bold text-primary mb-2">Cardano Tools</h3>
           <p class="text-purple-200 mb-4">An essential toolkit for your wallet: mint and airdrop with ease.</p>
           <a href="https://ctools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Cardano Tools <i class="fa-solid fa-rocket ml-2"></i>
