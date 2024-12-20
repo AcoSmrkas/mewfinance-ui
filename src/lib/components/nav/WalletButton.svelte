@@ -1,13 +1,14 @@
 <script lang="ts">
   import { get } from 'svelte/store';
-  import { selected_wallet_ergo, connected_wallet_address, mewTier } from '$lib/store/store.ts';
+  import { selected_wallet_ergo, connected_wallet_address, mewTier, connected_wallet_addresses } from '$lib/store/store.ts';
   import WalletsModal from '$lib/components/common/WalletsModal.svelte';
   import ErgopayModal from '$lib/components/common/ErgopayModal.svelte';
   import Tooltip from '$lib/components/common/Tooltip.svelte'; // Import the Tooltip component
-  import { connectErgoWallet, disconnectErgoWallet } from '$lib/common/wallet.js';
+  import { connectErgoWallet, disconnectErgoWallet, KEY_ADDRESS } from '$lib/common/wallet.js';
   import { fetchConfirmedBalance } from '$lib/api-explorer/explorer.ts';
-  import { TOKEN_ID, TOKEN_DECIMALS, TOKEN_NAME } from '$lib/common/const.js';
-  import { nFormatter, showCustomToast, truncateAddress, isMobileDevice } from '$lib/utils/utils.js';
+  import { TOKEN_ID, TOKEN_NAME } from '$lib/common/const.js';
+  import { nFormatter, isMobileDevice } from '$lib/utils/utils.js';
+  import AddressChangeModal from '../common/AddressChangeModal.svelte';
 
   let showWalletsModal = false;
   let showErgopayModal = false;
@@ -18,6 +19,9 @@
   let paymentTokenBalance = '0.00';
   let truncatedAddress = "";
   let showTooltip = false;
+  let showAddressChangeModal = false;
+
+  let selectedAddress = null;
 
   async function clickOnNautilusButton() {
     showWalletsModal = false;
@@ -72,7 +76,7 @@
     }
   }
 
-  $: loadBalance($selected_wallet_ergo);
+  $: loadBalance($selected_wallet_ergo, $connected_wallet_address);
 
   function toggleTooltip(e) {
     showTooltip = !showTooltip;
@@ -89,6 +93,17 @@
       showTooltip = false;
     }
 });
+
+window.openChangeAddressModal = function() {
+    showAddressChangeModal = true;
+  }
+
+  function handleAddressChange() {
+    connected_wallet_address.set(selectedAddress);
+    localStorage.setItem(KEY_ADDRESS, selectedAddress);
+
+    console.log(selectedAddress);
+  }
 
 </script>
 
@@ -127,7 +142,7 @@
 </style>
 
 <div class="wallet-button gap-x-2">
-  <Tooltip show={showTooltip} message={$selected_wallet_ergo ? `<b style="color: var(--main-color); display:inline-block; width:100px;">Connection:</b> ${get(selected_wallet_ergo).charAt(0).toUpperCase() + get(selected_wallet_ergo).slice(1).toLowerCase()}\n<b style="color: var(--main-color); display:inline-block; width:100px;">Address:</b> ${truncatedAddress} \n <b style="color: var(--main-color); display:inline-block; width:100px;">ERG:</b> ${nFormatter(balanceErg, 9)}\n <b style="color: var(--main-color); display:inline-block;width:100px;">${TOKEN_NAME}:</b> ${paymentTokenBalance}\n <b style="color: var(--main-color); display:inline-block;width:100px;">${TOKEN_NAME} Tier: </b>${$mewTier}`
+  <Tooltip show={showTooltip} message={$selected_wallet_ergo ? `<b style="color: var(--main-color); display:inline-block; width:100px;">Connection:</b> ${get(selected_wallet_ergo).charAt(0).toUpperCase() + get(selected_wallet_ergo).slice(1).toLowerCase()}\n<b style="color: var(--main-color); display:inline-block; width:100px;">Address:</b> ${truncatedAddress}  <button onclick="openChangeAddressModal()" id="edit-btn" class="inline btn btn-primary ${$connected_wallet_addresses.length > 1 ? '' : 'invisible'}"><i class="fa-solid fa-pen-to-square"></i></button> \n <b style="color: var(--main-color); display:inline-block; width:100px;">ERG:</b> ${nFormatter(balanceErg, 9)}\n <b style="color: var(--main-color); display:inline-block;width:100px;">${TOKEN_NAME}:</b> ${paymentTokenBalance}\n <b style="color: var(--main-color); display:inline-block;width:100px;">${TOKEN_NAME} Tier: </b>${$mewTier}`
                                       : "Connect your wallet to view details."}>
 {#if $selected_wallet_ergo}
   <button class="btn btn-secondary" style="text-wrap: nowrap;" on:click={clickOnNautilusButton}>
@@ -197,4 +212,22 @@
   <ErgopayModal bind:showErgopayModal bind:qrCodeText bind:isAuth>
     <button slot="btn">Close</button>
   </ErgopayModal>
+{/if}
+
+{#if showAddressChangeModal}
+  <AddressChangeModal bind:showAddressChangeModal>
+      <div class="leading-6 pb-2 text-white w-100 text-center font-bold" style="font-family:'Manrope';font-size:1.5em;">Select Address</div>
+      <br>
+    <div class="flex-1">
+      <label class="pb-1" for="paymentToken">Selected Address:</label>
+      <select id="paymentToken" class="bg-form text-white-900 text-sm rounded-lg focus-primary block w-full p-2.5" bind:value={selectedAddress}>
+        {#each $connected_wallet_addresses as address}
+          <option value={address} selected={address === selectedAddress}>
+            {address}
+          </option>
+        {/each}
+      </select>
+    </div>
+    <button on:click={handleAddressChange} slot="btn">Confirm</button>
+  </AddressChangeModal>  
 {/if}

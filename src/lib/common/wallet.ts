@@ -1,32 +1,44 @@
 import { get } from "svelte/store";
-import { selected_wallet_ergo, connected_wallet_address } from '$lib/store/store.ts';
+import { selected_wallet_ergo, connected_wallet_address, connected_wallet_addresses } from '$lib/store/store.ts';
 import { showCustomToast } from "$lib/utils/utils.js";
 
 const KEY_WALLET_TYPE = 'connected_ergo_wallet';
-const KEY_ADDRESS = 'connected_address';
+export const KEY_ADDRESS = 'connected_address';
 
-export async function connectErgoWallet(walletName: string) {
-  if (walletName == get(selected_wallet_ergo)) {
-    disconnectErgoWallet();
-    return;
-  } else if (get(selected_wallet_ergo)) {
-    disconnectErgoWallet();
-  }
-
+export async function connectErgoWallet(walletName, address = null) {
   if (walletName != 'ergopay' && !window.ergoConnector[walletName]) {
     showCustomToast(`${walletName} not detected.`, 4000, 'warning');
     return;
   }
 
   const isConnected = await connectWallet(walletName);
+  console.log(isConnected);
   if (isConnected) {
     if (walletName != 'ergopay') {
-      const addresses = await ergo.get_used_addresses();
+      let addresses = [];
+      
+      try {
+        addresses = await ergo.get_used_addresses();
+      } catch (e) {}
 
-      connected_wallet_address.set(addresses[0]);
-      localStorage.setItem(KEY_ADDRESS, addresses[0]);
+      if (addresses.length == 0) {
+        addresses = await ergo.get_unused_addresses();
+      }
+
+      connected_wallet_addresses.set(addresses);
+
+      let connectedAddresses = get(connected_wallet_addresses);
+
+      if (address == null) {
+        connected_wallet_address.set(connectedAddresses[0]);
+        localStorage.setItem(KEY_ADDRESS, connectedAddresses[0]);
+      } else {
+        connected_wallet_address.set(address);
+        localStorage.setItem(KEY_ADDRESS, address);
+      }
     } else {
       localStorage.setItem(KEY_ADDRESS, get(connected_wallet_address));
+      connected_wallet_addresses.set([get(connected_wallet_address)]);
     }
 
     selected_wallet_ergo.set(walletName);
@@ -70,6 +82,7 @@ export async function disconnectErgoWallet() {
   selected_wallet_ergo.set('');
   const address = get(connected_wallet_address);
   connected_wallet_address.set('');
+  connected_wallet_addresses.set([]);
 
   localStorage.removeItem(KEY_WALLET_TYPE);
   localStorage.removeItem(KEY_ADDRESS);
@@ -91,7 +104,7 @@ export async function reconnectErgoWallet() {
       connected_wallet_address.set(address);
     } else {
       try {
-        await ergoConnector[walletName].connect();
+        await connectErgoWallet(walletName, address);
         selected_wallet_ergo.set(walletName);
         connected_wallet_address.set(address);
       } catch {

@@ -14,7 +14,7 @@
 
   .tooltip-text {
     visibility: hidden;
-    width: 250px;
+    width: 279px;
     background-color: var(--forms-bg);
     color: #fff;
     text-align: left;
@@ -23,7 +23,7 @@
     position: absolute;
     z-index: 1;
     top: 125%;
-    right: -58px;
+    right: -53px;
     margin-left: -110px;
     opacity: 0;
     transition: opacity 0.3s, visibility 0.3s;

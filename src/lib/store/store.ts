@@ -12,6 +12,7 @@ export type Token = {
 
 export const selected_wallet_ergo = writable('');
 export const connected_wallet_address = writable('');
+export const connected_wallet_addresses = writable([]);
 export const utxos = writable([]);
 export const assets = writable([]);
 export const offers = writable([]);
