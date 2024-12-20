@@ -2,14 +2,14 @@
     import { selected_wallet_ergo, connected_wallet_address } from "$lib/store/store.ts";
       import { contributeTx } from '$lib/contract/contributeTx.ts';
     import axios from 'axios';
-    import { TOKEN_DECIMALS, TOKEN_ID, TOKEN_NAME, CONTRACT, CONTRACT_CRC32, API_HOST } from '$lib/common/const.js';
-    import { nFormatter, showCustomToast, getConnectedWalletAddress, isWalletConected, getCommonBoxIds, clamp, parseDate, getCurrentUTCDate } from '$lib/utils/utils.js';
+    import { TOKEN_DECIMALS, API_HOST } from '$lib/common/const.js';
+    import { nFormatter, showCustomToast, isWalletConected, getCommonBoxIds, formatDateStringFromDate, parseDate, getCurrentUTCDate } from '$lib/utils/utils.js';
     import { onMount } from "svelte";
-    import { writable, get } from 'svelte/store';
+    import { get } from 'svelte/store';
     import ErgopayModal from '$lib/components/common/ErgopayModal.svelte';
     import { prices } from '$lib/utils/prices.js';
     import Loading from "$lib/components/common/Loading.svelte";
-      import { fetchBoxes, getBlockHeight, fetchContractBoxFromTx, updateTempBoxes } from '$lib/api-explorer/explorer.ts';
+      import { fetchBoxes, getBlockHeight, updateTempBoxes } from '$lib/api-explorer/explorer.ts';
   
     let presaleData = null;
     let ergAmount = 1;
@@ -143,7 +143,7 @@
         <span class="currency">MEW</span>
       </div>
   
-      <span class="mb-3">Buy Limit: {nFormatter(presaleData.buylimit)} <b class="text-primary">MEW</b></span>
+      <span class="mb-3">Buy Limit: {nFormatter(presaleData.buylimit)} <b class="text-primary">MEW</b> per address</span>
       
       <button class="btn btn-primary w-100 btn-big mt-3" disabled={saleClosed} on:click={handleContribute}>Buy</button>
       </div>
@@ -152,7 +152,7 @@
       
       <div class="info-item">
         <h4 class="text-custom-yellow">DATE</h4>
-        <span>Opens <b class="text-primary">{presaleData.salestart} UTC</b></span>
+        <span>Opens <b class="text-primary">{formatDateStringFromDate(parseDate(presaleData.salestart))}</b></span>
       </div>
       
       <div class="info-item">

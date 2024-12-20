@@ -45,6 +45,28 @@ function getDecimals(value, additional = 1) {
   return decimals;
 }
 
+export function formatDateStringFromDate(date, time = true) {
+  let out = date.toLocaleDateString(getLang());
+
+  if (time) {
+    out +=  ', ' + zeroPad(date.getHours(), 2) + ':' + zeroPad(date.getMinutes(), 2) + ':' + zeroPad(date.getSeconds(), 2);
+  }
+
+  return out;
+}
+
+function zeroPad (num, places) {
+	return String(num).padStart(places, '0');
+}
+
+function getLang() {
+	if (navigator.languages != undefined) {
+		return navigator.languages[0];
+	}
+	
+	return navigator.language;
+}
+
 export function nFormatter(num) {
   if (num == undefined) {
     return num;
