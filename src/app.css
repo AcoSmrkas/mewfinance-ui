@@ -287,6 +287,14 @@ input{
   background: var(--forms-bg);
 }
 
+.bg-bg {
+  background: var(--background);
+}
+
+.bg-footer {
+  background: var(--footer);
+}
+
 .bg-input {
   background: var(--footer);
 }

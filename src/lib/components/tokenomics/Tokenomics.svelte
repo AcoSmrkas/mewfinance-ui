@@ -3,10 +3,46 @@
 	import { clamp } from '$lib/utils/utils.js';
   
 	const segments = [
-	  { name: 'Presale', percentage: 35, color: '#00FFFF' },
-	  { name: 'IDO Liquidity', percentage: 15, color: '#FFD700' },
+	  { name: 'Sales Reserve', percentage: 35, color: '#00FFFF' },
+	  { name: 'Liquidity Reserve', percentage: 15, color: '#FFD700' },
 	  { name: 'Team + Marketing', percentage: 20, color: '#FF69B4' },
 	  { name: 'Reserve (Locked)', percentage: 30, color: '#9370DB' },
+	];
+
+	const faqs = [
+	  {
+		question: 'What is the sales reserve?',
+		answer: `The sales reserve refers to the total allocation of <span class="font-bold text-primary">MEW</span> tokens set aside for various sales events throughout the platform's lifecycle.`
+	  },
+	  {
+		question: 'What is the liquidity reserve?',
+		answer: `The liquidity reserve refers to the total allocation of <span class="font-bold text-primary">MEW</span> tokens set aside for DEX liquidity throughout the platform's lifecycle.`
+	  },
+	  {
+		question: 'What is the team + marketing reserve?',
+		answer: 'The team + marketing reserve refers to the total allocation of <span class="font-bold text-primary">MEW</span> tokens set aside for the development and marketing of the platform.'
+	  },
+	  {
+		question: 'What is the reserve (locked)?',
+		answer: 'The reserve (locked) refers to the total allocation of <span class="font-bold text-primary">MEW</span> tokens set aside for future uses, such as rewards and incentives.'
+	  },
+	  {
+		question: 'How do I obtain MEW tokens?',
+		answer: 'You can obtain <span class="font-bold text-primary">MEW</span> tokens through the official <a class="text-primary font-bold" href="https://dex.mewfinance.com/ergo/swap?base=0000000000000000000000000000000000000000000000000000000000000000&quote=6c35aa395c7c75b0f67f7804d6930f0e11ef93c3387dc1faa86498d54af7962c&initialPoolId=02a3a726cbdf5d2c6ce2719e1c20cd2e9f3c6f3627dc5224550462dc4d3a336b" target="_new">MEW DEX</a>.'
+	  },
+	  {
+		question: 'How do I obtain MEW Kitty NFT?',
+		answer: `You can obtain <span class="font-bold text-primary">MEW Kitty NFT</span> by having active <span class="font-bold text-primary">MEW Tier 5</span> membership and heading over to the <a class="text-primary font-bold" href="claim">Claim Kitty</a> page.`
+	  },
+	  {
+		question: 'How do I qualify for quarterly revenue share?',
+		answer: `You can qualify for the quarterly revenue share by maintaining an active <span class="font-bold text-primary">MEW Tier 4 or higher</span> membership or higher and ensuring your <span class="font-bold text-primary">MEW Tier</span> membership remains active throughout the entire quarter.<br>For <span class="font-bold text-primary">MEW Tier 6</span>, your <span class="font-bold text-primary">MEW Kitty NFT</span> has to remain in your address for the entire quarter.<br>If your membership unlocks at any point during the quarter, you will be disqualified from receiving revenue share for that period.<br><br><span class="font-bold text-info">Quarter Dates:</span>
+<ol> <li>January 1st - March 31st</li> <li>April 1st - June 30th</li> <li>July 1st - September 30th</li> <li>October 1st - December 31st</li> </ol> `
+	  },
+	  {
+		question: 'What asset is used for revenue share?',
+		answer: `The asset used for revenue share is <span class="font-bold text-primary">MEW</span>.`
+	  }
 	];
   
 	const size = 300;
@@ -116,8 +152,8 @@
 		</div>
 	  </div>
   
-	  <div class="tier-section bg-form rounded-lg p-6">
-		<h3 class="text-xl mb-4 text-custom-yellow">Choose your MEW Tier plan:</h3>
+	  <div class="tier-section bg-form rounded-lg p-6 ps-10">
+		<h3 class="text-xl mb-4 font-bold text-white">Choose your <span class="text-primary">MEW Tier</span> plan:</h3>
 		<div class="tier-buttons mb-6">
 		  {#each plans as plan}
 		  <button
@@ -160,7 +196,20 @@
 		</div>
 	  </div>
 	</div>
+
+	<div class="w-100 bg-form rounded-lg p-6 mt-12">
+	  <h3 class="text-3xl mb-4 font-bold text-white">Questions & Answers</h3>
+	  <div class="space-y-5">
+	  {#each faqs as faq}
+		<div class="faq-item bg-bg p-4 rounded-lg">
+		  <h4 class="faq-question font-bold text-primary text-lg mb-1">{@html faq.question}</h4>
+		  <p class="faq-answer text-white">{@html faq.answer}</p>
+		</div>
+	  {/each}
+	  </div>
+	</div>
 </div>
+
   
   <style>
   	#benefits-list {
