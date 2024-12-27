@@ -235,9 +235,9 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform hover:scale-[1.02] transition-transform duration-300">
-        <div class="relative h-100 bg-green-500 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-green-600 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <i class="fas fa-dollar-sign" style="font-size: 13rem; color: var(--background);"></i>
+            <img src="fund.png" alt="Fund" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
