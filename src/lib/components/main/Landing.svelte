@@ -268,7 +268,7 @@ const supportedChains = [
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-[#67b9c7] flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <img src="santa.png" alt="Mart" class="object-contain max-w-[250px] max-h-[250px]">
+            <img src="santa.png" alt="Mart" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
@@ -283,7 +283,7 @@ const supportedChains = [
         <div class="relative h-100 bg-orange-400 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <div class="object-contain max-w-full max-h-full py-5">
-              <i class="fas fa-tools" style="font-size: 13rem; color: var(--background);"></i>
+              <img src="tools_gatos_erg.png" alt="Fund" class="object-contain max-w-full max-h-full">
             </div>
           </div>
         </div>
