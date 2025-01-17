@@ -124,6 +124,12 @@
         url: 'https://bobertoken.io/', 
         description: 'Bober is a community-driven token with unique rewards and staking features.' 
     },
+    { 
+        name: 'PHP', 
+        logo: 'https://ergexplorer.com/images/tokens/php.png', 
+        url: 'https://demurrage.fun/', 
+        description: 'First Storage Rent MEME Coin.' 
+    }
 ];
 
   const reviews = [
@@ -222,7 +228,7 @@ const supportedChains = [
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-pink-500 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <img src="mart.png" alt="Mart" class="object-contain max-w-full max-h-full">
+            <img src="mart.png" alt="Store" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
@@ -253,7 +259,7 @@ const supportedChains = [
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-[#230430] flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <img src="gamblor.png" alt="Fund" class="object-contain max-w-full max-h-full">
+            <img src="gamblor.png" alt="Fun" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
@@ -268,7 +274,7 @@ const supportedChains = [
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-[#67b9c7] flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <img src="santa.png" alt="Mart" class="object-contain max-w-full max-h-full">
+            <img src="santa.png" alt="Santa" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
