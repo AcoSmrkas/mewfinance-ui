@@ -22,7 +22,7 @@
 
 	</div>
 	<div class="flex flex-grow justify-center text-light text-sm p-1 pt-2 pb-2 font-azeret">
-		<p>© {@html FOOTER_TEXT} 2024</p>
+		<p>© {@html FOOTER_TEXT} 2025</p>
 	</div>
 </div>
 

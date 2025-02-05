@@ -305,7 +305,7 @@ const supportedChains = [
         <div class="relative h-100 bg-blue-500 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <div class="object-contain max-w-full max-h-full py-5">
-              <i class="fas fa-tools" style="font-size: 13rem; color: var(--background);"></i>
+              <img src="tools_gatos_ada.png" alt="Fund" class="object-contain max-w-full max-h-full">
             </div>
           </div>
         </div>
