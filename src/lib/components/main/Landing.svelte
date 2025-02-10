@@ -183,7 +183,7 @@ const supportedChains = [
     </div>
 
     <div class="image-wrapper relative flex-1">
-      <img id="hero-image" src="hero.png" class="hero-image">
+      <img id="hero-image" src="hero.png" alt="Hero" class="hero-image">
       <div class="full-gradient">
         
       </div>
@@ -255,6 +255,20 @@ const supportedChains = [
         </div>
       </div>
 
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
+        <div class="relative h-100 bg-green-600 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <i class="fas fa-chart-line" style="font-size: 13rem; color: var(--background);"></i>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Trading</h3>
+          <p class="text-purple-200 mb-4">The only trading dashboard you will ever need! Track all assets and dApps on the Ergo Blockchain in one place.</p>
+          <a href="https://trading.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Trading <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-[#230430] flex items-center justify-center overflow-hidden">
