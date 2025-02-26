@@ -256,7 +256,7 @@ export async function fetchBoxes(address) {
 
 export async function getBlockHeight() {
   try {
-  const response = await axios.get('https://api.ergo.aap.cornell.edu/api/v1/networkState');
+  const response = await axios.get('https://api.ergoplatform.com/api/v1/networkState');
 
   return response.data.height;
   } catch (error) {
