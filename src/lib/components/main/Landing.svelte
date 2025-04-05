@@ -133,7 +133,8 @@
 ];
 
   const reviews = [
-  { name: 'Kushti', content: 'Mew Finance has revolutionized my crypto trading experience. The interface is intuitive and the features are top-notch!', rating: 5 },
+  { name: 'Kushti', content: 'Mew Finance has revolutionized my crypto trading experience. The interface is intuitive and the features are top-notch!', rating: 5 },  
+  { name: 'LIFΣ OF IF₳', content: `As a creative I have always enjoyed Ergo's NFT space. The team at Mew Finance has upped the game and offers support like no other with innovation that is off the charts!`, rating: 5 },
   { name: 'Andruis', content: 'I love how easy it is to use the Mart feature. It\'s made asset trading so much more accessible for me.', rating: 4 },
   { name: 'Maverick', content: 'The DEX is incredibly fast and efficient. Mew Finance has become my go-to platform for all my crypto needs.', rating: 5 },
   { name: 'Ergone', content: 'Whether you are a beginner or a seasoned crypto enthusiast, MewFinance provides the tools needed to explore decentralized finance in a smart and efficient way. A solid option for those looking to expand their DeFi experience!', rating: 5 },
