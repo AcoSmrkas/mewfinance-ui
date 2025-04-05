@@ -32,11 +32,12 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg); /* Starting and ending position */
-    }
-    50% {
-        transform: translateY(-100px) rotate(360deg); /* Jump up and rotate at the peak */
-    }
-}
+		0%,
+		100% {
+			scale: 1; /* Starting and ending position */
+		}
+		50% {
+			scale: 1.1; /* Jump up and rotate at the peak */
+		}
+	}
 </style>
