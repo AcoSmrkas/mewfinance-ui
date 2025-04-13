@@ -204,7 +204,7 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-primary mb-2">DEX</h3>
-          <p class="text-purple-200 mb-4">Looking for a one-stop place to trade all Ergo native and wrapped assets with low fees, provide token liquidity, and yield farm?</p>
+          <p class="text-white mb-4">Looking for a one-stop place to trade all Ergo native and wrapped assets with low fees, provide token liquidity, and yield farm?</p>
           <a href="https://dex.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch DEX <i class="fa-solid fa-rocket ml-2"></i>
           </a>
@@ -219,7 +219,7 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">NFT Mart</h3>
-          <p class="text-purple-200 mb-4">A marketplace for trading digital assets as individual or bundled packs, with support for payments in native and wrapped assets.</p>
+          <p class="text-white mb-4">A marketplace for trading digital assets as individual or bundled packs, with support for payments in native and wrapped assets.</p>
           <a href="https://mart.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Mart <i class="fa-solid fa-rocket ml-2"></i>
           </a>
@@ -234,7 +234,7 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Phygital Store</h3>
-          <p class="text-purple-200 mb-4">A marketplace for trading phygital assets and services, with support for payments in native and wrapped assets.</p>
+          <p class="text-white mb-4">A marketplace for trading phygital assets and services, with support for payments in native and wrapped assets.</p>
           <a href="https://store.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Store <i class="fa-solid fa-rocket ml-2"></i>
           </a>
@@ -242,14 +242,14 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-orange-400 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-purple-600 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <i class="fas fa-sack-dollar" style="font-size: 13rem; color: var(--background);"></i>
+            <img src="bank.png" alt="Store" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Bank</h3>
-          <p class="text-purple-200 mb-4">A decentralized banking and DeFi interface for everything stablecoin related on the Ergo Blockchain.</p>
+          <p class="text-white mb-4">A decentralized banking and DeFi interface for everything stablecoin related on the Ergo Blockchain.</p>
           <a href="https://bank.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Bank <i class="fa-solid fa-rocket ml-2"></i>
           </a>
@@ -264,7 +264,7 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Fund</h3>
-          <p class="text-purple-200 mb-4">A decentralized platform empowering projects on the Ergo Blockchain to raise funds transparently and securely.</p>
+          <p class="text-white mb-4">A decentralized platform empowering projects on the Ergo Blockchain to raise funds transparently and securely.</p>
           <a href="https://fund.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Fund <i class="fa-solid fa-rocket ml-2"></i>
           </a>
@@ -272,14 +272,29 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
+        <div class="relative h-100 bg-teal-400 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <img src="bridge.png" alt="Bridge" class="object-contain max-w-full max-h-full">
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Bridge</h3>
+          <p class="text-white mb-4">The multi-chain NFT bridge! Effortlessly mint and transfer supported NFTs between Ergo and Cardano blockchains.</p>
+          <a href="https://bridge.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Bridge <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-yellow-400 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
-            <i class="fas fa-chart-line" style="font-size: 13rem; color: var(--background);"></i>
+            <img src="trading.png" alt="Trading" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Trading</h3>
-          <p class="text-purple-200 mb-4">The only trading dashboard you will ever need! Track all assets and dApps on the Ergo Blockchain in one place.</p>
+          <p class="text-white mb-4">The only trading dashboard you will ever need! Track all assets and dApps on the Ergo Blockchain in one place.</p>
           <a href="https://trading.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Trading <i class="fa-solid fa-rocket ml-2"></i>
           </a>
@@ -294,7 +309,7 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Fun</h3>
-          <p class="text-purple-200 mb-4">A decentralized finance platform offering blockchain-powered lottery services with secure, and fair gameplay.</p>
+          <p class="text-white mb-4">A decentralized finance platform offering blockchain-powered lottery services with secure, and fair gameplay.</p>
           <a href="https://fun.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Fun <i class="fa-solid fa-rocket ml-2"></i>
           </a>
@@ -302,21 +317,21 @@ const supportedChains = [
       </div>
       
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-[#67b9c7] flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-green-600 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="santa.png" alt="Santa" class="object-contain max-w-full max-h-full">
           </div>
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-primary mb-2">Ergosanta</h3>
-          <p class="text-purple-200 mb-4">Santa has embraced the digital age, and with the magic of proof of work, checking his list twice is a thing of the past.</p>
+          <p class="text-white mb-4">Santa has embraced the digital age, and with the magic of proof of work, checking his list twice is a thing of the past.</p>
           <a href="https://santa.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Ergosanta <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-orange-400 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-blue-600 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <div class="object-contain max-w-full max-h-full py-5">
               <img src="tools_gatos_erg.png" alt="Fund" class="object-contain max-w-full max-h-full">
@@ -325,14 +340,14 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-primary mb-2">Ergo Tools</h3>
-          <p class="text-purple-200 mb-4">An essential toolkit for your wallet: mint, burn, airdrop, and consolidate with ease.</p>
+          <p class="text-white mb-4">An essential toolkit for your wallet: mint, burn, airdrop, and consolidate with ease.</p>
           <a href="https://tools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Ergo Tools <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-blue-500 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-orange-500 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <div class="object-contain max-w-full max-h-full py-5">
               <img src="tools_gatos_ada.png" alt="Fund" class="object-contain max-w-full max-h-full">
@@ -341,7 +356,7 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-primary mb-2">Cardano Tools</h3>
-          <p class="text-purple-200 mb-4">An essential toolkit for your Cardano wallet: mint and airdrop with ease.</p>
+          <p class="text-white mb-4">An essential toolkit for your Cardano wallet: mint and airdrop with ease.</p>
           <a href="https://ctools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Cardano Tools <i class="fa-solid fa-rocket ml-2"></i>
           </a>

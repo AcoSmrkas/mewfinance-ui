@@ -56,7 +56,7 @@
   transform: translateX(-50%);">
       <li class="text-lg {pageName == '' ? 'active' : ''}"><a href="./">Home</a></li>
       <li class="text-lg {pageName == 'tokenomics' ? 'active' : ''}"><a href="./tokenomics">Tokenomics</a></li>
-      <li class="text-lg {pageName == 'sale' ? 'active' : ''}"><a href="./sale">Sale</a></li>
+      <!-- <li class="text-lg {pageName == 'sale' ? 'active' : ''}"><a href="./sale">Sale</a></li> -->
       <li class="text-lg {pageName == 'kitties' ? 'active' : ''}"><a href="./kitties">Kitties</a></li>
       <li class="text-lg {pageName == 'claim' ? 'active' : ''}"><a href="./claim">Claim Kitty</a></li>
       <!--
@@ -74,7 +74,7 @@
   transform: translateX(-50%);">
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == '' ? 'active' : ''}"><a href="./">   Home</a></li>
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'tokenomics' ? 'active' : ''}"><a href="./tokenomics">   Tokenomics</a></li>
-      <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'sale' ? 'active' : ''}"><a href="./sale">   Sale</a></li>
+      <!-- <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'sale' ? 'active' : ''}"><a href="./sale">   Sale</a></li> -->
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'kitties' ? 'active' : ''}"><a href="./kitties">   Kitties</a></li>
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'claim' ? 'active' : ''}"><a href="./claim">   Claim Kitty</a></li>
       <!--
