@@ -197,7 +197,7 @@ const supportedChains = [
     <!-- Content for your DEX and Mart sections -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-cyan-300 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-cyan-500 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="dex.png" alt="DEX" class="object-contain max-w-full max-h-full">
           </div>
@@ -212,7 +212,7 @@ const supportedChains = [
       </div>
       
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-primary flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-yellow-500 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="nftmart.png" alt="Mart" class="object-contain max-w-full max-h-full">
           </div>
@@ -227,7 +227,7 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-pink-500 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-pink-600 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="mart.png" alt="Store" class="object-contain max-w-full max-h-full">
           </div>
@@ -242,7 +242,7 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-purple-600 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-purple-900 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="bank.png" alt="Store" class="object-contain max-w-full max-h-full">
           </div>
@@ -287,7 +287,7 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-yellow-400 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-yellow-500 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="trading.png" alt="Trading" class="object-contain max-w-full max-h-full">
           </div>
@@ -331,7 +331,7 @@ const supportedChains = [
         </div>
       </div>
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-blue-600 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-blue-500 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <div class="object-contain max-w-full max-h-full py-5">
               <img src="tools_gatos_erg.png" alt="Fund" class="object-contain max-w-full max-h-full">
@@ -347,7 +347,7 @@ const supportedChains = [
         </div>
       </div>
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-orange-500 flex items-center justify-center overflow-hidden">
+        <div class="relative h-100 bg-orange-400 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <div class="object-contain max-w-full max-h-full py-5">
               <img src="tools_gatos_ada.png" alt="Fund" class="object-contain max-w-full max-h-full">
