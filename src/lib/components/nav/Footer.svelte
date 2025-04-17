@@ -11,7 +11,7 @@
 				<a target="_new" class="text-light" href="https://t.me/MewFinance">Telegram</a>
 			</div>
 			<div>
-				<a target="_new" class="text-light" href="https://discord.gg/5heavCYZ">Discord</a>
+				<a target="_new" class="text-light" href="https://discord.com/invite/ergo-platform-668903786361651200">Discord</a>
 			</div>
 			<div>
 				<a target="_new" class="text-light" href="https://x.com/Mew_Finance">Twitter</a>
