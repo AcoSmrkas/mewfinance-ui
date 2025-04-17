@@ -137,7 +137,7 @@
   { name: 'LIFΣ OF IF₳', content: `As a creative I have always enjoyed Ergo's NFT space. The team at Mew Finance has upped the game and offers support like no other with innovation that is off the charts!`, rating: 5 },
   { name: 'Andruis', content: 'I love how easy it is to use the Mart feature. It\'s made asset trading so much more accessible for me.', rating: 4 },
   { name: 'Maverick', content: 'The DEX is incredibly fast and efficient. Mew Finance has become my go-to platform for all my crypto needs.', rating: 5 },
-  { name: 'Ergone', content: 'Whether you are a beginner or a seasoned crypto enthusiast, MewFinance provides the tools needed to explore decentralized finance in a smart and efficient way. A solid option for those looking to expand their DeFi experience!', rating: 5 },
+  { name: 'ErgOne', content: 'Whether you are a beginner or a seasoned crypto enthusiast, MewFinance provides the tools needed to explore decentralized finance in a smart and efficient way. A solid option for those looking to expand their DeFi experience!', rating: 5 },
 
    { name: 'TheSTOPHE', content: 'MewFi is a great peer-to-peer marketplace and trading experience, wrapping great tech in a cute, fun spot. Love the sell bundle option. Looking forward to exploring escrow sales.', rating: 5 }
 ];

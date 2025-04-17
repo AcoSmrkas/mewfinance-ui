@@ -59,6 +59,7 @@
       <!-- <li class="text-lg {pageName == 'sale' ? 'active' : ''}"><a href="./sale">Sale</a></li> -->
       <li class="text-lg {pageName == 'kitties' ? 'active' : ''}"><a href="./kitties">Kitties</a></li>
       <li class="text-lg {pageName == 'claim' ? 'active' : ''}"><a href="./claim">Claim Kitty</a></li>
+      <li class="text-lg {pageName == 'about' ? 'active' : ''}"><a href="./about">About</a></li>
       <!--
       <li class="text-lg {pageName == 'about' ? 'active' : ''}"><a href="./about">About</a></li>
       -->
@@ -77,6 +78,7 @@
       <!-- <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'sale' ? 'active' : ''}"><a href="./sale">   Sale</a></li> -->
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'kitties' ? 'active' : ''}"><a href="./kitties">   Kitties</a></li>
       <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'claim' ? 'active' : ''}"><a href="./claim">   Claim Kitty</a></li>
+      <li class="leading-10 pb-2 text-lg border-b border-gray-700 {pageName == 'about' ? 'active' : ''}"><a href="./about">   About</a></li>
       <!--
       <li class="leading-10 pb-2 text-lg {pageName == 'about' ? 'active' : ''}"><a href="./about">   About</a></li>
       -->

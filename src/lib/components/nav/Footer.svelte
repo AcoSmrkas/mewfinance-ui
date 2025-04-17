@@ -10,11 +10,9 @@
 			<div>
 				<a target="_new" class="text-light" href="https://t.me/MewFinance">Telegram</a>
 			</div>
-			<!--
 			<div>
-				<a target="_new" class="text-light" href="https://discord.com/channels/">Discord</a>
+				<a target="_new" class="text-light" href="https://discord.gg/5heavCYZ">Discord</a>
 			</div>
-			-->
 			<div>
 				<a target="_new" class="text-light" href="https://x.com/Mew_Finance">Twitter</a>
 			</div>
@@ -25,10 +23,3 @@
 		<p>© {@html FOOTER_TEXT} 2025</p>
 	</div>
 </div>
-
-<style>
-	button:hover{
-		background: unset;
-		color: unset;
-	}
-</style>
