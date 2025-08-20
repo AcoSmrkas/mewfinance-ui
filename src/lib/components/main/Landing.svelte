@@ -195,7 +195,7 @@ const supportedChains = [
 
   <section  class="relative mt-10 mb-4 p-2 p-md-4 max-w-6xl mx-auto">
     <!-- Content for your DEX and Mart sections -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-cyan-500 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
@@ -234,7 +234,7 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Phygital Store</h3>
-          <p class="text-white mb-4">A marketplace for trading phygital assets and services, with support for payments in native and wrapped assets.</p>
+          <p class="text-white mb-4">A digital marketplace for trading phygital assets and services, with support for payments in both native and wrapped assets.</p>
           <a href="https://store.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Store <i class="fa-solid fa-rocket ml-2"></i>
           </a>
@@ -252,6 +252,21 @@ const supportedChains = [
           <p class="text-white mb-4">A decentralized banking and DeFi interface for everything stablecoin related on the Ergo Blockchain.</p>
           <a href="https://bank.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Bank <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
+        <div class="relative h-100 bg-orange-700 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <i class="fa-solid fa-lock text-white text-9xl"></i>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Lock</h3>
+          <p class="text-white mb-4">A decentralized time-based ERG and token lock interface on the Ergo Blockchain.</p>
+          <a href="https://lock.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Lock <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
@@ -282,6 +297,21 @@ const supportedChains = [
           <p class="text-white mb-4">The multi-chain NFT bridge! Effortlessly mint and transfer supported NFTs between Ergo and Cardano blockchains.</p>
           <a href="https://bridge.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Bridge <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
+        <div class="relative h-100 bg-purple-700 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <i class="fa-solid fa-cash-register text-white text-9xl"></i>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Payments</h3>
+          <p class="text-white mb-4">A simple ERG and asset payment generation interface on the Ergo Blockchain.</p>
+          <a href="https://payment.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Payments <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
@@ -407,9 +437,6 @@ const supportedChains = [
 </div>
 
 <style>
-  .text-main-color {
-  color: var(--main-color); /* Use the variable for text color */
-}
 /* General card styling */
 .card {
   background: #fff;
@@ -423,61 +450,22 @@ const supportedChains = [
   height: auto;
 }
 
-/* Tooltip styling */
-.tooltip-container {
-  position: relative;
-}
-
-.tooltip-icon {
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  z-index: 10;
-}
-
-.tooltip-content {
-  display: none;
-  white-space: nowrap;
-  z-index: 20;
-  top: -10px; /* Adjust as needed */
-  right: 0;
-  width: 300px; /* Adjust width as needed */
-}
-
-.tooltip-container .tooltip-icon:focus + .tooltip-content,
-.tooltip-container .tooltip-icon:hover + .tooltip-content {
-  display: block;
-}
-
 /* Responsive adjustments */
 @media (min-width: 1024px) {
   .card {
     display: flex;
   }
-  
-  .card-side {
-    padding: 16px;
-  }
-  
-  .card-side img {
-    max-width: 150px;
-  }
 }
 
-
-
-  .partner-logo {
-    display: flex;
-    align-items: center;
-    flex-direction: column; /* Stack image and text vertically */
-    padding: 10px; /* Reduced padding around the logos */
-    background-color: var(--forms-bg); /* Light gray background for each logo */
-    border-radius: 8px; /* Rounded corners for each logo container */
-    transition: transform 0.1s ease;
-    max-width: 150px; /* Set a maximum width for the logo containers */
+.partner-logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Stack image and text vertically */
+  padding: 10px; /* Reduced padding around the logos */
+  background-color: var(--forms-bg); /* Light gray background for each logo */
+  border-radius: 8px; /* Rounded corners for each logo container */
+  transition: transform 0.1s ease;
+  max-width: 150px; /* Set a maximum width for the logo containers */
 }
 
 .partner-logo img {
@@ -541,30 +529,6 @@ const supportedChains = [
       flex: 1 0 21%; /* Display items in a row with wrapping */
     }
   }
-  .star-overlay {
-    position: absolute;
-    z-index: 2;
-    /* Adjust these percentages to match the star's position in your image */
-    left: calc(50% + (var(--star-offset-x) * 1%));
-    top: var(--star-offset-y);
-    transform: translate(-50%, -50%); /* Center the star div */
-    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
-    opacity: 0;
-  }
-
-  .card-link-left {
-    border-radius: unset;
-  }
-
-  .card-link-right {
-    border-radius: 0 0 0.5rem 0.5rem;
-  }
-
-  @media (min-width: 768px) { 
-    .card-link-right {      
-      border-radius: 0 0 0.5rem 0;
-    }
-  }
 
   .container {
     max-width: 1200px;
@@ -574,78 +538,6 @@ const supportedChains = [
   .card {
     background: var(--forms-bg);
     border: unset;
-  }
-
-  .card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    background-color: var(--main-color) ;
-    overflow: hidden;
-    transition: all 0.2s ease;
-  }
-
-  .card-content {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .card-side {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-img {
-
-  }
-
-  .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0c0a18;
-    margin-bottom: 10px;
-  }
-
-  .card-description {
-    font-size: 1rem;
-    color: #0c0a18;
-  }
-
-  .card-link:hover {
-    background-color: var(--info-color);
-  }
-
-  h6 {
-    color: var(--main-color) !important;
-  }
-
-  .token-float {
-    width: 50px;
-    height: 50px;
-  }
-
-  .float-start-1 {
-    animation: float 12s ease-in-out infinite 0s;
-  }
-
-  .float-start-2 {
-      animation: float 12s ease-in-out infinite -1s;
-  }
-
-  .float-start-3 {
-      animation: float 12s ease-in-out infinite -2s;
-  }
-
-  .float-start-4 {
-      animation: float 12s ease-in-out infinite -3s;
-  }
-
-  .float-start-5 {
-      animation: float 12s ease-in-out infinite -4s;
-  }
-
-  .float-start-6 {
-      animation: float 12s ease-in-out infinite -5s;
   }
 
   @keyframes float {

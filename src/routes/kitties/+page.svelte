@@ -65,7 +65,6 @@
   	onMount(async () => {
   		kittyInfos = await fetchAssetInfos(kittyIds);
 		kittyData = (await axios.get(`${API_HOST}mew/getMewNftStatus`)).data.items;
-		console.log(kittyData);
 
   		kittyInfos.sort((a, b) => {
 		  const numA = parseInt(a.name.match(/\d+/)[0]);

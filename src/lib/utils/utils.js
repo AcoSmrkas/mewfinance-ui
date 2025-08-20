@@ -198,7 +198,7 @@ export function formatNftUrl(r9RenderedValue) {
 
   if (link.includes('ipfs://')) {
     link = link.replace('ipfs://', '');
-    link = 'https://ipfs.blockfrost.dev/ipfs/' + link;
+    link = 'https://gateway.lighthouse.storage/ipfs/' + link;
   } else if (link.includes('https://ipfs.infura.io')) {
     link = link.replace('https://ipfs.infura.io', 'https://ipfs.io');
   } else {
