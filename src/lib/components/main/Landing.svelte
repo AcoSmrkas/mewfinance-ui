@@ -279,7 +279,7 @@ const supportedChains = [
         </div>
         <div class="p-4">
           <h3 class="text-2xl font-bold text-yellow-300 mb-2">Fund</h3>
-          <p class="text-white mb-4">A decentralized platform empowering projects on the Ergo Blockchain to raise funds transparently and securely.</p>
+          <p class="text-white mb-4">A crowdfunding platform empowering projects on the Ergo Blockchain to raise funds transparently and securely.</p>
           <a href="https://fund.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Fund <i class="fa-solid fa-rocket ml-2"></i>
           </a>
