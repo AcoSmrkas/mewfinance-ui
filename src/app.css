@@ -8,6 +8,8 @@
   --main-color-buttons: #ddf247;
   --main-color-hover: var(--info-color);
   --info-color: #04dfff;
+  --accent-cyan: #00D4FF;
+  --accent-yellow: #FFD700;
 
   --striped-1: #141a2a;
   --striped-2: #192033;
