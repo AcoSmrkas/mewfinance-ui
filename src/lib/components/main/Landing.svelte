@@ -287,6 +287,21 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
+        <div class="relative h-100 bg-green-700 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <i class="fa-solid fa-rocket text-white text-9xl"></i>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Pump</h3>
+          <p class="text-white mb-4">A fun token fund, launch, and pump dashboard interface on the Ergo Blockchain.</p>
+          <a href="https://mewpump.vercel.app" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Pump <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-teal-400 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="bridge.png" alt="Bridge" class="object-contain max-w-full max-h-full">

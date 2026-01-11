@@ -32,6 +32,7 @@ export const navMenu: MenuCategory[] = [
     items: [
       { label: "Lock", url: "https://lock.mewfinance.com/", isExternal: true },
       { label: "Fund", url: "https://fund.mewfinance.com/", isExternal: true },
+      { label: "Pump", url: "https://mewpump.vercel.app/", isExternal: true },
       { label: "NFT Bridge", url: "https://bridge.mewfinance.com/", isExternal: true },
       { label: "Ergo Tool Box", url: "https://tools.mewfinance.com/", isExternal: true },
       { label: "Cardano Tool Box", url: "https://ctools.mewfinance.com/", isExternal: true }
@@ -41,16 +42,6 @@ export const navMenu: MenuCategory[] = [
     name: "Seasonal",
     items: [
       { label: "Ergosanta", url: "https://santa.mewfinance.com/", isExternal: true }
-    ]
-  },
-  {
-    name: "About",
-    items: [
-      { label: "Home", url: "/", isExternal: false },
-      { label: "Tokenomics", url: "/tokenomics", isExternal: false },
-      { label: "Kitties", url: "/kitties", isExternal: false },
-      { label: "Claim Kitty", url: "/claim", isExternal: false },
-      { label: "About", url: "/about", isExternal: false }
     ]
   }
 ];
