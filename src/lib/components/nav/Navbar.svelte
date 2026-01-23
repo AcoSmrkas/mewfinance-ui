@@ -51,11 +51,11 @@
 
     <!-- Desktop Navigation Links (keeping for now, can be removed later) -->
     <ul class="gap-x-4 d-none d-md-flex nav-links" style="position: absolute; left: 50%; transform: translateX(-50%);">
-      <li class="text-lg {pageName == '' ? 'active' : ''}"><a href="./">Home</a></li>
-      <li class="text-lg {pageName == 'tokenomics' ? 'active' : ''}"><a href="./tokenomics">Tokenomics</a></li>
-      <li class="text-lg {pageName == 'kitties' ? 'active' : ''}"><a href="./kitties">Kitties</a></li>
-      <li class="text-lg {pageName == 'claim' ? 'active' : ''}"><a href="./claim">Claim Kitty</a></li>
-      <li class="text-lg {pageName == 'about' ? 'active' : ''}"><a href="./about">About</a></li>
+      <li class="text-lg {pageName == '' ? 'active' : ''}"><a href="/">Home</a></li>
+      <li class="text-lg {pageName == 'tokenomics' ? 'active' : ''}"><a href="/tokenomics">Tokenomics</a></li>
+      <li class="text-lg {pageName == 'kitties' ? 'active' : ''}"><a href="/kitties">Kitties</a></li>
+      <li class="text-lg {pageName == 'claim' ? 'active' : ''}"><a href="/claim">Claim Kitty</a></li>
+      <li class="text-lg {pageName == 'about' ? 'active' : ''}"><a href="/about">About</a></li>
     </ul>
 
     <!-- Wallet Button -->
