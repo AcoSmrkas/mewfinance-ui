@@ -46,7 +46,10 @@ export function nftTx(
     ergAmount: number
 ): any {
     const buyerAddress = ErgoAddress.fromBase58(buyerBase58PK);
-    let contract = '9hBkvzwvC2GSrb2Z4hZ1y9Sa7K6u67Qt2GS8ECRAZkW47iERBNv';
+    // Post-breach rotation: old NFT-sale wallet (9hBkvzwv…) seed was compromised.
+    // New mint wallet holds the re-minted 15 Mew Kitties. mewnftsale.js bot has
+    // MEW_NFTS_ADDRESS / MEW_NFTS env pointed at this same wallet.
+    let contract = '9fAsZeSFnkG3mzpGfpjscjSTWvy4BXyWN2SN5CqPr9H7johgeeG';
     const ergAmountNano = new BigNumber(ergAmount).plus(0.01).times(10 ** 9);
 
     const presaleBox = new OutputBuilder(

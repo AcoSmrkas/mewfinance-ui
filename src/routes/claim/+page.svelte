@@ -236,12 +236,7 @@ async function updateStats() {
 
     <span><b>Price:</b> {nFormatter(price)} <b class="text-primary">ERG</b></span>
 
-    <div class="alert alert-warning mt-3 mb-1 text-sm" style="background: rgba(255,193,7,0.1); border: 1px solid rgba(255,193,7,0.4); border-radius: 8px; padding: 10px;">
-      <b>Claiming is temporarily disabled.</b><br>
-      The Mew Kitty collection is being re-minted following the recent security incident. New collection coming soon — stay tuned.
-    </div>
-
-    <button class="btn btn-primary mt-2 w-100 btn-big" disabled={true} title="Claiming temporarily disabled">Claim</button>
+    <button class="btn btn-primary mt-2 w-100 btn-big" disabled={saleClosed} on:click={handleContribute}>Claim</button>
     </div>
     
     <div class="sale-info m-0" style="height: min-content;">
