@@ -28,7 +28,7 @@
 	  },
 	  {
 		question: 'How do I obtain MEW tokens?',
-		answer: 'You can obtain <span class="font-bold text-primary">MEW</span> tokens through the official <a class="text-primary font-bold" href="https://dex.mewfinance.com/ergo/swap?base=0000000000000000000000000000000000000000000000000000000000000000&quote=6c35aa395c7c75b0f67f7804d6930f0e11ef93c3387dc1faa86498d54af7962c&initialPoolId=02a3a726cbdf5d2c6ce2719e1c20cd2e9f3c6f3627dc5224550462dc4d3a336b" target="_new">MEW DEX</a>.'
+		answer: 'You can obtain <span class="font-bold text-primary">MEW</span> tokens through the official <a class="text-primary font-bold" href="https://dex.mewfinance.com/ergo/swap?base=0000000000000000000000000000000000000000000000000000000000000000&quote=d4f0192622b440afc09711aa0545eacd04d78ad3f8a063523f451e10d3d0e6ef&initialPoolId=02a3a726cbdf5d2c6ce2719e1c20cd2e9f3c6f3627dc5224550462dc4d3a336b" target="_new">MEW DEX</a>.'
 	  },
 	  {
 		question: 'How do I obtain MEW Kitty NFT?',
