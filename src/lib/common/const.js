@@ -2,8 +2,8 @@ export const MIN_ERG_VAL = 1000000;		// 0.001 ERG
 
 export const ITEMS_PER_PAGE = 30;
 export const TOKEN_DECIMALS = 2;
-export const TOKEN_ID = '6c35aa395c7c75b0f67f7804d6930f0e11ef93c3387dc1faa86498d54af7962c';
-export const TOKEN_NAME = 'MEW';
+export const TOKEN_ID = 'd4f0192622b440afc09711aa0545eacd04d78ad3f8a063523f451e10d3d0e6ef';
+export const TOKEN_NAME = 'MEOW';
 export const DEV_FEE_DENOM = 10000;
 export const ERG_DEV_FEE = 10000;
 export const VIP_MEW_TIER = 6;
@@ -18,6 +18,6 @@ export const HERO_IMAGE = 'https://crooks-fi.com/images/mascot-splash.png';
 //Dev
 export const API_HOST = 'https://api.mewfinance.com/';
 export const DEV_PK    = '9f9ApDfCA7BcPEoSQKgFzsTdBmdV31hLxoWZt4wJgcwr7mtQ6qp'
-export const CONTRACT = '2Czxg7U54ZyGMzjt35EYX9g98H9UjFqteuYWX5CSgGCYWAjg1ng2jgm4BHjA6u1Azeo7EYQsBMVLbhRreNASJu54ho';
-export const CONTRACT_CRC32 = 1455648221;
+export const CONTRACT = '2Czxg7U54ZzDcguzu4zt6SEfu9oUm4t5MH7Qsdt5pmVrbqqR9U1hwxSdpnzJ2Vo9EnSNtvVyYmcTzQWFtSVa8zh4Cp';
+export const CONTRACT_CRC32 = 3073012628;
 export const MAIN_PAGE_ITEMS = 5;
