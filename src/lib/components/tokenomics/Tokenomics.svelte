@@ -12,36 +12,36 @@
 	const faqs = [
 	  {
 		question: 'What is the sales reserve?',
-		answer: `The sales reserve refers to the total allocation of <span class="font-bold text-primary">MEW</span> tokens set aside for various sales events throughout the platform's lifecycle.`
+		answer: `The sales reserve refers to the total allocation of <span class="font-bold text-primary">MEOW</span> tokens set aside for various sales events throughout the platform's lifecycle.`
 	  },
 	  {
 		question: 'What is the liquidity reserve?',
-		answer: `The liquidity reserve refers to the total allocation of <span class="font-bold text-primary">MEW</span> tokens set aside for DEX liquidity throughout the platform's lifecycle.`
+		answer: `The liquidity reserve refers to the total allocation of <span class="font-bold text-primary">MEOW</span> tokens set aside for DEX liquidity throughout the platform's lifecycle.`
 	  },
 	  {
 		question: 'What is the team + marketing reserve?',
-		answer: 'The team + marketing reserve refers to the total allocation of <span class="font-bold text-primary">MEW</span> tokens set aside for the development and marketing of the platform.'
+		answer: 'The team + marketing reserve refers to the total allocation of <span class="font-bold text-primary">MEOW</span> tokens set aside for the development and marketing of the platform.'
 	  },
 	  {
 		question: 'What is the reserve (locked)?',
-		answer: 'The reserve (locked) refers to the total allocation of <span class="font-bold text-primary">MEW</span> tokens set aside for future uses, such as rewards and incentives.'
+		answer: 'The reserve (locked) refers to the total allocation of <span class="font-bold text-primary">MEOW</span> tokens set aside for future uses, such as rewards and incentives.'
 	  },
 	  {
-		question: 'How do I obtain MEW tokens?',
-		answer: 'You can obtain <span class="font-bold text-primary">MEW</span> tokens through the official <a class="text-primary font-bold" href="https://dex.mewfinance.com/ergo/swap?base=0000000000000000000000000000000000000000000000000000000000000000&quote=d4f0192622b440afc09711aa0545eacd04d78ad3f8a063523f451e10d3d0e6ef&initialPoolId=02a3a726cbdf5d2c6ce2719e1c20cd2e9f3c6f3627dc5224550462dc4d3a336b" target="_new">MEW DEX</a>.'
+		question: 'How do I obtain MEOW tokens?',
+		answer: 'You can obtain <span class="font-bold text-primary">MEOW</span> tokens through the official <a class="text-primary font-bold" href="https://dex.mewfinance.com/ergo/swap?base=0000000000000000000000000000000000000000000000000000000000000000&quote=d4f0192622b440afc09711aa0545eacd04d78ad3f8a063523f451e10d3d0e6ef&initialPoolId=02a3a726cbdf5d2c6ce2719e1c20cd2e9f3c6f3627dc5224550462dc4d3a336b" target="_new">MEOW DEX</a>.'
 	  },
 	  {
-		question: 'How do I obtain MEW Kitty NFT?',
-		answer: `You can obtain <span class="font-bold text-primary">MEW Kitty NFT</span> by having active <span class="font-bold text-primary">MEW Tier 5</span> membership and heading over to the <a class="text-primary font-bold" href="claim">Claim Kitty</a> page.`
+		question: 'How do I obtain MEOW Kitty NFT?',
+		answer: `You can obtain <span class="font-bold text-primary">MEOW Kitty NFT</span> by having active <span class="font-bold text-primary">MEOW Tier 5</span> membership and heading over to the <a class="text-primary font-bold" href="claim">Claim Kitty</a> page.`
 	  },
 	  {
 		question: 'How do I qualify for quarterly revenue share?',
-		answer: `You can qualify for the quarterly revenue share by maintaining an active <span class="font-bold text-primary">MEW Tier 4 or higher</span> membership or higher and ensuring your <span class="font-bold text-primary">MEW Tier</span> membership remains active throughout the entire quarter.<br>For <span class="font-bold text-primary">MEW Tier 6</span>, your <span class="font-bold text-primary">MEW Kitty NFT</span> has to remain in your address for the entire quarter.<br>If your membership unlocks at any point during the quarter, you will be disqualified from receiving revenue share for that period.<br><br><span class="font-bold text-info">Quarter Dates:</span>
+		answer: `You can qualify for the quarterly revenue share by maintaining an active <span class="font-bold text-primary">MEOW Tier 4 or higher</span> membership or higher and ensuring your <span class="font-bold text-primary">MEOW Tier</span> membership remains active throughout the entire quarter.<br>For <span class="font-bold text-primary">MEOW Tier 6</span>, your <span class="font-bold text-primary">MEOW Kitty NFT</span> has to remain in your address for the entire quarter.<br>If your membership unlocks at any point during the quarter, you will be disqualified from receiving revenue share for that period.<br><br><span class="font-bold text-info">Quarter Dates:</span>
 <ol> <li>January 1st - March 31st</li> <li>April 1st - June 30th</li> <li>July 1st - September 30th</li> <li>October 1st - December 31st</li> </ol> `
 	  },
 	  {
 		question: 'What asset is used for revenue share?',
-		answer: `The asset used for revenue share is <span class="font-bold text-primary">MEW</span>.`
+		answer: `The asset used for revenue share is <span class="font-bold text-primary">MEOW</span>.`
 	  }
 	];
   
@@ -135,7 +135,7 @@
 		  </svg>
 		  <div class="center-text">
 			<span class="amount text-white">1,000,000,000</span>
-			<span class="currency font-bold text-primary">MEW</span>
+			<span class="currency font-bold text-primary">MEOW</span>
 		  </div>
 		</div>
   	
@@ -153,7 +153,7 @@
 	  </div>
   
 	  <div class="tier-section bg-form rounded-lg p-6 ps-10">
-		<h3 class="text-xl mb-4 font-bold text-white">Choose your <span class="text-primary">MEW Tier</span> plan:</h3>
+		<h3 class="text-xl mb-4 font-bold text-white">Choose your <span class="text-primary">MEOW Tier</span> plan:</h3>
 		<div class="tier-buttons mb-6">
 		  {#each plans as plan}
 		  <button
@@ -178,9 +178,9 @@
 		  </div>
 		  <div class="tier-action">
 			<p class="text-xl text-gray-200 mb-2">Lock requirement</p>
-			<p class="text-3xl font-bold mb-2 text-custom-yellow">{selectedPlan.mew.toLocaleString()} MEW</p>
+			<p class="text-3xl font-bold mb-2 text-custom-yellow">{selectedPlan.mew.toLocaleString()} MEOW</p>
 			{#if plans.indexOf(selectedPlan) == 5}
-			<p class="text-3xl font-bold mb-3 text-custom-yellow">+1 MEW NFT</p>
+			<p class="text-3xl font-bold mb-3 text-custom-yellow">+1 MEOW NFT</p>
 			{:else}
 			<p class="text-3xl font-bold mb-3 text-custom-yellow"> </p>
 			{/if}

@@ -87,11 +87,11 @@
 	<img class="pt-2 mb-4" src="mewbanner.jpg">	
 	<p>The <span class="text-primary font-bold">Mew Kitties</span> are a collection of unique utility NFTs living on the Ergo blockchain.</p>
 	<br>
-	<h2 class="mb-2 font-bold text-2xl text-primary"><span class="text-primary font-bold">MEW Tier 6</span> Benefits</h2>
+	<h2 class="mb-2 font-bold text-2xl text-primary"><span class="text-primary font-bold">MEOW Tier 6</span> Benefits</h2>
 
-	<p>More than just a undeniably rare piece of art, the ​​<span class="text-primary font-bold">Mew Kitty NFT</span> serves as the gateway to unlocking the most exclusive <span class="text-primary font-bold">MEW Tier 6</span>.</p>
+	<p>More than just a undeniably rare piece of art, the ​​<span class="text-primary font-bold">Mew Kitty NFT</span> serves as the gateway to unlocking the most exclusive <span class="text-primary font-bold">MEOW Tier 6</span>.</p>
 
-	<p><span class="text-primary font-bold">MEW</span> holders who lockup 500,000 <span class="text-primary font-bold">MEW</span> and hold a <span class="text-primary font-bold">Mew Kitty NFT</span> can become <span class="text-primary font-bold">MEW Tier 6</span> members, giving them access to a wide range of enhanced DeFi benefits:</p>
+	<p><span class="text-primary font-bold">MEOW</span> holders who lockup 500,000 <span class="text-primary font-bold">MEOW</span> and hold a <span class="text-primary font-bold">Mew Kitty NFT</span> can become <span class="text-primary font-bold">MEOW Tier 6</span> members, giving them access to a wide range of enhanced DeFi benefits:</p>
 	<br>
 
 	<ul class="">

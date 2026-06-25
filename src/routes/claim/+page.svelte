@@ -248,16 +248,16 @@ async function updateStats() {
     
     <div class="info-item">
       <h4 class="text-primary">REQUIREMENTS</h4>
-      <p>Active <b class="text-primary"><a href="tokenomics">MEW Tier 5</a></b></p>
+      <p>Active <b class="text-primary"><a href="tokenomics">MEOW Tier 5</a></b></p>
     </div>
 
     <div class="info-item">
-      <h4><span class="text-primary">MEW KITTIES CLAIMED:</span> {mewSold}</h4>
+      <h4><span class="text-primary">MEOW KITTIES CLAIMED:</span> {mewSold}</h4>
       
       <div class="progress-bar">
       <div class="progress-fill" style="width: {soldPercent}%"></div>
       </div>
-      <span class="target"><b class="text-primary">TOTAL MEW KITTIES</b>: {totalNfts}</span>
+      <span class="target"><b class="text-primary">TOTAL MEOW KITTIES</b>: {totalNfts}</span>
     </div>
     
     <div class="info-item m-0">

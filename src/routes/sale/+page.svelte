@@ -142,10 +142,10 @@
       
       <div class="input-group">
         <input type="number" disabled bind:value={mewAmount} />
-        <span class="currency">MEW</span>
+        <span class="currency">MEOW</span>
       </div>
   
-      <span class="mb-3">Buy Limit: {nFormatter(presaleData.buylimit)} <b class="text-primary">MEW</b> per address</span>
+      <span class="mb-3">Buy Limit: {nFormatter(presaleData.buylimit)} <b class="text-primary">MEOW</b> per address</span>
       
       <button class="btn btn-primary w-100 btn-big mt-3" disabled={saleClosed} on:click={handleContribute}>Buy</button>
       </div>
@@ -158,17 +158,17 @@
       </div>
       
       <div class="info-item">
-        <h4 class="text-custom-yellow">TOTAL MEW CLAIMED: {nFormatter(mewSold, TOKEN_DECIMALS)}</h4>
+        <h4 class="text-custom-yellow">TOTAL MEOW CLAIMED: {nFormatter(mewSold, TOKEN_DECIMALS)}</h4>
         
         <div class="progress-bar">
         <div class="progress-fill" style="width: {soldPercent}%"></div>
         </div>
-        <span class="target"><b class="text-primary">MEW</b> TARGET: {nFormatter(presaleData.amount)}</span>
+        <span class="target"><b class="text-primary">MEOW</b> TARGET: {nFormatter(presaleData.amount)}</span>
       </div>
       
       <div class="info-item m-0">
         <h4 class="text-custom-yellow">PRICE</h4>
-        <span><b>1</b> <b class="text-primary">MEW</b> = <b>{presaleData?.price}</b> <b class="text-primary">ERG</b></span>
+        <span><b>1</b> <b class="text-primary">MEOW</b> = <b>{presaleData?.price}</b> <b class="text-primary">ERG</b></span>
       </div>
       </div>
     </div>

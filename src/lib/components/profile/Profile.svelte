@@ -177,7 +177,7 @@
       </div>
       <div class="flex-1 form-group bg-form  p-3 p-md-4 rounded-lg w-auto" style="height: fit-content;">
       <form class="">
-        <h1 class="font-bold text-2xl mb-3 text-yellow-400">Lock MEW</h1>
+        <h1 class="font-bold text-2xl mb-3 text-yellow-400">Lock MEOW</h1>
         <div class="form-section">
           <label class="block text-sm font-medium mb-2" for="token"><b class="text-primary">{TOKEN_NAME}</b> Amount:</label>
           <div class="p-0 flex mb-4 w-100 max-w mx-auto">
