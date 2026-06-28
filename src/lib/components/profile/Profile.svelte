@@ -5,6 +5,7 @@
   import { nFormatter, showCustomToast, getConnectedWalletAddress, isWalletConected, getCommonBoxIds, clamp } from '$lib/utils/utils.js';
   import { get } from 'svelte/store';
   import { stakeTx } from '$lib/contract/stakeTx.ts';
+  import { recordStakeAction } from '$lib/stores/stakeActivity';
   import { ErgoAddress } from "@fleet-sdk/core";
   import ErgopayModal from '$lib/components/common/ErgopayModal.svelte';
   import { fetchBoxes, getBlockHeight, fetchContractBoxFromTx, updateTempBoxes, fetchConfirmedBalance } from '$lib/api-explorer/explorer.ts';
@@ -95,6 +96,8 @@
         console.log("Transaction ID:", transactionId);
 
         showCustomToast(`Transaction submitted successfully.<br>TX ID: <a target="_new" href="https://ergexplorer.com/transactions/${transactionId}">${transactionId}</a>`, 5000, 'success');
+
+        recordStakeAction(`${mewAmount}`, transactionId);
 
         const usedBoxIds = getCommonBoxIds(utxos, signed.inputs);
         const newOutputs = signed.outputs.filter(output => output.ergoTree == utxos[0].ergoTree);
