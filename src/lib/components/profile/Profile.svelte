@@ -9,7 +9,7 @@
   import ErgopayModal from '$lib/components/common/ErgopayModal.svelte';
   import { fetchBoxes, getBlockHeight, fetchContractBoxFromTx, updateTempBoxes, fetchConfirmedBalance } from '$lib/api-explorer/explorer.ts';
   import { BigNumber } from 'bignumber.js';
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import axios from 'axios';
 
   let showModal = false;
@@ -31,13 +31,19 @@
       return;
     }
 
-    const balanceData =  await fetchConfirmedBalance($connected_wallet_address);
+    const address = $connected_wallet_address;
+    const balanceData =  await fetchConfirmedBalance(address);
+
+    // Drop the result if the user switched address while this was in flight.
+    if ($connected_wallet_address !== address) {
+      return;
+    }
 
     // Fetch balance from API
     if (!balanceData) {
       throw 'Failed to fetch balance';
     }
-    
+
     // Find payment token
     const paymentToken = balanceData.tokens.find(token => token.tokenId === TOKEN_ID);
 
@@ -93,7 +99,10 @@
         const usedBoxIds = getCommonBoxIds(utxos, signed.inputs);
         const newOutputs = signed.outputs.filter(output => output.ergoTree == utxos[0].ergoTree);
 
-        updateTempBoxes(myAddress, usedBoxIds, newOutputs);
+        // Key temp boxes by the SAME address fetchBoxes() uses
+        // ($connected_wallet_address), not the change address — otherwise
+        // optimistic boxes for a non-default address would never be applied.
+        updateTempBoxes($connected_wallet_address, usedBoxIds, newOutputs);
       } else {
         unsignedTx = unsigned;
         isAuth = false;
@@ -116,19 +125,25 @@
     mewAmount = paymentTokenBalance;
   }
 
-  $: connected_wallet_address.subscribe(async (value) => {
-    if (value == '') {
-      walletConnected = false;
-    } else {
-      walletConnected = true;
-      loadBalance($selected_wallet_ergo)
-    }
-  });
-
   let tiers = [];
+  let unsubAddress;
+
   onMount(async () => {
+    unsubAddress = connected_wallet_address.subscribe((value) => {
+      if (value == '') {
+        walletConnected = false;
+      } else {
+        walletConnected = true;
+        loadBalance($selected_wallet_ergo);
+      }
+    });
+
     tiers = (await axios.get(`${API_HOST}mew/getTiers`)).data.items;
     $mewTier = 5;
+  });
+
+  onDestroy(() => {
+    if (unsubAddress) unsubAddress();
   });
 
 </script>

@@ -28,19 +28,57 @@ export const showNsfw = persistentWritable('showNsfw', false);
 
 let selectedCategory, selectedAsset, selectedBundle, selectedSort, selectedSearch, selectedAddress;
 
+// --- address-change guard primitives (paired with $lib/common/userScope) ---
+// connected_wallet_address can switch between the user's own addresses while
+// per-address fetches are in flight. Each such fetch captures the generation +
+// address it started for and only writes its result back if both are still
+// current, so a slow response for a previous address can never clobber the
+// freshly-selected one. resetUserScope() bumps the generation on every
+// address transition (before the new address is set).
+let addressGeneration = 0;
+export function currentAddressGeneration() {
+  return addressGeneration;
+}
+export function bumpAddressGeneration() {
+  return ++addressGeneration;
+}
+export function isCurrentAddress(addr, gen) {
+  return gen === addressGeneration && addr === get(connected_wallet_address);
+}
+export async function withAddressGuard(addr, gen, promise, apply) {
+  const result = await promise;
+  if (isCurrentAddress(addr, gen)) {
+    apply(result);
+  }
+  return result;
+}
+
 $: connected_wallet_address.subscribe(async (value) => {
+  // Clear the previous account's tier/stake on every switch (empty OR a
+  // non-empty switch to another address) so stale values never linger while
+  // the new address's data loads.
+  mewTier.set(0);
+  mewStaked.set(0);
+
   if (value == '') {
-    mewTier.set(0);
-    mewStaked.set(0);
     return;
   }
 
-  const mewTierData = (await axios.get(`${API_HOST}staking/getMewTier?staker=${value}`)).data.items[0];
+  const gen = currentAddressGeneration();
 
-  mewTier.set(mewTierData.tier);
-  mewStaked.set(mewTierData.totalstaked);
+  await withAddressGuard(
+    value,
+    gen,
+    axios.get(`${API_HOST}staking/getMewTier?staker=${value}`),
+    (res) => {
+      const mewTierData = res.data.items[0];
 
-  localStorage.setItem(MEW_TIER, get(mewTier));
+      mewTier.set(mewTierData.tier);
+      mewStaked.set(mewTierData.totalstaked);
+
+      localStorage.setItem(MEW_TIER, get(mewTier));
+    }
+  );
 });
 
 export async function setOffersFilter(category, asset, bundle, sort, search, address) {
@@ -108,8 +146,14 @@ export async function loadMyOffers() {
     return;
   }
 
+  const gen = currentAddressGeneration();
   const orders = await fetchOrders(0, 1000, null, walletAddress);
-  
+
+  // Drop the result if the user switched address while this was in flight.
+  if (!isCurrentAddress(walletAddress, gen)) {
+    return;
+  }
+
   await onOffersLoaded(offersMy, orders);
 }
 

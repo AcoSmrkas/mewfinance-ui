@@ -3,8 +3,21 @@ import { totalBoxes } from "$lib/store/store";
 import { ITEMS_PER_PAGE } from '$lib/common//const.js';
 import axios from 'axios';
 
-var lastOutputBoxes = {};
-var lastInputBoxes = {};
+var lastOutputBoxes: Record<string, any> = {};
+var lastInputBoxes: Record<string, any> = {};
+
+// Drop unconfirmed/optimistic temp boxes. With an address, clears only that
+// address's entries; with no argument, clears every address (used on wallet
+// disconnect / address switch so optimistic boxes never bleed across accounts).
+export function clearTempBoxes(address?: string) {
+  if (address) {
+    delete lastInputBoxes[address];
+    delete lastOutputBoxes[address];
+  } else {
+    lastOutputBoxes = {};
+    lastInputBoxes = {};
+  }
+}
 
 export function updateTempBoxes(address, usedInputs, newOutputs) {
   if (!lastInputBoxes[address]) {
@@ -64,7 +77,7 @@ async function checkTempOutBoxes(address) {
 
     let boxStatus = null;
     try {
-      boxStatus = await axios.get('https://api.ergoplatform.org/api/v1/boxes/' + boxId);
+      boxStatus = await axios.get('https://api.ergoplatform.com/api/v1/boxes/' + boxId);
     } catch {
       // its ok
     }
@@ -76,7 +89,7 @@ async function checkTempOutBoxes(address) {
 
     if (!boxSpent) {
       if (newBoxes) {
-        newBoxes.push[lastOutputBoxes[address][i]];
+        newBoxes.push(lastOutputBoxes[address][i]);
       } else {
         newBoxes = [lastOutputBoxes[address][i]];
       }

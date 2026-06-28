@@ -1,6 +1,7 @@
 import { get } from "svelte/store";
 import { selected_wallet_ergo, connected_wallet_address, connected_wallet_addresses } from '$lib/store/store.ts';
 import { showCustomToast } from "$lib/utils/utils.js";
+import { resetUserScope } from '$lib/common/userScope.js';
 
 const KEY_WALLET_TYPE = 'connected_ergo_wallet';
 export const KEY_ADDRESS = 'connected_address';
@@ -79,6 +80,9 @@ async function connectWallet(wallet) {
 
 export async function disconnectErgoWallet() {
   const wallet = get(selected_wallet_ergo);
+  // Clear all user-scoped state (and invalidate in-flight fetches) before
+  // tearing down the connection.
+  resetUserScope();
   selected_wallet_ergo.set('');
   const address = get(connected_wallet_address);
   connected_wallet_address.set('');

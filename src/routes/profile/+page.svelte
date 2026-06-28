@@ -2,14 +2,22 @@
   import Profile from "$lib/components/profile/Profile.svelte"
   import { loadOffersPackage, loadOffersSolo, loadMyOffers, connected_wallet_address, setOffersFilter } from "$lib/store/store.ts";
 
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
 
-    $: connected_wallet_address.subscribe(async (address) => {
-    if (address == '') {
-      return;
-    }
+  let unsubAddress;
 
-    loadMyOffers();
+  onMount(() => {
+    unsubAddress = connected_wallet_address.subscribe((address) => {
+      if (address == '') {
+        return;
+      }
+
+      loadMyOffers();
+    });
+  });
+
+  onDestroy(() => {
+    if (unsubAddress) unsubAddress();
   });
 </script>
 

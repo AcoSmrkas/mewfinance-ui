@@ -5,6 +5,7 @@
   import ErgopayModal from '$lib/components/common/ErgopayModal.svelte';
   import Tooltip from '$lib/components/common/Tooltip.svelte'; // Import the Tooltip component
   import { connectErgoWallet, disconnectErgoWallet, KEY_ADDRESS } from '$lib/common/wallet.js';
+  import { resetUserScope } from '$lib/common/userScope.js';
   import { fetchConfirmedBalance } from '$lib/api-explorer/explorer.ts';
   import { TOKEN_ID, TOKEN_NAME } from '$lib/common/const.js';
   import { nFormatter, isMobileDevice } from '$lib/utils/utils.js';
@@ -53,17 +54,22 @@
       return;
     }
 
-    const balanceData =  await fetchConfirmedBalance($connected_wallet_address);
+    const address = $connected_wallet_address;
+    const balanceData =  await fetchConfirmedBalance(address);
+
+    // Drop the result if the user switched address while this was in flight.
+    if ($connected_wallet_address !== address) {
+      return;
+    }
 
     // Fetch balance from API
     if (!balanceData) {
       throw 'Failed to fetch balance';
     }
-    
+
     balanceInNanoErg = balanceData.nanoErgs;
     balanceErg = (+balanceInNanoErg / 10 ** 9).toFixed(9);
 
-    const address = $connected_wallet_address;
     truncatedAddress = address.substr(0, 6) + '...' + address.substr(address.length - 4);
 
     // Find payment token
@@ -99,6 +105,9 @@ window.openChangeAddressModal = function() {
   }
 
   function handleAddressChange() {
+    // Clear the previous account's user-scoped state (and invalidate in-flight
+    // per-address fetches) BEFORE switching the connected address.
+    resetUserScope();
     connected_wallet_address.set(selectedAddress);
     localStorage.setItem(KEY_ADDRESS, selectedAddress);
 
