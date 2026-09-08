@@ -41,5 +41,13 @@
         Join our community and help shape the cutest revolution in DeFi. Mew is just getting started, and we want you to be a part of it!
       </p>
     </div>
+
+    <div class="mt-10 pt-6" style="border-top: 1px solid var(--borders)">
+      <p class="text-sm text-light">
+        Transparency: in June 2026 our backend server was compromised. We published a full
+        <a class="text-info" href="/security">security incident report</a> covering what happened,
+        what it affected, and what we changed.
+      </p>
+    </div>
   </section>
   </div>
