@@ -84,10 +84,9 @@
     <h2 class="text-2xl font-bold text-primary mb-3">Your data</h2>
     <p class="mb-10 text-lg">
       The databases on the old server were copied wholesale, so please treat anything you gave us
-      server-side before the rebuild as exposed. That includes order records and the account details held
-      against them. Passwords were stored hashed rather than in the clear, but hashes were in the dump, so
-      <strong>if you reused a password anywhere else, change it there</strong>. We do not store payment
-      card numbers.
+      server-side before the rebuild as exposed. That includes order records and the details held against
+      them. Mew Finance has no accounts to sign into &mdash; you connect a wallet, and we hold no password
+      for you &mdash; and we do not store payment card numbers.
     </p>
 
     <h2 class="text-2xl font-bold text-primary mb-3">What we did</h2>
@@ -159,9 +158,6 @@
         <strong>Buying a Mew Kitty?</strong> The 15 stolen originals are flagged as stolen on ErgExplorer
         and blocked from purchase on Mew Mart. The re-minted kitties carry the same names and artwork and
         are the legitimate ones.
-      </li>
-      <li>
-        <strong>Reused a password?</strong> Change it wherever else you used it.
       </li>
     </ul>
 
