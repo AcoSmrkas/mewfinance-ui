@@ -37,7 +37,8 @@
       </li>
       <li>
         <strong>No isolation.</strong> Every application on that machine ran as the same system user and
-        connected to the database with full administrative rights, and a password had been reused. So a
+        connected to the database with full administrative rights, and one internal credential had been
+        reused across services. So a
         foothold in one web endpoint was a foothold in everything: the attacker could read every
         application's secrets and dump every database &mdash; including the wallet keys stored in them.
       </li>
@@ -85,8 +86,7 @@
     <p class="mb-10 text-lg">
       The databases on the old server were copied wholesale, so please treat anything you gave us
       server-side before the rebuild as exposed. That includes order records and the details held against
-      them. Mew Finance has no accounts to sign into &mdash; you connect a wallet, and we hold no password
-      for you &mdash; and we do not store payment card numbers.
+      them. We do not store payment card numbers.
     </p>
 
     <h2 class="text-2xl font-bold text-primary mb-3">What we did</h2>
@@ -169,7 +169,7 @@
     </p>
     <p class="text-lg text-light">
       None of this was sophisticated, and that's the uncomfortable part &mdash; it was our own unchecked
-      input, our own shared account, our own reused password. We've written it down in full rather than
+      input, our own shared account, our own reused credential. We've written it down in full rather than
       letting it fade, because a project that asks you to connect a wallet owes you the whole story.
     </p>
 
