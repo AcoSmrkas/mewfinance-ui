@@ -1,6 +1,7 @@
 import JSONbig from 'json-bigint';
 import { totalBoxes } from "$lib/store/store";
 import { ITEMS_PER_PAGE } from '$lib/common//const.js';
+import { fetchMempoolTxs } from '$lib/api-explorer/mempool.js';
 import axios from 'axios';
 
 var lastOutputBoxes: Record<string, any> = {};
@@ -180,17 +181,7 @@ export async function fetchBoxes(address) {
     let stringFromBuffer = buffer.toString('utf8');
     let boxes = JSONbig.parse(stringFromBuffer).items;
 
-    let mempool = await axios.get(`https://api.ergoplatform.com/api/v1/mempool/transactions/byAddress/${address}`, {
-        headers: {
-          'Cache-Control': 'no-cache' // or 'no-store'
-        },
-        responseType: 'arraybuffer',
-      }
-    );
-
-    buffer = new TextDecoder("utf-8").decode(mempool.data);
-    stringFromBuffer = buffer.toString('utf8');
-    let parsedMempoolTxs = JSONbig.parse(stringFromBuffer).items;
+    let parsedMempoolTxs = (await fetchMempoolTxs(address)).items;
     
     for (const tx of parsedMempoolTxs) {
       for (let output of tx.outputs) {
