@@ -17,6 +17,12 @@
 				<a target="_new" class="text-light" href="https://x.com/Mew_Finance">Twitter</a>
 			</div>
 		</div>
+	    <div class="flex flex-col gap-2 grow">
+	    	<h6 class="font-manrope text-white text-xl font-bold mb-2">Developers</h6>
+			<div>
+				<a target="_new" class="text-light" href="https://github.com/AcoSmrkas/mew-smart-contracts">Smart contracts</a>
+			</div>
+		</div>
 
 	</div>
 	<div class="flex flex-grow justify-center text-light text-sm p-1 pt-2 pb-2 font-azeret">
