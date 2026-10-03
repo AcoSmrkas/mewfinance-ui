@@ -88,25 +88,13 @@
     window.addEventListener('resize', updateStarPosition);
   });
   const partners = [
-    { 
-        name: 'CyberVerse', 
-        logo: 'https://static.wikia.nocookie.net/cyberverse/images/5/54/Cyberverse_Logo.png', 
-        url: 'https://cyberverse.io/', 
-        description: 'Cyberverse is a next-gen blockchain platform focused on immersive experiences.' 
+    {
+        name: 'Rosen Bridge',
+        logo: 'https://rosen.tech/assets/logo/rosen-logo.svg',
+        url: 'https://rosen.tech/',
+        description: 'RosenBridge connects various blockchain networks for seamless interoperability.'
     },
-    { 
-        name: 'Rosen Bridge', 
-        logo: 'https://rosen.tech/assets/logo/rosen-logo.svg', 
-        url: 'https://rosen.tech/', 
-        description: 'RosenBridge connects various blockchain networks for seamless interoperability.' 
-    },
-    { 
-        name: 'Crooks Finance', 
-        logo: 'https://crooks-fi.com/images/logo.png', 
-        url: 'https://crooks-fi.com/', 
-        description: 'Crooks-finance is a decentralized finance platform for secure and fast transactions.' 
-    },
-  { 
+  {
     name: 'ErgOne', 
     logo: 'https://www.ergone.io/img/background.png', 
     url: 'https://www.ergone.io/', 
@@ -118,13 +106,7 @@
   url: 'https://sigmanauts.com/', 
   description: 'Sigmanauts is a community that believes in a decentralized, open, permissionless and secure platform.' 
 },
-    { 
-        name: 'Bober', 
-        logo: 'https://bobertoken.io/img/bober.webp', 
-        url: 'https://bobertoken.io/', 
-        description: 'Bober is a community-driven token with unique rewards and staking features.' 
-    },
-    { 
+    {
         name: 'PHP', 
         logo: 'https://ergexplorer.com/images/tokens/php.png', 
         url: 'https://demurrage.fun/', 
@@ -257,6 +239,21 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
+        <div class="relative h-100 bg-sky-700 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <i class="fa-solid fa-hand-holding-dollar text-white text-9xl"></i>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Lend</h3>
+          <p class="text-white mb-4">Peer-to-peer loans on the Ergo Blockchain: borrow against your tokens, or lend and earn interest.</p>
+          <a href="https://lend.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Lend <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-orange-700 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <i class="fa-solid fa-lock text-white text-9xl"></i>
@@ -272,6 +269,21 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
+        <div class="relative h-100 bg-red-700 flex items-center justify-center overflow-hidden">
+          <div class="flex items-center justify-center w-full h-full">
+            <i class="fa-solid fa-fire text-white text-9xl"></i>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Burn</h3>
+          <p class="text-white mb-4">Burn tokens and track every burn on the Ergo Blockchain, with burn campaigns and a leaderboard.</p>
+          <a href="https://burn.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
+            Launch Burn <i class="fa-solid fa-rocket ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-green-600 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="fund.png" alt="Fund" class="object-contain max-w-full max-h-full">
@@ -282,21 +294,6 @@ const supportedChains = [
           <p class="text-white mb-4">A crowdfunding platform empowering projects on the Ergo Blockchain to raise funds transparently and securely.</p>
           <a href="https://fund.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
             Launch Fund <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-green-700 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <i class="fa-solid fa-rocket text-white text-9xl"></i>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Pump</h3>
-          <p class="text-white mb-4">A fun token fund, launch, and pump dashboard interface on the Ergo Blockchain.</p>
-          <a href="https://mewpump.vercel.app" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Pump <i class="fa-solid fa-rocket ml-2"></i>
           </a>
         </div>
       </div>

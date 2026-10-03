@@ -15,7 +15,8 @@ export const navMenu: MenuCategory[] = [
     items: [
       { label: "DEX", url: "https://dex.mewfinance.com/", isExternal: true },
       { label: "Trading", url: "https://trading.mewfinance.com/", isExternal: true },
-      { label: "Bank", url: "https://bank.mewfinance.com/", isExternal: true }
+      { label: "Bank", url: "https://bank.mewfinance.com/", isExternal: true },
+      { label: "Lend", url: "https://lend.mewfinance.com/", isExternal: true }
     ]
   },
   {
@@ -30,8 +31,8 @@ export const navMenu: MenuCategory[] = [
     name: "Tools",
     items: [
       { label: "Lock", url: "https://lock.mewfinance.com/", isExternal: true },
+      { label: "Burn", url: "https://burn.mewfinance.com/", isExternal: true },
       { label: "Fund", url: "https://fund.mewfinance.com/", isExternal: true },
-      { label: "Pump", url: "https://mewpump.vercel.app/", isExternal: true },
       { label: "NFT Bridge", url: "https://bridge.mewfinance.com/", isExternal: true },
       { label: "Ergo Tool Box", url: "https://tools.mewfinance.com/", isExternal: true },
       { label: "Cardano Tool Box", url: "https://ctools.mewfinance.com/", isExternal: true }
@@ -64,6 +65,8 @@ export function getCurrentApp(): string {
     'dex': 'dex',
     'trading': 'trading',
     'bank': 'bank',
+    'lend': 'lend',
+    'burn': 'burn',
     'fun': 'lottery',
     'mart': 'nft-mart',
     'store': 'phygital-store',
