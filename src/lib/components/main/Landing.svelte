@@ -347,21 +347,6 @@ const supportedChains = [
       </div>
 
       <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-[#230430] flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="gamblor.png" alt="Fun" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Fun</h3>
-          <p class="text-white mb-4">A decentralized finance platform offering blockchain-powered lottery services with secure, and fair gameplay.</p>
-          <a href="https://fun.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Fun <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-      
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
         <div class="relative h-100 bg-green-600 flex items-center justify-center overflow-hidden">
           <div class="flex items-center justify-center w-full h-full">
             <img src="santa.png" alt="Santa" class="object-contain max-w-full max-h-full">
