@@ -64,7 +64,7 @@
   }
 </style>
   
-  <div class="tooltip-container" data-show={show} onclick="event.stopPropagation()">
+  <div class="tooltip-container" data-show={show} on:click|stopPropagation>
     <slot></slot>
     <div class="tooltip-text border-2 border-teal-300">
       <ul>
