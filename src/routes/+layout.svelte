@@ -1,5 +1,5 @@
 <script>
-	import '../bootstrap.css'
+	import 'mew-shared-ui/styles.css';
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { reconnectErgoWallet } from '$lib/common/wallet';
