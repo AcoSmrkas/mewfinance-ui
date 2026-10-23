@@ -43,18 +43,6 @@ export function updateTempBoxes(address, usedInputs, newOutputs) {
   }
 }
 
-export async function fetchDecimals(tokenId) {
-  try {
-    const url = `https://api.ergexplorer.com/tokens/byId`;
-    const response  = await axios.post(url, {ids: [tokenId]});
-
-    return response.data.items[0].decimals;
-  } catch (e) {
-    console.error(e);
-    return null;
-  }
-}
-
 export async function fetchAssetInfos(tokenIds) {
   try {
     const url = `https://api.ergexplorer.com/tokens/byId`;

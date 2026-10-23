@@ -102,7 +102,6 @@ export function nFormatter(num) {
   return item ? (num / item.value).toLocaleString('en-US', { maximumFractionDigits: digits, minimumFractionDigits: minimumFractionDigits }).replace(rx, '$1') + item.symbol : num.toLocaleString('en-US', { maximumFractionDigits: digits, minimumFractionDigits: minimumFractionDigits });
 }
 
-
 export function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
@@ -252,10 +251,6 @@ export function setPlaceholderImage(e, asset) {
 
 export function destroy(e) {
   jQuery(e.currentTarget).remove();
-}
-
-export function truncateAddress(address) {
-  return address ? `${address.slice(0, 6)}...${address.slice(-4)}` : 'N/A';
 }
 
 export function clamp(value, min, max) {
