@@ -1,31 +1,25 @@
 <script>
+	import { Footer } from 'mew-shared-ui';
 	import { FOOTER_TEXT } from '$lib/common/const.js';
+
+	const FOOTER_COLUMNS = [
+		{
+			title: 'Social',
+			links: [
+				{ label: 'Telegram', href: 'https://t.me/MewFinance', target: '_new' },
+				{ label: 'Discord', href: 'https://discord.com/invite/ergo-platform-668903786361651200', target: '_new' },
+				{ label: 'Twitter', href: 'https://x.com/Mew_Finance', target: '_new' }
+			]
+		},
+		{
+			title: 'Developers',
+			links: [
+				{ label: 'Smart contracts', href: 'https://github.com/AcoSmrkas/mew-smart-contracts', target: '_new' }
+			]
+		}
+	];
 </script>
 
-<div class="w-full flex flex-col gap-2 justify-around p-1 shadow-md" style="background: var(--footer)">
-
-		<div class="flex flex-row p-3 container font-azeret text-sm">
-	    <div class="flex flex-col gap-2 grow">
-	    	<h6 class="font-manrope text-white text-xl font-bold mb-2">Social</h6>
-			<div>
-				<a target="_new" class="text-light" href="https://t.me/MewFinance">Telegram</a>
-			</div>
-			<div>
-				<a target="_new" class="text-light" href="https://discord.com/invite/ergo-platform-668903786361651200">Discord</a>
-			</div>
-			<div>
-				<a target="_new" class="text-light" href="https://x.com/Mew_Finance">Twitter</a>
-			</div>
-		</div>
-	    <div class="flex flex-col gap-2 grow">
-	    	<h6 class="font-manrope text-white text-xl font-bold mb-2">Developers</h6>
-			<div>
-				<a target="_new" class="text-light" href="https://github.com/AcoSmrkas/mew-smart-contracts">Smart contracts</a>
-			</div>
-		</div>
-
-	</div>
-	<div class="flex flex-grow justify-center text-light text-sm p-1 pt-2 pb-2 font-azeret">
-		<p>© {@html FOOTER_TEXT} 2025</p>
-	</div>
-</div>
+<Footer columns={FOOTER_COLUMNS} year={2025}>
+	<svelte:fragment slot="copyright">{@html FOOTER_TEXT}</svelte:fragment>
+</Footer>

@@ -1,17 +1,8 @@
+import mew from 'mew-shared-ui/tailwind-preset';
+
 /** @type {import('tailwindcss').Config} */
 export default {
+  presets: [mew],
   content: ['./src/**/*.{html,js,svelte,ts}'],
-  theme: {
-    extend: {
-      width: {
-        'fit-content': 'fit-content',
-      },
-      lineHeight: {
-        '11': '50px',
-        '12': '70px',
-      },
-    },
-  },
   plugins: [],
 }
-

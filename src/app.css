@@ -2,58 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tokens, Bootstrap and the base look come from mew-shared-ui/styles.css. Only what differs is kept here. */
 :root {
-  --main-color: #f9d72d;
-  --secondary-color: #fff;
-  --main-color-buttons: #ddf247;
-  --main-color-hover: var(--info-color);
-  --info-color: #04dfff;
   --accent-cyan: #00D4FF;
   --accent-yellow: #FFD700;
-
-  --striped-1: #141a2a;
-  --striped-2: #192033;
-  --text-color: #ffffff88;
   --forms-bg: #23163b;
-  --borders: #ffffff22;
-  --text-light: #ffffff77;
-  --text-strong: #CCC;
-  --background: #160d25;
-  --footer: #0e0917;
-}
-
-.text-bg {
-  color: var(--background) !important;
 }
 
 .text-bg:hover {
   color: var(--background) !important;
-}
-
-@font-face {
-  font-family: "Manrope", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
-
-html {
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--background);
-  font-family: "Manrope";
-  background-repeat: repeat;  
-  background: var(--background) !important;
-  overflow-x: hidden;
-}
-
-h2 {
-  font-family: 'Manrope';
 }
 
 .top-margin {
@@ -61,13 +18,8 @@ h2 {
 }
 
 .container {
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-.section-title {
-  margin-top: 30px;
-  margin-bottom: 15px;
+  width: 100%;
+  padding-top: 0;
 }
 
 .box {
@@ -108,36 +60,6 @@ h2 {
 .btn {
   border: unset;  
   padding: 10px 20px;
-  border-radius: 12px !important;
-  font-size: 0.9em !important;
-}
-
-.btn-big {
-  padding: 15px 30px !important;     
-}
-
-.btn-primary {
-  background-color: var(--main-color) !important;
-  color: var(--background) !important;
-  font-weight: bold !important;
-  text-transform: unset !important;
-}
-
-.btn-primary:hover {
-  background-color: var(--main-color-hover) !important;
-  border-color: var(--main-color-hover) !important;
-}
-
-.btn-secondary {
-  background-color: var(--secondary-color) !important;
-  color: var(--background) !important;
-  font-weight: bold !important;
-  text-transform: unset !important;
-}
-
-.btn-secondary:hover {
-  background-color: var(--main-color-hover) !important;
-  border-color: var(--main-color-hover) !important;
 }
 
 .btn-danger {
@@ -170,190 +92,47 @@ h2 {
   box-shadow: none;
 }
 
-.unselectable {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-.hand {
-  font-family: 'Dancing Script', cursive;
-}
-
 input{
   background: #00000040;
 }
 
-.skeleton-card {
-  border: 1px solid #1f232e;
-  border-radius: 8px;
-  padding: 20px;
-  width: 220px;
-  margin-right: 20px;
-  animation: loading 1s infinite alternate;
-}
-
-.skeleton-card > div {
-  background-color: #1f232e;
-  margin-bottom: 10px;
-}
-
-.skeleton-image {
-  width: 100%;
-  height: 100px;
-}
-
-.skeleton-text {
-  width: 100%;
-  height: 20px;
-}
-
-.skeleton-button {
-  width: 100px;
-  height: 30px;
-}
-
-@keyframes loading {
-  0% {
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 1;
-  }
+select {
+  background: var(--forms-bg) !important;
 }
 
 .bg-primary {
   background: var(--main-color) !important;
 }
 
-.bg-info {
-  background: #3498db !important;
-}
-
-.bg-warning {
-  background: #f97316 !important;
-}
-
-.gradient-border {
-  position: relative; /* Required for pseudo-ioning */
-  padding: 2px; /* Adjust padding to match border width */
-  z-index: 2 !important;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to top, #b32ead, #41bddf);
-  z-index: 0; /* Ensure the gradient is behind the content */
-}
-
-.toast-body div span {
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.text-light {
-  color: var(--text-light) !important;
-}
-
-.text-strong {
-  color: var(--text-strong) !important;
-}
-
-.text-primary {
-  color: var(--main-color) !important;
-}
-
-.font-manrope {
-  font-family: 'Manrope';
-}
-
-.font-azeret {
-  font-family: 'Azeret Mono';
-}
-
 .border-info {
   border-color: var(--colof-info);
-}
-
-.bg-form {
-  background: var(--forms-bg);
-}
-
-.bg-bg {
-  background: var(--background);
-}
-
-.bg-footer {
-  background: var(--footer);
 }
 
 .bg-input {
   background: var(--footer);
 }
 
-.focus-primary:focus {
-  border: 1px solid var(--main-color) !important;
-  box-shadow: unset;
-  outline: unset;
+.text-custom-cyan {
+  color: #00FFFF;
 }
 
-.active {
-  color: var(--main-color);
-  font-weight: bold;
+.text-custom-yellow {
+  color: #FFD700;
 }
 
-a {
-  transition: all 0.2s ease;
+.bg-custom-purple {
+  background-color: #4E215F;
 }
 
-a:hover {
-  color: var(--main-color) !important;
+.bg-custom-yellow {
+  background-color: #FFDF46;
 }
 
+.text-custom-dark {
+  color: #0A0718;
+}
 
-  .text-custom-cyan {
-    color: #00FFFF;
-  }
-  
-  .text-custom-yellow {
-    color: #FFD700;
-  }
-  
-  .bg-custom-purple {
-    background-color: #4E215F;
-  }
-  
-  .bg-custom-yellow {
-    background-color: #FFDF46;
-  }
-  
-  .text-custom-dark {
-    color: #0A0718;
-  }
-
-  
-  .loading-holder {
-    margin-top: 200px;
-    min-height: 500px;
-  }
-
-  #edit-btn {
-    display: inline;
-    position: relative;
-    top: -2px;
-    padding: 2.5px 5px !important;
-  }
-  
-  #edit-btn > i {
-    font-size: 0.9em !important;
-  }
+.loading-holder {
+  margin-top: 200px;
+  min-height: 500px;
+}
