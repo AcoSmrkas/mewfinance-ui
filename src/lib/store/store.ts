@@ -1,14 +1,9 @@
 import { fetchContractBoxes } from "$lib/api-explorer/explorer.js";
-import { CONTRACT_CRC32, ITEMS_PER_PAGE, MAIN_PAGE_ITEMS, API_HOST } from '$lib/common/const.js';
+import { CONTRACT_CRC32, MAIN_PAGE_ITEMS, API_HOST } from '$lib/common/const.js';
 import { writable, get } from 'svelte/store';
 import axios from 'axios';
 
 const MEW_TIER = 'mew_tier';
-
-export type Token = {
-  amount: bigint,
-  tokenId: string
-}
 
 export const selected_wallet_ergo = writable('');
 export const connected_wallet_address = writable('');
@@ -111,15 +106,6 @@ export async function setOffersFilter(category, asset, bundle, sort, search, add
   selectedSort = sort;
   selectedSearch = search;
   selectedAddress = address;
-}
-
-export async function loadOffers(offset) {
-  offers.set([]);
-  totalBoxes.set(0);
-
-  const orders = await fetchOrders(offset, ITEMS_PER_PAGE);
-
-  await onOffersLoaded(offers, orders);
 }
 
 export async function loadOffersPackage() {  
