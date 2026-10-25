@@ -174,6 +174,7 @@
     padding: 14px;
     border-radius: 10px;
     border: 1px solid var(--borders);
+    background: rgba(0, 0, 0, 0.28);
   }
 
   .option-title {
@@ -245,14 +246,13 @@
     padding: 14px;
     border-radius: 10px;
     border: 1px solid var(--borders);
+    background: rgba(0, 0, 0, 0.28);
     color: #fff;
     text-decoration: none;
-    transition: border-color 0.15s, transform 0.15s;
   }
 
   .move:hover {
     border-color: var(--main-color);
-    transform: translateY(-2px);
   }
 
   .move-icon {
