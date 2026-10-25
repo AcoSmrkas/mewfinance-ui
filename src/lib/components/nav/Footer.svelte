@@ -20,6 +20,6 @@
 	];
 </script>
 
-<Footer columns={FOOTER_COLUMNS} year={2025}>
+<Footer columns={FOOTER_COLUMNS}>
 	<svelte:fragment slot="copyright">{@html FOOTER_TEXT}</svelte:fragment>
 </Footer>
