@@ -114,6 +114,55 @@
     }
 ];
 
+  const goals = [
+    { icon: 'fa-right-left', title: 'Swap tokens', text: 'Trade ERG and Ergo tokens.', cta: 'Open DEX', href: 'https://dex.mewfinance.com/ergo/swap', external: true },
+    { icon: 'fa-dollar-sign', title: 'Use SigUSD', text: 'Get or redeem the Ergo stablecoin.', cta: 'Open Bank', href: 'https://bank.mewfinance.com/stablecoins', external: true },
+    { icon: 'fa-chart-line', title: 'Track your assets', text: 'Prices, trades and your wallet in one place.', cta: 'Open Trading', href: 'https://trading.mewfinance.com', external: true },
+    { icon: 'fa-rocket', title: 'Run a project', text: 'Raise funds, lock tokens, mint and airdrop.', cta: 'See project apps', href: '#projects', external: false }
+  ];
+
+  const appGroups = [
+    {
+      id: 'trade', title: 'Trade',
+      apps: [
+        { name: 'DEX', text: 'Swap tokens, add liquidity and farm.', url: 'https://dex.mewfinance.com', img: 'dex.png', bg: 'bg-cyan-500' },
+        { name: 'Trading', text: 'Token prices, trades and DEX stats.', url: 'https://trading.mewfinance.com', img: 'trading.png', bg: 'bg-yellow-500' },
+        { name: 'NFT Mart', text: 'Buy and sell tokens and NFTs, one by one or in packs.', url: 'https://mart.mewfinance.com', img: 'nftmart.png', bg: 'bg-yellow-500' }
+      ]
+    },
+    {
+      id: 'stablecoins', title: 'Stablecoins & loans',
+      apps: [
+        { name: 'Bank', text: 'SigUSD and other stablecoins on Ergo.', url: 'https://bank.mewfinance.com', img: 'bank.png', bg: 'bg-purple-900' },
+        { name: 'Lend', text: 'Borrow against your tokens, or lend and earn interest.', url: 'https://lend.mewfinance.com', icon: 'fa-hand-holding-dollar', bg: 'bg-sky-700' }
+      ]
+    },
+    {
+      id: 'projects', title: 'For projects',
+      apps: [
+        { name: 'Fund', text: 'Raise funds for a project, or back one.', url: 'https://fund.mewfinance.com', img: 'fund.png', bg: 'bg-green-600' },
+        { name: 'Lock', text: 'Lock ERG and tokens until a set time.', url: 'https://lock.mewfinance.com', icon: 'fa-lock', bg: 'bg-orange-700' },
+        { name: 'Burn', text: 'Burn tokens and see every burn, with campaigns.', url: 'https://burn.mewfinance.com', icon: 'fa-fire', bg: 'bg-red-700' },
+        { name: 'Ergo Tools', text: 'Mint, burn, airdrop and consolidate.', url: 'https://tools.mewfinance.com', img: 'tools_gatos_erg.png', bg: 'bg-blue-500' },
+        { name: 'Cardano Tools', text: 'Mint and airdrop on Cardano.', url: 'https://ctools.mewfinance.com', img: 'tools_gatos_ada.png', bg: 'bg-orange-400' }
+      ]
+    },
+    {
+      id: 'shop', title: 'Shop & pay',
+      apps: [
+        { name: 'Phygital Store', text: 'Merch and items, paid in ERG or tokens.', url: 'https://store.mewfinance.com', img: 'mart.png', bg: 'bg-pink-600' },
+        { name: 'Payments', text: 'Create ERG and token payment requests.', url: 'https://payment.mewfinance.com', icon: 'fa-cash-register', bg: 'bg-purple-700' }
+      ]
+    },
+    {
+      id: 'more', title: 'More',
+      apps: [
+        { name: 'Bridge', text: 'Move supported NFTs between Ergo and Cardano.', url: 'https://bridge.mewfinance.com', img: 'bridge.png', bg: 'bg-teal-400' },
+        { name: 'Ergosanta', text: "Santa's list, checked by proof of work.", url: 'https://santa.mewfinance.com', img: 'santa.png', bg: 'bg-green-600' }
+      ]
+    }
+  ];
+
   const reviews = [
   { name: 'Kushti', content: 'Mew Finance has revolutionized my crypto trading experience. The interface is intuitive and the features are top-notch!', rating: 5 },  
   { name: 'LIFΣ OF IF₳', content: `As a creative I have always enjoyed Ergo's NFT space. The team at Mew Finance has upped the game and offers support like no other with innovation that is off the charts!`, rating: 5 },
@@ -173,223 +222,60 @@ const supportedChains = [
     </div>
   </section>
 
-  <div id="dapps" class="relative top-[-30px]"></div>
-
-  <section  class="relative mt-10 mb-4 p-2 p-md-4 max-w-6xl mx-auto">
-    <!-- Content for your DEX and Mart sections -->
-    <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-cyan-500 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="dex.png" alt="DEX" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-primary mb-2">DEX</h3>
-          <p class="text-white mb-4">Looking for a one-stop place to trade all Ergo native and wrapped assets with low fees, provide token liquidity, and yield farm?</p>
-          <a href="https://dex.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch DEX <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-      
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-yellow-500 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="nftmart.png" alt="Mart" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">NFT Mart</h3>
-          <p class="text-white mb-4">A marketplace for trading digital assets as individual or bundled packs, with support for payments in native and wrapped assets.</p>
-          <a href="https://mart.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Mart <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-pink-600 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="mart.png" alt="Store" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Phygital Store</h3>
-          <p class="text-white mb-4">A digital marketplace for trading phygital assets and services, with support for payments in both native and wrapped assets.</p>
-          <a href="https://store.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Store <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-purple-900 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="bank.png" alt="Store" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Bank</h3>
-          <p class="text-white mb-4">A decentralized banking and DeFi interface for everything stablecoin related on the Ergo Blockchain.</p>
-          <a href="https://bank.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Bank <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-sky-700 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <i class="fa-solid fa-hand-holding-dollar text-white text-9xl"></i>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Lend</h3>
-          <p class="text-white mb-4">Peer-to-peer loans on the Ergo Blockchain: borrow against your tokens, or lend and earn interest.</p>
-          <a href="https://lend.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Lend <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-orange-700 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <i class="fa-solid fa-lock text-white text-9xl"></i>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Lock</h3>
-          <p class="text-white mb-4">A decentralized time-based ERG and token lock interface on the Ergo Blockchain.</p>
-          <a href="https://lock.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Lock <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-red-700 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <i class="fa-solid fa-fire text-white text-9xl"></i>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Burn</h3>
-          <p class="text-white mb-4">Burn tokens and track every burn on the Ergo Blockchain, with burn campaigns and a leaderboard.</p>
-          <a href="https://burn.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Burn <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-green-600 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="fund.png" alt="Fund" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Fund</h3>
-          <p class="text-white mb-4">A crowdfunding platform empowering projects on the Ergo Blockchain to raise funds transparently and securely.</p>
-          <a href="https://fund.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Fund <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-teal-400 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="bridge.png" alt="Bridge" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Bridge</h3>
-          <p class="text-white mb-4">The multi-chain NFT bridge! Effortlessly mint and transfer supported NFTs between Ergo and Cardano blockchains.</p>
-          <a href="https://bridge.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Bridge <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-purple-700 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <i class="fa-solid fa-cash-register text-white text-9xl"></i>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Payments</h3>
-          <p class="text-white mb-4">A simple ERG and asset payment generation interface on the Ergo Blockchain.</p>
-          <a href="https://payment.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Payments <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-yellow-500 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="trading.png" alt="Trading" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2">Trading</h3>
-          <p class="text-white mb-4">The only trading dashboard you will ever need! Track all assets and dApps on the Ergo Blockchain in one place.</p>
-          <a href="https://trading.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Trading <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-green-600 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <img src="santa.png" alt="Santa" class="object-contain max-w-full max-h-full">
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-primary mb-2">Ergosanta</h3>
-          <p class="text-white mb-4">Santa has embraced the digital age, and with the magic of proof of work, checking his list twice is a thing of the past.</p>
-          <a href="https://santa.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Ergosanta <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-blue-500 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <div class="object-contain max-w-full max-h-full py-5">
-              <img src="tools_gatos_erg.png" alt="Fund" class="object-contain max-w-full max-h-full">
-            </div>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-primary mb-2">Ergo Tools</h3>
-          <p class="text-white mb-4">An essential toolkit for your wallet: mint, burn, airdrop, and consolidate with ease.</p>
-          <a href="https://tools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Ergo Tools <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
-      <div class="card bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl overflow-hidden  border border-purple-500 transform transition-transform duration-300">
-        <div class="relative h-100 bg-orange-400 flex items-center justify-center overflow-hidden">
-          <div class="flex items-center justify-center w-full h-full">
-            <div class="object-contain max-w-full max-h-full py-5">
-              <img src="tools_gatos_ada.png" alt="Fund" class="object-contain max-w-full max-h-full">
-            </div>
-          </div>
-        </div>
-        <div class="p-4">
-          <h3 class="text-2xl font-bold text-primary mb-2">Cardano Tools</h3>
-          <p class="text-white mb-4">An essential toolkit for your Cardano wallet: mint and airdrop with ease.</p>
-          <a href="https://ctools.mewfinance.com" target="_new" class="btn btn-primary text-bg w-full">
-            Launch Cardano Tools <i class="fa-solid fa-rocket ml-2"></i>
-          </a>
-        </div>
-      </div>
+  <section class="goals relative mt-10 p-2 p-md-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center text-white mb-6">What do you want to do?</h2>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {#each goals as goal}
+        <a class="goal-card" href={goal.href} target={goal.external ? '_blank' : undefined} rel={goal.external ? 'noopener noreferrer' : undefined}>
+          <i class="fa-solid {goal.icon} goal-icon"></i>
+          <span class="goal-title">{goal.title}</span>
+          <span class="goal-text">{goal.text}</span>
+          <span class="goal-cta">{goal.cta} <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </a>
+      {/each}
     </div>
+  </section>
+
+  <div id="dapps" class="relative top-[-90px]"></div>
+
+  <section class="relative mt-12 mb-4 p-2 p-md-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center text-white mb-4">All apps</h2>
+    <nav class="group-chips mb-6" aria-label="App groups">
+      {#each appGroups as group}
+        <a class="group-chip" href={'#' + group.id}>{group.title}</a>
+      {/each}
+    </nav>
+
+    {#each appGroups as group}
+      <div id={group.id} class="app-group">
+        <h3 class="app-group-title">{group.title}</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {#each group.apps as app}
+            <a class="app-card" href={app.url} target="_blank" rel="noopener noreferrer">
+              <span class="app-thumb {app.bg}" class:no-art={!app.img}>
+                {#if app.img}
+                  <img src={app.img} alt="" loading="lazy">
+                {:else}
+                  <i class="fa-solid fa-paw paw paw-1"></i>
+                  <i class="fa-solid fa-paw paw paw-2"></i>
+                  <span class="icon-badge"><i class="fa-solid {app.icon}"></i></span>
+                {/if}
+              </span>
+              <span class="app-body">
+                <span class="app-name">{app.name}</span>
+                <span class="app-text">{app.text}</span>
+              </span>
+            </a>
+          {/each}
+        </div>
+      </div>
+    {/each}
+
+    <p class="guard-note">
+      <i class="fa-solid fa-shield-halved mr-2"></i>
+      <b>Mew Guard</b> keeps a Telegram group open only to holders of your token.
+      <a href="https://t.me/MewFinance" target="_blank" rel="noopener noreferrer">Ask us on Telegram</a>
+    </p>
   </section>
   
   <!-- Partners Section -->
@@ -434,6 +320,221 @@ const supportedChains = [
 </div>
 
 <style>
+.goal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--forms-bg);
+  border: 1px solid var(--borders);
+  color: var(--text-strong);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.goal-card:hover {
+  border-color: var(--main-color);
+  transform: translateY(-2px);
+}
+
+.goal-icon {
+  font-size: 1.5rem;
+  color: var(--main-color);
+}
+
+.goal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.goal-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  flex-grow: 1;
+}
+
+.goal-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.group-chips {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.group-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--borders);
+  color: var(--text-strong);
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.group-chip:hover {
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+.app-group {
+  margin-bottom: 28px;
+  scroll-margin-top: 90px;
+}
+
+.app-group-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--forms-bg);
+  border: 1px solid var(--borders);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.app-card:hover {
+  border-color: var(--main-color);
+  transform: translateY(-2px);
+}
+
+.app-thumb {
+  width: 100%;
+  aspect-ratio: 1.45;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 5rem;
+}
+
+.app-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.no-art {
+  position: relative;
+  background-image:
+    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.28), transparent 42%),
+    radial-gradient(circle at 78% 85%, rgba(159, 4, 255, 0.45), transparent 55%);
+}
+
+.no-art::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  box-shadow:
+    40px 30px 0 0 rgba(255, 255, 255, 0.9), 120px 60px 0 1px rgba(255, 255, 255, 0.7),
+    300px 40px 0 0 rgba(255, 255, 255, 0.8), 260px 150px 0 1px rgba(255, 255, 255, 0.6),
+    60px 180px 0 0 rgba(255, 255, 255, 0.7), 320px 200px 0 1px rgba(255, 255, 255, 0.8),
+    180px 25px 0 0 rgba(255, 255, 255, 0.6), 30px 110px 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.paw {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.14);
+  font-size: 2.2rem;
+}
+
+.paw-1 {
+  left: 12%;
+  bottom: 14%;
+  transform: rotate(-24deg);
+}
+
+.paw-2 {
+  right: 13%;
+  top: 14%;
+  font-size: 1.6rem;
+  transform: rotate(18deg);
+}
+
+.icon-badge {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.25), inset 0 0 24px rgba(255, 255, 255, 0.15);
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s;
+}
+
+.app-card:hover .icon-badge {
+  transform: scale(1.06) rotate(-4deg);
+}
+
+.app-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px 14px;
+}
+
+.app-name {
+  font-size: 1.15rem;
+}
+
+.app-name {
+  font-weight: 700;
+  color: #fff;
+}
+
+.app-text {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.guard-note {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.guard-note a {
+  color: var(--main-color);
+  margin-left: 4px;
+}
+
+@media (max-width: 640px) {
+  .group-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+  }
+}
+
 /* General card styling */
 .card {
   background: #fff;
