@@ -94,6 +94,12 @@
         url: 'https://rosen.tech/',
         description: 'RosenBridge connects various blockchain networks for seamless interoperability.'
     },
+    {
+        name: 'Lithos',
+        logo: 'https://ergexplorer.com/images/tokens/lit.png',
+        url: 'https://lithosprotocol.org/',
+        description: 'Decentralized mining pools on Ergo.'
+    },
   {
     name: 'ErgOne', 
     logo: 'https://www.ergone.io/img/background.png', 
@@ -110,7 +116,19 @@
         name: 'PHP', 
         logo: 'https://ergexplorer.com/images/tokens/php.png', 
         url: 'https://demurrage.fun/', 
-        description: 'First Storage Rent MEME Coin.' 
+        description: 'First Storage Rent MEME Coin.'
+    },
+    {
+        name: 'FAKU',
+        logo: 'https://ergexplorer.com/images/tokens/faku.jpg',
+        url: 'https://faku.lol/',
+        description: 'Community meme token on Ergo.'
+    },
+    {
+        name: 'GreasyCEX',
+        logo: 'https://ergexplorer.com/images/tokens/gcx.png',
+        url: 'https://t.me/GreasyCEX',
+        description: 'Community token on Ergo.'
     }
 ];
 
