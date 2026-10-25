@@ -55,6 +55,7 @@
       <li class="text-lg {pageName == 'tokenomics' ? 'active' : ''}"><a href="/tokenomics">Tokenomics</a></li>
       <li class="text-lg {pageName == 'kitties' ? 'active' : ''}"><a href="/kitties">Kitties</a></li>
       <li class="text-lg {pageName == 'claim' ? 'active' : ''}"><a href="/claim">Claim Kitty</a></li>
+      <li class="text-lg {pageName == 'start' ? 'active' : ''}"><a href="/start">Get started</a></li>
       <li class="text-lg {pageName == 'about' ? 'active' : ''}"><a href="/about">About</a></li>
     </ul>
 
@@ -76,6 +77,21 @@
     display: inline-block;
     width: 100% !important;
     text-align: center;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1023px) {
+    /* Sit between the logo and the wallet button instead of centring over them. */
+    .nav-links {
+      column-gap: 0.75rem;
+      position: static !important;
+      transform: none !important;
+      margin: 0 auto;
+    }
+
+    .nav-links > li {
+      font-size: 1rem;
+    }
   }
 
   .nav-container {

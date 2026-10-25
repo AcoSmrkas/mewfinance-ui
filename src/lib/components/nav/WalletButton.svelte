@@ -148,6 +148,18 @@ window.openChangeAddressModal = function() {
   .install-naut:hover {
     color: #000 !important;
   }
+
+  .wallet-hint {
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-light);
+  }
+
+  .wallet-hint a {
+    color: var(--main-color);
+    font-weight: 600;
+  }
 </style>
 
 <div class="wallet-button gap-x-2">
@@ -169,7 +181,7 @@ window.openChangeAddressModal = function() {
 
 {#if showWalletsModal}
   <WalletsModal bind:showWalletsModal>
-    <div class="w-52 h-52">
+    <div class="w-52" style="min-height: 13rem;">
       <div class="leading-6 pb-2 text-white w-100 text-center font-bold" style="font-family:'Manrope';font-size:1.5em;">Select Wallet</div>
       <div class="w-full mt-6 mb-4">
         {#if !isMobileDevice() && (!window.ergoConnector || !window.ergoConnector['nautilus'])}
@@ -212,6 +224,14 @@ window.openChangeAddressModal = function() {
             </div>
           </button>
       </div>
+      <p class="wallet-hint">
+        {#if isMobileDevice()}
+          ErgoPay works with Ergo Wallet on Android and Terminus on iPhone.<br>
+        {:else if !window.ergoConnector || !window.ergoConnector['nautilus']}
+          Already have Nautilus? Allow it on this site, then reload.<br>
+        {/if}
+        <a href="/start" on:click={() => (showWalletsModal = false)}>New to Ergo? Get started</a>
+      </p>
     </div>
     <button slot="btn">Close</button>
   </WalletsModal>
