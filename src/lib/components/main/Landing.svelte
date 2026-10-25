@@ -234,6 +234,11 @@ const supportedChains = [
         </a>
       {/each}
     </div>
+    <a class="start-strip" href="/start">
+      <i class="fa-solid fa-seedling start-icon"></i>
+      <span class="start-text"><b>New to Ergo?</b> Set up a wallet and get ERG for fees.</span>
+      <span class="goal-cta">Get started <i class="fa-solid fa-arrow-right ml-1"></i></span>
+    </a>
   </section>
 
   <div id="dapps" class="relative top-[-90px]"></div>
@@ -359,6 +364,36 @@ const supportedChains = [
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--main-color);
+}
+
+.start-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px dashed var(--borders);
+  color: var(--text-light);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.start-strip:hover {
+  border-color: var(--main-color);
+}
+
+.start-icon {
+  font-size: 1.3rem;
+  color: var(--info-color);
+}
+
+.start-text {
+  flex: 1;
+}
+
+.start-text b {
+  color: #fff;
 }
 
 .group-chips {
@@ -527,6 +562,10 @@ const supportedChains = [
 }
 
 @media (max-width: 640px) {
+  .start-strip {
+    flex-wrap: wrap;
+  }
+
   .group-chips {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -680,6 +719,14 @@ const supportedChains = [
    #title-holder {
     z-index: 5;
     position: relative;
+  }
+
+  /* Centre the title on phones so the script "Mew" isn't cut at the left edge. */
+  @media (max-width: 639px) {
+    #title-holder > div:first-child {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .hero-image {
