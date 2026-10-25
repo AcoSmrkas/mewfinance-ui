@@ -35,7 +35,8 @@ export const navMenu: MenuCategory[] = [
       { label: "Fund", url: "https://fund.mewfinance.com/", isExternal: true },
       { label: "NFT Bridge", url: "https://bridge.mewfinance.com/", isExternal: true },
       { label: "Ergo Tool Box", url: "https://tools.mewfinance.com/", isExternal: true },
-      { label: "Cardano Tool Box", url: "https://ctools.mewfinance.com/", isExternal: true }
+      { label: "Cardano Tool Box", url: "https://ctools.mewfinance.com/", isExternal: true },
+      { label: "Chain Gateway", url: "https://chain.mewfinance.com/", isExternal: true }
     ]
   },
   {

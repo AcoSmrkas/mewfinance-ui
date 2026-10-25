@@ -158,7 +158,8 @@
       id: 'more', title: 'More',
       apps: [
         { name: 'Bridge', text: 'Move supported NFTs between Ergo and Cardano.', url: 'https://bridge.mewfinance.com', img: 'bridge.png', bg: 'bg-teal-400' },
-        { name: 'Ergosanta', text: "Santa's list, checked by proof of work.", url: 'https://santa.mewfinance.com', img: 'santa.png', bg: 'bg-green-600' }
+        { name: 'Ergosanta', text: "Santa's list, checked by proof of work.", url: 'https://santa.mewfinance.com', img: 'santa.png', bg: 'bg-green-600' },
+        { name: 'Chain Gateway', text: 'Ergo node and explorer API, with live status.', url: 'https://chain.mewfinance.com', icon: 'fa-server', bg: 'bg-violet-600' }
       ]
     }
   ];
