@@ -16,7 +16,8 @@ export const navMenu: MenuCategory[] = [
       { label: "DEX", url: "https://dex.mewfinance.com/", isExternal: true },
       { label: "Trading", url: "https://trading.mewfinance.com/", isExternal: true },
       { label: "Bank", url: "https://bank.mewfinance.com/", isExternal: true },
-      { label: "Lend", url: "https://lend.mewfinance.com/", isExternal: true }
+      { label: "Lend", url: "https://lend.mewfinance.com/", isExternal: true },
+      { label: "Machina", url: "https://machina.mewfinance.com/", isExternal: true }
     ]
   },
   {
