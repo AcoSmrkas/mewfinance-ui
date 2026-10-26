@@ -146,7 +146,7 @@
         { name: 'DEX', text: 'Swap tokens, add liquidity and farm.', url: 'https://dex.mewfinance.com', img: 'dex.png', bg: 'bg-cyan-500' },
         { name: 'Trading', text: 'Token prices, trades and DEX stats.', url: 'https://trading.mewfinance.com', img: 'trading.png', bg: 'bg-emerald-500' },
         { name: 'NFT Mart', text: 'Buy and sell tokens and NFTs, one by one or in packs.', url: 'https://mart.mewfinance.com', img: 'nftmart.png', bg: 'bg-yellow-500' },
-        { name: 'Machina', text: 'On-chain limit orders and grids on Ergo.', url: 'https://machina.mewfinance.com', img: 'machina.png', bg: 'bg-black' }
+        { name: 'Machina', text: 'On-chain limit orders and grids on Ergo.', url: 'https://machina.mewfinance.com', img: 'machina.png', bg: 'bg-[#05100c]' }
       ]
     },
     {
