@@ -230,7 +230,7 @@ async function updateStats() {
     <div class="sale-form">
     <h2 class="font-bold mb-3">Mew Kitties (Founders Edition)</h2>
     <div class="w-100 mb-3 relative">
-      <img id="nft-image" class="w-[230px] mx-auto rounded-xl" style="border: 2px solid var(--main-color)" src="nft.png">
+      <img id="nft-image" class="w-[230px] mx-auto rounded-xl" src="nft.png">
       <div id="nft-white" style="opacity: 0;" class="absolute w-[230px] h-[230px] top-0 inset-0 mx-auto bg-white"></div>
     </div>
 
@@ -325,7 +325,6 @@ async function updateStats() {
     margin-bottom: 15px;
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid var(--main-color);
     background-color: var(--footer);
   }
   

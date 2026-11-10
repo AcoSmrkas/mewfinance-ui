@@ -147,7 +147,6 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid var(--borders);
   }
 
   .nav-drawer.open {
@@ -160,7 +159,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px 20px;
-    border-bottom: 1px solid var(--borders);
     background: var(--background);
     position: sticky;
     top: 0;

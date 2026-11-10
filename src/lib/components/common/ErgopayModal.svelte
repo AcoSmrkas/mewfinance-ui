@@ -205,7 +205,7 @@
     class="rounded-lg p-2 py-4 p-sm-4" style="background: var(--forms-bg)"
     on:click|stopPropagation>
     <div class="leading-6 pb-2 mb-3 text-white text-center font-bold w-100" style="font-family:'Manrope';font-size:1.5em;">Ergopay</div>
-    <div id="qrcode" class="mb-2 border-2" style="border-color: var(--main-color)"></div>
+    <div id="qrcode" class="mb-2"></div>
     {#if loading}
       <div class="w-100 p-5 text-center">Loading...</div>
     {:else}
@@ -230,7 +230,6 @@
     padding: 0;
     background: rgba(16, 16, 16, 0.2);
     color: #d1d1d1;
-    border: 1px solid #80808045
   }
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.3);

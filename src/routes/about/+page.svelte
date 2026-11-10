@@ -42,7 +42,7 @@
       </p>
     </div>
 
-    <div class="mt-10 pt-6" style="border-top: 1px solid var(--borders)">
+    <div class="mt-10 pt-6">
       <p class="text-sm text-light">
         Transparency: in June 2026 our backend server was compromised. We published a full
         <a class="text-info" href="/security">security incident report</a> covering what happened,

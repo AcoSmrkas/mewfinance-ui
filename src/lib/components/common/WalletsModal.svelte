@@ -9,7 +9,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <dialog
-  class="bg-transparent border-2 border-info"
+  class="bg-transparent border-0"
   bind:this={dialog}
   on:click={() => {dialog.close();}}
   on:close={() => {showWalletsModal = false}}
@@ -37,7 +37,6 @@
     padding: 0;
     background: rgba(16, 16, 16, 0.2);
     color: #d1d1d1;
-    border: 1px solid #80808045
   }
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.3);

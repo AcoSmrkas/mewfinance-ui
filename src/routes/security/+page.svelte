@@ -16,7 +16,7 @@
       complete, so we can write it plainly instead of in fragments.
     </p>
 
-    <div class="mb-10 p-4 rounded-lg" style="background: rgba(255,255,255,0.04); border: 1px solid var(--borders)">
+    <div class="mb-10 p-4 rounded-lg" style="background: rgba(255,255,255,0.04)">
       <p class="mb-0">
         <strong class="text-primary">The short version.</strong>
         The attacker reached our server through a flaw in one of our own API endpoints, escalated from

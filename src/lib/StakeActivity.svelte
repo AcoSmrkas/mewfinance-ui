@@ -146,7 +146,6 @@
 		max-width: calc(100vw - 1.5rem);
 		color: #e7ebf5;
 		background: rgba(20, 24, 38, 0.94);
-		border: 1px solid rgba(255, 255, 255, 0.09);
 		border-radius: 16px;
 		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 		backdrop-filter: blur(12px);
@@ -157,9 +156,6 @@
 	.activity.collapsed {
 		width: auto;
 	}
-	.activity.collapsed .header {
-		border-bottom: none;
-	}
 	.header {
 		display: flex;
 		align-items: center;
@@ -169,7 +165,6 @@
 		padding: 0.7rem 1rem;
 		background: rgba(255, 255, 255, 0.03);
 		border: none;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 		color: inherit;
 		cursor: pointer;
 		font-size: 0.85rem;
@@ -217,10 +212,6 @@
 		gap: 0.6rem;
 		padding: 0.55rem 1rem 0.55rem 0.8rem;
 		border-left: 3px solid transparent;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-	}
-	.row:last-of-type {
-		border-bottom: none;
 	}
 	.icon {
 		display: flex;

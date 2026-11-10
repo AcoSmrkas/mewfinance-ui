@@ -153,10 +153,6 @@
 		scale: 1.05;
 	}
 
-	.kitty-holder:hover img {
-		border: 2px solid var(--main-color);
-	}
-
 	.kitty-holder {
 		scale: 1.0;
 		transition: 0.2s all;

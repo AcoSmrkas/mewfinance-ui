@@ -231,7 +231,6 @@
       margin-bottom: 15px;
       padding: 15px;
       border-radius: 10px;
-      border: 1px solid #f7d52c;
       background-color: var(--footer);
     }
     
