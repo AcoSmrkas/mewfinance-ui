@@ -164,13 +164,16 @@
   .options {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    gap: 12px;
   }
 
   .option {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.28);
   }
 
   .option-title {
@@ -232,23 +235,23 @@
   .moves {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    gap: 12px;
   }
 
   .move {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.28);
     color: #fff;
     text-decoration: none;
+    transition: transform 0.15s;
   }
 
-  .move-title {
-    transition: color 0.15s;
-  }
-
-  .move:hover .move-title {
-    color: var(--main-color);
+  .move:hover {
+    transform: translateY(-2px);
   }
 
   .move-icon {

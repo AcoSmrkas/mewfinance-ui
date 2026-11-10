@@ -14,7 +14,7 @@ Web app for mewfinance.com.
   images, chips or dividers, and no border-color hover states. Use `var(--forms-bg)` for a
   surface, spacing between items, and a `translateY(-2px)` lift or a colour change on the
   title for hover.
-- No darker boxes nested inside a form or card. Content inside a `var(--forms-bg)` surface
-  sits directly on it, grouped by spacing and headings.
+- Darker boxes inside a form are fine and part of the look (for example
+  `background: rgba(0, 0, 0, 0.28)`), just without a border.
 - `border` is fine only as a drawing trick that does not read as a border: spinner rings,
   CSS arrow triangles, scrollbar thumb padding, a status colour stripe.
