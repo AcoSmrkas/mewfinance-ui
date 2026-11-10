@@ -8,7 +8,8 @@
   const firstMoves = [
     { title: 'Swap tokens', text: 'Trade ERG for a token on the DEX.', icon: 'fa-right-left', href: 'https://dex.mewfinance.com/ergo/swap' },
     { title: 'Get SigUSD', text: 'Get the Ergo stablecoin with ERG.', icon: 'fa-dollar-sign', href: 'https://bank.mewfinance.com/stablecoins' },
-    { title: 'Browse NFTs', text: 'See what is listed on NFT Mart.', icon: 'fa-image', href: 'https://mart.mewfinance.com' }
+    { title: 'Browse NFTs', text: 'See what is listed on NFT Mart.', icon: 'fa-image', href: 'https://mart.mewfinance.com' },
+    { title: 'Get a name', text: 'Register a .erg or .ergo name.', icon: 'fa-at', href: 'https://names.mewfinance.com' }
   ];
 </script>
 
@@ -230,7 +231,7 @@
 
   .moves {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 
