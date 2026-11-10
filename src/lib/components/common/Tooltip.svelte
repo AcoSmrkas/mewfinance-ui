@@ -66,7 +66,7 @@
   
   <div class="tooltip-container" data-show={show} on:click|stopPropagation>
     <slot></slot>
-    <div class="tooltip-text border-2 border-teal-300">
+    <div class="tooltip-text">
       <ul>
         {#each message.split('\n') as line}
           <li>{@html line}</li>

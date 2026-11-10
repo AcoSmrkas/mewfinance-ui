@@ -224,7 +224,7 @@ const supportedChains = [
         <p class="text-light text-center mb-4 md:text-lg lg:text-md py-2" style="font-family:'Azeret Mono'; ">{@html HERO_DESCRIPTION}<br></p>
       </div>
       
-       <div id="buttons-holder" class="px-4 px-md-0 flex justify-center text-center flex-col space-y-4 space-x-0 md:flex-row md:space-y-0 md:space-x-4">
+       <div id="buttons-holder" class="px-4 px-md-0 flex justify-center items-center text-center flex-col gap-4 md:flex-row">
         <a target="_new" href="/mewfinance-whitepaper-v1.pdf">
           <button class="btn btn-big btn-secondary w-[190px]">Whitepaper</button>
         </a>
@@ -352,14 +352,12 @@ const supportedChains = [
   padding: 18px;
   border-radius: 12px;
   background: var(--forms-bg);
-  border: 1px solid var(--borders);
   color: var(--text-strong);
   text-decoration: none;
-  transition: border-color 0.15s, transform 0.15s;
+  transition: transform 0.15s;
 }
 
 .goal-card:hover {
-  border-color: var(--main-color);
   transform: translateY(-2px);
 }
 
@@ -393,14 +391,14 @@ const supportedChains = [
   margin-top: 16px;
   padding: 14px 18px;
   border-radius: 12px;
-  border: 1px dashed var(--borders);
+  background: var(--forms-bg);
   color: var(--text-light);
   text-decoration: none;
-  transition: border-color 0.15s;
+  transition: transform 0.15s;
 }
 
 .start-strip:hover {
-  border-color: var(--main-color);
+  transform: translateY(-2px);
 }
 
 .start-icon {
@@ -426,7 +424,7 @@ const supportedChains = [
 .group-chip {
   padding: 6px 14px;
   border-radius: 999px;
-  border: 1px solid var(--borders);
+  background: var(--forms-bg);
   color: var(--text-strong);
   font-size: 0.9rem;
   text-decoration: none;
@@ -434,7 +432,6 @@ const supportedChains = [
 }
 
 .group-chip:hover {
-  border-color: var(--main-color);
   color: var(--main-color);
 }
 
@@ -458,13 +455,11 @@ const supportedChains = [
   border-radius: 12px;
   overflow: hidden;
   background: var(--forms-bg);
-  border: 1px solid var(--borders);
   text-decoration: none;
-  transition: border-color 0.15s, transform 0.15s;
+  transition: transform 0.15s;
 }
 
 .app-card:hover {
-  border-color: var(--main-color);
   transform: translateY(-2px);
 }
 
@@ -538,7 +533,6 @@ const supportedChains = [
   font-size: 4rem;
   color: #fff;
   background: rgba(255, 255, 255, 0.16);
-  border: 2px solid rgba(255, 255, 255, 0.35);
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.25), inset 0 0 24px rgba(255, 255, 255, 0.15);
   text-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   transition: transform 0.2s;
@@ -741,12 +735,10 @@ const supportedChains = [
     position: relative;
   }
 
-  /* Centre the title on phones so the script "Mew" isn't cut at the left edge. */
-  @media (max-width: 639px) {
-    #title-holder > div:first-child {
-      margin-left: auto;
-      margin-right: auto;
-    }
+  /* Centre the title over the buttons so the script "Mew" isn't cut at the left edge. */
+  #title-holder > div:first-child {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-image {

@@ -128,7 +128,6 @@
     padding: 20px;
     border-radius: 12px;
     background: var(--forms-bg);
-    border: 1px solid var(--borders);
   }
 
   .step-head {
@@ -164,17 +163,13 @@
   .options {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 20px;
   }
 
   .option {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid var(--borders);
-    background: rgba(0, 0, 0, 0.28);
   }
 
   .option-title {
@@ -236,23 +231,23 @@
   .moves {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    gap: 20px;
   }
 
   .move {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid var(--borders);
-    background: rgba(0, 0, 0, 0.28);
     color: #fff;
     text-decoration: none;
   }
 
-  .move:hover {
-    border-color: var(--main-color);
+  .move-title {
+    transition: color 0.15s;
+  }
+
+  .move:hover .move-title {
+    color: var(--main-color);
   }
 
   .move-icon {

@@ -176,7 +176,7 @@
             </div>
           </div>
           {#if $mewTier != 6 && tiers.length != 0}
-            <div class="p-3 mt-4 border-2 border-info rounded-lg">
+            <div class="p-3 mt-4 rounded-lg">
             <p class="mb-2"><b class="">Next <span class="text-primary">{TOKEN_NAME}</span> tier at:</b> {nFormatter(tiers[$mewTier].amount)} <span class="text-primary font-bold">{TOKEN_NAME}</span>{#if $mewTier == 5} + <a href="kitties"><span class="text-primary font-bold">Mew Kitty NFT</span></a> {/if}</p>
                           <h1 class="font-bold text-xl mb-2 text-yellow-400">Benefits</h1>
               <ul class="mb-3">
