@@ -177,6 +177,7 @@
       id: 'more', title: 'More',
       apps: [
         { name: 'Mew Names', text: 'Register a .erg or .ergo name.', url: 'https://names.mewfinance.com', icon: 'fa-at', bg: 'bg-indigo-600' },
+        { name: 'Wallets', text: 'Paper wallets and vanity addresses.', url: 'https://wallets.mewfinance.com', icon: 'fa-wallet', bg: 'bg-yellow-500' },
         { name: 'Bridge', text: 'Move supported NFTs between Ergo and Cardano.', url: 'https://bridge.mewfinance.com', img: 'bridge.png', bg: 'bg-teal-400' },
         { name: 'Ergosanta', text: "Santa's list, checked by proof of work.", url: 'https://santa.mewfinance.com', img: 'santa.png', bg: 'bg-green-600' },
         { name: 'Chain Gateway', text: 'Ergo node and explorer API, with live status.', url: 'https://chain.mewfinance.com', icon: 'fa-server', bg: 'bg-violet-600' }

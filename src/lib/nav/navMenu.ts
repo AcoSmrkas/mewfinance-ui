@@ -34,6 +34,7 @@ export const navMenu: MenuCategory[] = [
       { label: "Lock", url: "https://lock.mewfinance.com/", isExternal: true },
       { label: "Burn", url: "https://burn.mewfinance.com/", isExternal: true },
       { label: "Names", url: "https://names.mewfinance.com/", isExternal: true },
+      { label: "Wallets", url: "https://wallets.mewfinance.com/", isExternal: true },
       { label: "Fund", url: "https://fund.mewfinance.com/", isExternal: true },
       { label: "NFT Bridge", url: "https://bridge.mewfinance.com/", isExternal: true },
       { label: "Ergo Tool Box", url: "https://tools.mewfinance.com/", isExternal: true },
