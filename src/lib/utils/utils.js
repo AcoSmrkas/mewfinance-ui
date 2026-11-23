@@ -222,10 +222,31 @@ export function hex2a(hexx) {
   return str;
 }
 
+// Token icons (id -> iconurl) from ErgExplorer, loaded once for the whole app.
+const tokenIcons = new Map();
+let tokenIconsLoad = null;
+
+export function loadTokenIcons() {
+  tokenIconsLoad ??= fetch('https://api.ergexplorer.com/tokens/getTokenIcons')
+    .then((response) => (response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`))))
+    .then((data) => {
+      for (const item of data?.items ?? []) {
+        if (item?.id && item.iconurl) tokenIcons.set(item.id, item.iconurl);
+      }
+    })
+    .catch((error) => {
+      console.error('Token icons unavailable:', error);
+      tokenIconsLoad = null;
+    });
+  return tokenIconsLoad;
+}
+
+if (typeof window !== 'undefined') loadTokenIcons();
+
 export function getImageUrl(token) {
   let imageUrl;
   
-  imageUrl = token.imageLink || `https://spectrum.fi/logos/ergo/${token.tokenId}.svg`;
+  imageUrl = token.imageLink || tokenIcons.get(token.tokenId) || '/default/token.png';
   //console.log(`Default image: ${imageUrl} for token: ${token.name}`);
   
   return imageUrl;
