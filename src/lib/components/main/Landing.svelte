@@ -133,10 +133,10 @@
 ];
 
   const goals = [
-    { icon: 'fa-right-left', title: 'Swap tokens', text: 'Trade ERG and Ergo tokens.', cta: 'Open DEX', href: 'https://dex.mewfinance.com/ergo/swap', external: true },
+    { icon: 'fa-right-left', title: 'Buy tokens', text: 'Swap ERG and Ergo tokens.', cta: 'Open DEX', href: 'https://dex.mewfinance.com/ergo/swap', external: true },
     { icon: 'fa-dollar-sign', title: 'Use SigUSD', text: 'Get or redeem the Ergo stablecoin.', cta: 'Open Bank', href: 'https://bank.mewfinance.com/stablecoins', external: true },
-    { icon: 'fa-chart-line', title: 'Track your assets', text: 'Prices, trades and your wallet in one place.', cta: 'Open Trading', href: 'https://trading.mewfinance.com', external: true },
-    { icon: 'fa-rocket', title: 'Run a project', text: 'Raise funds, lock tokens, mint and airdrop.', cta: 'See project apps', href: '#projects', external: false }
+    { icon: 'fa-coins', title: 'Mint a token', text: 'Create your own token or NFT on Ergo.', cta: 'Open Tools', href: 'https://tools.mewfinance.com/mint', external: true },
+    { icon: 'fa-rocket', title: 'Run a project', text: 'Raise funds, lock tokens and airdrop.', cta: 'See project apps', href: '#projects', external: false }
   ];
 
   const appGroups = [
